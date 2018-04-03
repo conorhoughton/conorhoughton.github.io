@@ -1,0 +1,505 @@
+%\documentclass[12pt,a4wide]{article}
+\documentclass[11pt,twocolumn]{IEEEtran}
+\usepackage{setspace}
+\usepackage{amsfonts, epsfig}
+ \usepackage{graphicx} 
+\bibliographystyle{IEEEtran}
+%\usepackage{cite}
+
+\begin{document}
+
+\newcommand{\ui}{{\bar{i}}}
+\newcommand{\uj}{{\bar{j}}}
+\newcommand{\uk}{{\bar{k}}}
+\newcommand{\ul}{{\bar{l}}}
+\newcommand{\um}{{\bar{m}}}
+\newcommand{\uI}{{\bar{I}}}
+\newcommand{\uJ}{{\bar{J}}}
+
+\def\deltabf{\mbox{\boldmath $\delta$}}
+\def\mubf{\mbox{\boldmath $\mu$}}
+\def\nubf{\mbox{\boldmath $\nu$}}
+
+
+
+\title{The sparse decomposition of sound in the time domain using non-negative quadratic programming.}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+
+\author{{Conor Houghton}% 
+\thanks{Manuscript received 30 March
+  2008. Science Foundation Ireland grant 06/RFP/BIM020 and support
+  by the Mathematics Applications Consortium for Science and
+  Industry are acknowledged.}% 
+\thanks{School of Mathematics, Trinity
+College Dublin, Dublin 2, Ireland e-mail: houghton@maths.tcd.ie}% 
+}
+
+\maketitle
+
+\begin{abstract}
+Non-negative matrix deconvolution and sparse decomposition are useful
+tools for source separation and acoustic object recognition. Here, a
+new algorithm for calculating a sparse decomposition of sound in the
+time domain is derived using non-negative quadratic programming.
+\end{abstract}
+
+
+\section{Introduction}
+
+A signal is said to be sparse if its distribution has a sharp peak and
+a fat tail: a sparse signal has both small and large values more often than a
+Gaussian distributed signal with the same variance. Recently, it has
+been realized that it can be useful to decompose sound over a
+sparse basis, that is, a basis whose components are sparse. Because different
+sparse components can often be treated as if they were different
+channels it is easier to separate sources and perform acoustic object
+recognition on the sparse coded signal
+\cite{OGradyPearlmutterRickard2005a,AbdallahPlumbley2006a,AsariPearlmutterZador2006a,AsariEtAl2007a,JafariEtAl2006a}. Here,
+an algorithm for finding sparse representations of sound is presented.
+It is based on non-negative matrix factorization and non-negative
+matrix deconvolution \cite{LeeSeung1999a,Smaragdis2004a}; however,
+while non-negative matrix deconvolution is a decomposition of the
+spectrographic representation of sound, the algorithm presented here
+uses a recent result on non-negative quadratic programming (NQP)
+\cite{ShaEtAl2003a,ShaEtAl2003b,ShaEtAl2007a}, to decompose sound in
+the time domain.
+
+In \cite{ShaEtAl2003a,ShaEtAl2003b,ShaEtAl2007a}, Sha and coworkers
+consider the basic problem of quadratic programming with non-negative
+constraints, minimizing the potential
+\begin{equation}
+F({\bf v})=\frac{1}{2}{\bf v}^T{\bf A}{\bf v}+{\bf b}^T{\bf v}
+\end{equation}
+subject to ${\bf v}\ge {\bf 0}$. They discover an elegant
+multiplicative update rule which converges monotonically. There is no
+non-negativity constraint on ${\bf A}$: non-negative matrices ${\bf
+  A}^+$ and ${\bf A}^-$ consisting of the positive and negative
+elements are defined by
+\begin{equation}\label{pm}
+A^\pm_{ij}=\left\{\begin{array}{ll}\pm A_{ij}&\pm A_{ij}>0\\0&\mbox{otherwise}\end{array}\right.
+\end{equation}
+so that ${\bf A}={\bf A}^+-{\bf A}^-$. Now, the potential is decomposed into three parts:
+\begin{eqnarray}
+F_a({\bf v})&=&\frac{1}{2}{\bf v}^T{\bf A}^+{\bf v}\cr
+F_b({\bf v})&=&{\bf b}^T{\bf v}\cr
+F_c({\bf v})&=&\frac{1}{2}{\bf v}^T{\bf A}^-{\bf v}
+\end{eqnarray}
+so $F=F_a+F_b-F_c$.
+Three gradients are defined
+\begin{eqnarray}
+a_i&=&\frac{\partial{F_a({\bf v})}}{{\partial v_i}}=A^+_{i\uj}v_{\uj}\cr
+b_i&=&\frac{\partial{F_b({\bf v})}}{{\partial v_i}}=b_i\cr
+c_i&=&\frac{\partial{F_c({\bf v})}}{{\partial v_i}}=A^-_{i\uj}v_\uj
+\end{eqnarray}
+where, for clarity, we have used a summation convention in which repeated over-lined indices are summed so that
+\begin{equation}
+A^+_{i\uj}v_{\uj}=\sum_j{A^+_{ij}v_{j}}.
+\end{equation}
+The multiplicative update rule is
+\begin{equation}
+v_i\leftarrow \left[\frac{-b_i+\sqrt{b_i^2+4a_ic_i}}{2a_i}\right]v_i
+\end{equation}
+and this converges to the minimum \cite{ShaEtAl2007a}.
+
+Non-negative matrix factorization (NMF) is very similar to NQP \cite{LeeSeung1999a}. Non-negative matrix
+factorization seeks to minimize the Froebenius error
+\begin{equation}
+E=\|{\bf N}-{\bf MF}\|^2
+\end{equation}
+for an approximate factorization of a non-negative $n\times m$ matrix
+${\bf N}$ into 
+\begin{equation}
+\widetilde{{\bf N}}={\bf M}{\bf F}
+\end{equation}
+where ${\bf M}$ and ${\bf F}$ are $n\times r$ and $r\times m$ matrices
+which are constrained to being non-negative. Expanding out $E$ gives
+\begin{equation}
+E=N_{\ui\uj}N_{\ui\uj}-2M_{\ui\uj}F_{\uj\uk}N_{\ui\uk}+M_{\ui\uj}F_{\uj\uk}M_{\ui\ul}F_{\ul\uk}.
+\end{equation}
+
+Now, if the ${\bf F}$ matrix is regarded as fixed, NQP gives the update rule
+\begin{equation}
+M_{ij}\leftarrow\left[\frac{N_{i\uk}F_{j\uk}}{\widetilde{N_{i\ul}}F_{j\ul}}\right]M_{ij}
+\end{equation}
+and, if ${\bf M}$ is fixed, it gives
+\begin{equation}
+F_{ij}\leftarrow\left[\frac{M_{\uk i}N_{\uk j}}{M_{\ul i}\widetilde{N_{\ul j}}}\right]F_{ij}.
+\end{equation}
+In fact, in NMF, neither matrix is fixed and both updates are
+performed simultaneously. NMF has weaker convergence properties than
+NQP: each iteration reduces $E$, but convergence is difficult to
+establish \cite{FinessoSpreij2004a, GonzalesZhang2005a, Lin2007a}.
+
+NMF has proved effective at extracting features from data sets. For
+example, one of the illustrative applications given in the original
+paper \cite{LeeSeung1999a} is a corpus of faces and the NMF features are
+recognizable of parts of faces. Non-negative matrix deconvolution
+(NMD), an extension of NMF in which factorization is replaced by
+deconvolution \cite{Smaragdis2004a} is useful for decomposing sound
+spectrograms. The purpose of this paper is to use the NQP formula to
+introduce an NMD-like algorithm for decomposing sound in the time
+domain. The purpose of the algorithm is to find sparse components of
+sound without using the spectrogram, thereby avoiding the
+down-sampling and reconstruction errors typical of spectrogram
+methods. It is also particularly easy to add a sparseness term to the
+objective function in this algorithm.
+
+\section{The algorithm}
+
+The problem considered here is to approximately decompose a sound waveform $s(t)$ as
+\begin{equation}
+\tilde{s}(t)=\int_0^T d\tau\,h_\ui(t-\tau)a_\ui(\tau)
+\end{equation}
+where the compactly-supported $a_i(\tau)$ are the sound basis and the
+$h_i(t)$ are the components over that basis; for later use let $N$ be
+the number of components, so the sum over $i$ is
+\begin{equation}
+\tilde{s}(t)=\sum_{i=1}^N\int_0^T d\tau\,h_i(t-\tau)a_i(\tau).
+\end{equation}
+As a constraint we require $h(t)\ge 0$. The main point of this
+algorithm is to calculate a decomposition with a non-negative component.
+The reason that this might be desirable is two fold; first, having a
+non-negative component is useful for the potential applications in source
+separation and acoustic object recognition and, second, sparsification
+is particularly straight-forward if the component is non-negative. 
+
+Now, we want to minimize the error
+\begin{equation}
+E=\int_0^L dt(s-\tilde{s})^2
+\end{equation}
+where $t\in [0,L]$ is the domain of the sample $s(t)$. In practice
+both the waveform will be discretely sampled and all the integrals
+will be sums over time steps. This means the problem is to minimize
+\begin{equation}
+E=S_\ui S_\ui-2S_\uj H_{\ui\uj\uk}A_{\ui\uk}+H_{\ui\uj\uk}A_{\ui\uk}H_{\ul\uj\um}A_{\ui\um}
+\end{equation}
+where 
+\begin{eqnarray}
+S_i&=&s(i\delta t)\cr
+H_{ij}&=&h_i(j\delta t)\cr
+H_{ijk}&=&H_{i(j-k)}=h_i(j\delta t - k\delta t)\cr
+A_{ij}&=&a_i(j\delta t)
+\end{eqnarray}
+$\delta t$ is the time step and the non-negative constraint means $H_{ijk}>0$.
+
+For fixed basis $A_{ij}$ the NQP algorithm can be applied. In
+principle this is a straightforward calculation, but from a notational
+point of view it is complicated by the need to find an update for
+$H_{ij}$ rather than the $H_{ijk}$ that appear in the expression for
+$E$.  This requires a change of index changing the ordinary
+convolutions to forward convolutions. Thus, for example.
+\begin{equation}
+-2S_\uj H_{\ui\uj\uk}A_{\ui\uk}\equiv -2\int dt\int d\tau s(t)h_\ui(t-\tau)a_\ui(\tau)
+\end{equation}
+becomes 
+\begin{equation}
+-2S_{\uj\uk} H_{\ui\uj}A_{\ui\uk}\equiv -2\int dt\int d\tau s(t+\tau)h_\ui(t)a_\ui(\tau)
+\end{equation}
+after the change of index, where $S_{jk}=s(j\delta t+k \delta t)$. Now
+\begin{equation}
+H_{ij}\leftarrow\left[\frac{-b_{ij}+\sqrt{b_{ij}^2+4a_{ij}c_{ij}}}{2a_{ij}}\right]H_{ij}
+\end{equation}
+where 
+\begin{eqnarray}
+a_{ij}&=& A^+_{i\uk}\tilde{S}^+_{j\uk}+A^-_{i\uk}\tilde{S}^-_{j\uk}\cr
+b_{ij}&=&-S_{j\uk}A_{i\uk} \cr
+c_{ij}&=& A^-_{i\uk}\tilde{S}^+_{j\uk}+A^+_{i\uk}\tilde{S}^-_{j\uk}
+\label{abc}
+\end{eqnarray}
+where 
+\begin{equation}
+\tilde{S}_{i}=H_{\uj i \uk}A_{\uj \uk}
+\end{equation}
+and $\tilde{S}_{ik}=\tilde{S}_{i+k}$. The superscript $\pm$ refer to the positive or negative parts, as in (\ref{pm}) above.
+
+In contrast, since the basis is unconstrained, it can be updated
+exactly by minimizing $E$: by differentiating, the minimizing $A_{ij}$
+satisfies
+\begin{equation}
+S_\uk H_{i\uk j}=H_{i\uk j}H_{\ul\uk\um}A_{\ul\um}
+\label{NQP}
+\end{equation}
+and, although the formulation of the problem has created lots of indices, this is basically a matrix equation:
+\begin{equation}
+V_I=M_{I\bar{J}}A_{\bar{J}}
+\label{LSF}
+\end{equation}
+where we have vectorized by setting $I=Ni+j$, $J=Nl+m$, $V_I=S_\uk
+H_{i\uk j}$, $M_{IJ}=H_{i\uk j}H_{ l\uk m}$ and $A_J=A_{lm}$. $M$ will
+generally be invertible provided $N<L/\delta t$. In practical tests on
+sample data, an algorithm which alternates between the NQP (\ref{NQP}) updates of
+the components and the least squares updates of the basis (\ref{LSF})
+finds a good approximation to the original sound waveform. However, the
+corresponding components, $h_i(t)$, are not particularly sparse.
+
+Obviously the best way to ensure sparseness is to add a sparseness
+term to $E$. This is particularly easy because $h$ is non-negative:
+\begin{equation}
+E=\int_0^L dt(s-\tilde{s})^2+2\lambda\sum_i\int_0^Ldt\, h_i
+\end{equation}
+where $\lambda$ is a parameter fixing the relative importance of
+accuracy and sparseness; the factor of two is a notational
+convenience. Now, since $a_i(t)\leftarrow \sigma a_i(t)$,
+$h_i(t)\leftarrow h_i(t)/\sigma$ does not alter $\tilde{s}(t)$, but
+will, for $\sigma>1$, reduce $E$, trying to minimizing this $E$ will
+lead to the components getting smaller and smaller and the basis
+larger and larger. One way to stop this is to fix the size of the
+$a_i(t)$. Thus, the new objective function is
+\begin{eqnarray}\label{E}
+E&=&\int_0^L dt(s-\tilde{s})^2+2\lambda\sum_i\int_0^Ldt\,h_i\cr
+&&+\sum_i\mu_i\left(\int_0^T dt\, a_i^2-1\right)
+\end{eqnarray}
+where the $\mu_i$ are Lagrange multipliers. Converting
+this to matrix notation, the NQP step becomes
+\begin{equation}\label{Hupdate}
+H_{ij}\leftarrow\left[\frac{-(b_{ij}-\lambda)+\sqrt{(b_{ij}-\lambda)^2+4a_{ij}c_{ij}}}{2a_{ij}}\right]H_{ij}
+%check sign here
+\end{equation}
+with $a_{ij}$, $b_{ij}$ and $c_{ij}$ unchanged from before (\ref{abc}).
+
+The least squares update is now more difficult: it is now a constrained
+quadratic programming problem and can not be solved exactly. However
+numerically, it just means solving the Newton equations for
+\begin{eqnarray}
+E&=&-2V_\uI A_\uI+A_{\bar{I}}M_{\bar{I}\bar{J}}A_{\bar{J}}+\sum_{i}{\mu_i\sum_{I=N(i-1)}^{Ni-1}{\left(A_\uI A_\uI-1\right)}}\cr
+&&+\mbox{terms independent of }A_I.
+\end{eqnarray}
+The Newton equations for the extremum within the constrained space are
+\begin{eqnarray}\label{Neqn}
+\frac{\partial L}{\partial A_I}&=&0\cr
+\frac{\partial L}{\partial \mu_i}=\sum_{I=N(i-1)}^{Ni-1}{A_\uI A_\uI}-1&=&0
+\end{eqnarray}
+and these can be solved using a numerical root finder.
+
+From this, two algorithms can be formulated. In the first the NPQ update is iterated until the objective function equilibrates, reaching a minimum for that value of the basis $a_i$s.\\
+\begin{tabular}{p{8.25cm}}
+\\
+{\bf Algorithm 1}\\
+\hline\\
+Initialize $A_{ij}$ and $H_{ij}$.\\
+\\
+Until the objective function $E$, (\ref{E}), equilibrates:\\ 
+\begin{itemize}
+\item[] {\bf NQP update}: 
+\begin{itemize}
+\item[] Until $E$ equilibrates:
+\begin{itemize}
+\item[] Calculate $\tilde{S_i}$
+\item[] Update $H_{ij}$ using (\ref{Hupdate})
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\\
+\begin{itemize}
+\item[] {\bf Least squares update}: 
+\begin{itemize}
+\item[] Calculate $V_I$ and $M_{IJ}$.
+\item[] Minimize $E$ by numerically solving (\ref{Neqn})
+\end{itemize}
+\end{itemize}\\
+\hline\\
+\end{tabular}
+In the second the NPQ update is only iterated for a small, fixed number of iterations before the basis $a_i$s are changed in the least squares update.\\
+\begin{tabular}{p{8.25cm}}
+\\
+{\bf Algorithm 2}\\
+\hline\\
+Initialize $A_{ij}$ and $H_{ij}$.\\
+\\
+Until the objective function $E$, (\ref{E}), equilibrates:\\ 
+\begin{itemize}
+\item[] {\bf NQP update}: 
+\begin{itemize}
+\item[] For a fixed number of iterations:
+\begin{itemize}
+\item[] Calculate $\tilde{S_i}$
+\item[] Update $H_{ij}$ using (\ref{Hupdate})
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\\
+\begin{itemize}
+\item[] {\bf Least squares update}: 
+\begin{itemize}
+\item[] Calculate $V_I$ and $M_{IJ}$.
+\item[] Minimize $E$ by numerically solving (\ref{Neqn})
+\end{itemize}
+\end{itemize}\\
+\hline\\
+\end{tabular}
+In either case, the NPQ and least squares update alternate until the
+objective function $E$ equilibrates. In fact, for the sample described in the
+next section, Sect.~\ref{results}, Algorithm 2 is much more effective, equilibrating
+faster.
+
+\section{Results\label{results}}
+
+As an example the Algorithm 2 has been applied to recorded speech. The
+sample\footnote{The Ballad of Reading Gaol by Oscar Wilde, read by
+  John Gonzales.} was taken from librivox, a public domain collection
+of poetry read and recorded by amateur volunteers.\footnote{{\tt
+    http://librivox.org/}} The sample used was two minutes long. It
+was downloaded as ogg vorbis and converted to a waveform down-sampled
+to 8kHz using {\tt sox}.
+\footnote{{\tt http://sourceforge.net/projects/sox/}} The number of components $N$ is set to 20, $\delta t$ is
+set equal the sample rate, so $\delta t=.125$ ms and the width of the
+basis functions $a_i(\tau)$ is $2.5$ ms, meaning that $T/\delta t$ is
+also 20. In each iteration the NQP update was iterated four times, the $a_i$
+were then updated using the Newton Equation routine described in \cite{PressEtAl2007a}. The basis were initialized as
+\begin{equation}
+a_i(t)=\sin{\frac{\pi t}{T}}\sin{f_i t}
+\end{equation}
+where the $f_0=\pi/2\delta t$, $f_{19}=2\pi/T$ and the others are evenly
+spaced in between. The components were initialized randomly with each
+$H_{ij}$ assigned a random number between zero and $0.03$. It is
+likely that the speed of the algorithm could be improved if some more
+sample-specific choice of initial $H_{ij}$ values was made, for
+example, varying the range of the random values used does effect the
+run time. Increasing the number of components and the width of $a_i$
+improves the final result, but increases the time each iteration
+takes.
+
+If the sparseness parameter is zero, $\lambda=0$, the estimated sound
+$\tilde{s}(t)$ approaches the recording $s(t)$. For $\lambda=.0005$
+convergence requires 48 NPQ updates. The resulting approximation is not
+particularly good:
+\begin{equation}
+\sqrt{\frac{\int{dt\,(s-\tilde{s})^2}}{\int{dt\,s^2}}}\approx .098
+\end{equation}
+This is because the approximation underestimates the recording in
+order to increase sparseness. 
+
+Where the algorithm does succeed is in producing sparse
+components. The $h_i(t)$ are very sparse. Across the twenty
+components, 0.86 of the $H_{ij}$ have values less than $10^{-6}$; the
+average value of the $H_{ij}$ which are greater than $10^{-6}$ is
+.0025. I believe that sparse components of this sort will be useful in
+applications of sparse-coding based methods.
+
+%In addition to the two minutes of the sample used for training, a 15
+%second sample was included in the NQP step, but not in the least squares
+%step. This was to check for over-fitting. However, over-fitting did
+%not seem to be a problem; performance on the 15 second test sample
+%closely matched that on the main, two minute, sample. This indicates
+%that once the $a_i$ are found for part of a given sample, only the NQP
+%update needs be run on the other parts.
+
+
+\section*{Acknowledgment}
+B. Pearlmutter is thanked for useful conversation.
+
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{#1}
+\csname url@samestyle\endcsname
+\providecommand{\newblock}{\relax}
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\BIBentrySTDinterwordspacing}{\spaceskip=0pt\relax}
+\providecommand{\BIBentryALTinterwordstretchfactor}{4}
+\providecommand{\BIBentryALTinterwordspacing}{\spaceskip=\fontdimen2\font plus
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
+\providecommand{\BIBforeignlanguage}[2]{{%
+\expandafter\ifx\csname l@#1\endcsname\relax
+\typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
+\typeout{** loaded for the language `#1'. Using the pattern for}%
+\typeout{** the default language instead.}%
+\else
+\language=\csname l@#1\endcsname
+\fi
+#2}}
+\providecommand{\BIBdecl}{\relax}
+\BIBdecl
+
+\bibitem{OGradyPearlmutterRickard2005a}
+P.~D. O'Grady, B.~A. Pearlmutter, and S.~T. Rickard, ``Survey of sparse and
+  non-sparse methods in source separation,'' \emph{International Journal of
+  Imaging Systems and Technology}, no.~1, pp. 18--33, 2005.
+
+\bibitem{AbdallahPlumbley2006a}
+S.~A. Abdallah and M.~D. Plumbley, ``Unsupervised analysis of polyphonic music
+  using sparse coding,'' \emph{IEEE Transactions on Neural Networks}, vol.~17,
+  no.~1, pp. 179--196, January 2006.
+
+\bibitem{AsariPearlmutterZador2006a}
+\BIBentryALTinterwordspacing
+H.~Asari, B.~A. Pearlmutter, and A.~M. Zador, ``Sparse representations for the
+  cocktail party problem,'' \emph{Journal of Neuroscience}, vol.~26, no.~28,
+  pp. 7477--7490, 2006. 
+
+\bibitem{AsariEtAl2007a}
+H.~Asari, R.~Olsson, B.~Pearlmutter, and A.~Zador, \emph{Sparsification for
+  monaural source separation}.\hskip 1em plus 0.5em minus 0.4em\relax Springer
+  Verlag, 2007.
+
+\bibitem{JafariEtAl2006a}
+M.~G. Jafari, S.~A. Abdallah, M.~D. Plumbley, and M.~E. Davies, ``Sparse coding
+  for convolutive blind audio source separation,'' in \emph{Proceedings of the
+  6th International Conference on Independent Component Analysis and Blind
+  Source Separation (ICA 2006)}, March 2006, pp. 132--139.
+
+\bibitem{LeeSeung1999a}
+D.~D. Lee and H.~S. Seung, ``Learning the parts of objects by non-negative
+  matrix factorization,'' \emph{Nature}, vol. 401, no. 6755, pp. 788--91, 1999.
+
+\bibitem{Smaragdis2004a}
+P.~Smaragdis, ``Discovering auditory objects through non-negativity
+  constraints,'' in \emph{Statistical and Perceptual Audio Processing (SAPA)},
+  2004.
+
+\bibitem{ShaEtAl2003a}
+F.~Sha, L.~K. Saul, and D.~D. Lee, ``Multiplicative updates for nonnegative
+  quadratic programming in support vector machines,'' in \emph{Advances in
+  Neural Information Processing Systems 15}, S.~T. S.~Becker and K.~Obermayer,
+  Eds.\hskip 1em plus 0.5em minus 0.4em\relax Cambridge, MA,: MIT Press, 2003,
+  pp. 1041--1048.
+
+\bibitem{ShaEtAl2003b}
+------, ``Multiplicative updates for large margin classifiers,'' in
+  \emph{Proceedings of the Sixteenth Annual Conference on Computational
+  Learning Theory (COLT)}, Washington D.C., USA, 2003.
+
+\bibitem{ShaEtAl2007a}
+\BIBentryALTinterwordspacing
+F.~Sha, Y.~Lin, L.~K. Saul, and D.~D. Lee, ``Multiplicative updates for
+  nonnegative quadratic programming,'' \emph{Neural Computation}, vol.~19,
+  no.~8, pp. 2004--2031, 2007.
+
+\bibitem{FinessoSpreij2004a}
+L.~{Finesso} and P.~{Spreij}, ``{Approximate Nonnegative Matrix Factorization
+  via Alternating Minimization},'' \emph{ArXiv Mathematics e-prints}, Feb.
+  2004.
+
+\bibitem{GonzalesZhang2005a}
+E.~F. Gonzales and Y.~Zhang, ``Accelerating the lee-seung algorithm for
+  non-negative matrix factorization,'' Dept. Comput. Appl. Math., Rice
+  University, Houston, TX, Tech. Rep., 2005.
+
+\bibitem{Lin2007a}
+C.-J. Lin, ``On the convergence of multiplicative update algorithms for
+  nonnegative matrix factorization,'' \emph{Neural Networks, IEEE Transactions
+  on}, vol.~18, no.~6, pp. 1589--1596, Nov. 2007.
+
+\bibitem{PressEtAl2007a}
+W.~T.~V. William H.~Press, Saul A.~Teukolsky and B.~P. Flannery,
+  \emph{Numerical recipes 3rd edition: the art of scientific computing},
+  3rd~ed.\hskip 1em plus 0.5em minus 0.4em\relax Cambridge University Press,
+  2007.
+
+\end{thebibliography}
+
+
+\end{document}
+
+
+
+
+

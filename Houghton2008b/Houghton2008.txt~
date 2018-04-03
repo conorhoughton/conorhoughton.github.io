@@ -1,0 +1,86 @@
+
+This paper was submitted to IEEE transations on signal processing and
+it was rejected as below. Reviewer 1 had some useful comments, the
+paper should certainly have include much more comprehensive testing of
+the algorithm and it was a mistake to test on ogg files. However, I
+decided not to carry on; for a side project, I had spent quite a lot
+of time on this and, in retrospect, if it was every really going to
+work very nicely it should not have been so tricky to get it working
+at all.
+
+
+
+Reviewer Comments:
+
+Reviewer: 1
+
+Recommendation: R - Reject (A Major Rewrite Is Required; Encourage Resubmission)
+
+Comments: The author describes a new algorithm for learning sets of
+(time-domain) filters in a ``source-filter'' modelling of sound, based
+on nonnegativity (and also sparsity) of the activation
+coefficients. The proposed algorithm is technically sound and novel,
+but I have serious concerns regarding the presentation of the work,
+and most importantly, the lack of significant results.
+
+First, there are indeed practically no results. I agree that
+qualitative evaluation of learning algorithms is rather tricky, but
+what is usually done is at least to display the learnt filters and
+activation coefficient patterns obtained from a given signal or a
+class of signals, so as to get a visual idea of what is actually
+retrieved. Then quantitative evaluation can be carried out with
+respect to a given task, such as coding, denoising, source separation,
+music transcription, etc. Giving a mere SNR between the original and
+reconstructed signal is clearly not enough to give a sense of the
+output of the algorithm.
+
+Second, the author states that the data was obtained from a Ogg file,
+i.e, the output of a coding algorithm which has already done its best
+to eliminate redundancy. I do not think that learning features from
+such data makes much sense ! I urge the author to work with raw data.
+
+Third, I did not find the presentation of the work very accessible. It
+is not clear what is exactly factorized into what ? What is the model
+you want to fit to your data ? Would you be able to express it in
+matrix form ? I did not find the notations very suited to a signal
+processing audience : e.g, the distinction between signals and
+matrices is not clear, I did not find the $\bar{i}$ shorthand to
+denote sums very helpful, etc. I did not find mixture of discrete
+signals and continuous convolution very elegant either. These are
+however less important remarks.
+
+Fourth, references about related works in learning of audio features
+are missing. I thinking in particular about recent papers from Lewicki
+:
+
+E. Smith and M. S. Lewicki, Efficient Auditory Coding, Nature, 439 (7079), 2006.
+M. S. Lewicki, Efficient coding of natural sounds, Nature Neuroscience, 5 (4): 356-363, 2002.
+http://www.cnbc.cmu.edu/cplab/publications.html
+
+I also believe that more discussion about the work of Smaragdis and Plumbley is required, with comparative experimental results.
+
+Other comments :
+
+I did not see where you need NMF in the paper ? 
+
+Do you explicitly need Eq. (7) to (11) somewhere ?  
+
+More discussion about the relevance of assuming h(t) nonnegative would be welcome.  
+
+In Eq (14), s -> s(t) ?  
+
+There's practically no difference between Algorithm 1 and 2; I'd suggest you merge them using "switch ... case ... end" structure so as to gain space ?
+
+
+Reviewer: 2
+
+Recommendation: R - Reject (Paper Is Not Of Sufficient Quality Or
+Novelty To Be Published In This Transactions)
+
+Comments: The author proposes two algorithms to solve a non-negative
+matrix deconvolution problem under sparsity constraints. The proposed
+algorithms are very heuristic and not sufficiently justified
+concerning their convergence. Also, there is no enough simulations to
+support the performance and the comparison between the two
+algorithms. Many works in this field are not cited, for example those
+treating this problem in the source separation community.

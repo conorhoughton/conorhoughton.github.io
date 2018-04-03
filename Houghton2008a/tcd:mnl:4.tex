@@ -1,0 +1,301 @@
+\documentclass[12pt]{iopart}
+\newcommand{\gguide}{{\it Preparing graphics for IOP journals}}
+%Uncomment next line if AMS fonts required
+%\usepackage{iopams}  
+\begin{document}
+
+\title[Finding community structures in networks by playing pass-the-parcel]{Finding community structures in networks by playing pass-the-parcel}
+
+\author{Conor Houghton}
+
+\address{School of Mathematics, Trinity College Dublin, Dublin 2, Ireland}
+\ead{houghton@maths.tcd.ie}
+\begin{abstract}
+Many data sets can be represented by undirected networks. Often, an
+interesting and important feature of these networks is the existence
+of communities; groups of nodes whose interconnectivity is higher than
+the average for the network. Finding these communities can be a
+difficult problem; exhaustive search and even simulated annealing
+methods are impractical for larger networks. Here, a different
+approach is suggested, a measure of the similarity between a pair of
+nodes is calculated by simulating a game of pass-the-parcel. This
+similarity is greater for nodes in the same community and so the
+pass-the-parcel similarity matrix reduces this problem to the better
+studied problem of clustering. To demonstrate this approach, it is
+applied to a number of standard data sets. It shows comparable
+performance to the state-of-the-art extremal optimization and spectral
+methods. {\bf This algorithm, however, is very similar to one described by
+Pons and Latapy \cite{PonsLatapy2005a} and so the work described here
+is not novel.}
+
+
+
+\end{abstract}
+
+\pacs{89.75.Hc,87.23.Ge}
+% Keywords required only for MST, PB, PMB, PM, JOA, JOB? 
+%\vspace{2pc}
+%\noindent{\it Keywords}: Article preparation, IOP journals
+% Uncomment for Submitted to journal title message
+%\submitto{\JSTAT}
+% Comment out if separate title page not required
+\maketitle
+%
+
+\section{Introduction}
+\label{intro}
+An undirected network is a set of nodes where some pairs are connected
+by links. A number of standard examples are considered in this paper
+and these serve to illustrate the diversity of network data sets: the
+standard examples include a sociological study of a university karate
+club where pairs of members are linked if they are friends and a
+metabolic network where pairs of substrates are linked if they
+participate in the same metabolic reaction.  Not only are networks of
+practical importance; the mathematics of network theory has proved to
+be interesting and rich. One part of network theory that is both useful
+and mathematically interesting is the study of community structure,
+the identification of subsets of the nodes with particularly high
+inter-connectivity.
+
+
+The {\sl modularity} has been proposed as a measure of how well a
+network divides into communities \cite{GirvanNewman2002a}. The
+modularity expresses the idea that the inter-connectivity within a
+community should be higher than expected. First, the {\sl adjacency
+  matrix} is defined as
+\begin{equation}
+A_{rs}=\left\{\begin{array}{ll}1&\mbox{nodes $r$ and $s$ linked}\\0&\mbox{otherwise}\end{array}\right.
+\end{equation}
+with $A_{rr}=0$. The order of a node
+\begin{equation}
+a_r=\sum_s A_{rs}
+\end{equation}
+is the number of links terminating at the node $r$. The total number of links, $m$, is given
+\begin{equation}
+m=\frac{1}{2}\sum_r a_r
+\end{equation}
+where there is a factor of one half because each link joins two
+nodes. It can be argued that the expected number of links between
+the $r$ and $s$ nodes is $a_ra_s/2m$ and the modularity $Q$ of a
+division into communities is
+\begin{equation}
+Q=\frac{1}{2m}\sum_{r,s}\left(A_{rs}-\frac{a_ra_s}{2m}\right)\Delta_{rs}
+\end{equation}
+where 
+\begin{equation}
+\Delta_{rs}=\left\{\begin{array}{ll}1&\mbox{nodes $r$ and $s$ are the same community}\\0&\mbox{otherwise}\end{array}\right. .
+\end{equation}
+
+Finding the grouping which maximizes the modularity $Q$ is believed to
+be NP-hard \cite{Newman2006b} and so, in practice, some approximate
+scheme is required. Among the algorithms that have been proposed, two
+are particularly successful: the extremal optimization method
+\cite{DuchArenas2005a} and the spectral method with refinement
+\cite{Newman2006a,Newman2006b}.
+
+The approach taken here is different. Rather than use the network
+topology directly in searching for community structure, a {\sl
+  similarity matrix} $S_{rs}$ is calculated by simulating a game of
+pass-the-parcel\footnote{Pass-the-parcel is a children's party game
+  involving a parcel covered with multiple layers of wrapping, the
+  layers conceal party favours which the children win by removing the
+  layers as the parcel is passed from child to child.}. Consider a
+node $r$; to calculate the similarity between this node and all the
+others, a game of pass-the-parcel is simulated in which the node $r$
+starts with the parcel. With each iteration, whichever node has the
+parcel passes it along one of its links, chosen randomly. Roughly
+speaking, the similarity between the node $r$ and the node $s$ is the
+number of times $s$ receives the parcel during the game, averaged over
+repetitions of the game. A parcel will be passed more often within a
+community than out of it and, so, the similarity between two nodes
+will be higher if they belong to the same community. This reduces the
+problem of finding community structure to that of clustering items
+against a similarity matrix, something for which a number of
+successful algorithms exist.
+
+\section{Methods}
+
+\subsection*{Pass-the-parcel}
+
+In the introduction above, the simulated game of pass-the-parcel was
+described discretely, with the parcel being passed randomly around the
+network and the similarity calculated by averaging over trials. In
+fact, it is much more efficient to do a single continuous simulation
+which calculates the iteration-by-iteration probability density for
+the parcel: a node passes an equal part of the parcel along all its
+links. Precisely, each node $r$ has a parcel value, $p_r$, and a
+cumulative parcel value $c_r$. If, at the $i$ iteration these have
+values $p_r(i)$ and $c_r(i)$, then the values at the $i+1$ iteration
+are
+\begin{equation}
+p_r(i+1)=\sum_{s\in N_r}\frac{p_s(i)}{a_s}
+\end{equation}
+and
+\begin{equation}
+c_r(i+1)=c_r(i)+p_r(i+1)
+\end{equation}
+where $N_r$ is the set of nodes linked to the node $r$. 
+
+To calculate the whole similarity matrix the game is played once for
+each node. When it is played for the node $r$, $p_r=1$ initially and
+all the other $p_s$'s are zero. The $c_s$'s are also all zero. The
+game then proceeds though $N$ iterations. If $n$ is the total number
+of nodes and $a=2m/n$ the average number of links terminating at each
+node, $\log_a{n}$ gives a estimate of the number of iterations
+required before almost every node has a non-zero $c_r$. In fact,
+setting
+\begin{equation}
+N\approx 2\log_a{n}
+\end{equation}
+appears to be work well here. Now, the $r$ row of the similarity matrix is
+calculated by normalizing the final $c_s$'s
+\begin{equation}
+S_{rs}=\frac{c_s}{a_s}.
+\end{equation}
+Finally, when the game has been played all $n$ times, once for each
+node, the similarity matrix is symmetrized in its two indices.
+
+\subsection*{Identifying communities}
+
+Since there is now a similarity matrix, the nodes can be
+clustered. The two most commonly used clustering algorithms are
+probably $K$-means and Hierarchical Agglomerative Clustering
+(HAC). HAC is used here. Starting with $n$ clusters containing only
+one node, HAC builds larger clusters by successively joining smaller
+ones. The similarity of two clusters is calculated as the average
+similarity between the nodes in the clusters:
+\begin{equation}
+\mbox{Similarity}(C_{k_1},C_{k_2})=\frac{1}{|C_{k_1}||C_{k_2}|}\sum_{r\in C_{k_1}}
+\sum_{s\in C_{k_2}}S_{rs}
+\end{equation}
+At each step the two most similar clusters are joined. Thus, HAC arranges the
+nodes into a dendrogram with one cluster at the base, $n$ at the top
+and, in between, every number in between.
+
+\subsection*{Refinement}
+
+The problem with HAC is that decisions made early on cannot be changed
+later and it is common to supplement HAC with a refinement
+stage. Here, the refinement is chosen to match the Kernighan-Lin
+inspired refinement introduced in \cite{Newman2006a}. When HAC is
+finished, the clustering which has the highest value of the modularity
+$Q$ is chosen for refinement. For each node $\delta Q$, the change in
+$Q$ that would result from changing its cluster is calculated. The
+best change is the one with the highest $\delta Q$; if there is no
+positive $\delta Q$, this means the least negative one. The best
+change is performed and the whole process is repeated on the unmoved
+nodes until every node has been moved once. The intermediate state
+which has the highest $Q$ value is then selected and the process
+repeated until it causes no further improvement.
+
+\section{Results}
+
+For ease of comparison, the pass-the-parcel community detection
+algorithm has been applied to the same networks considered in
+\cite{DuchArenas2005a} and \cite{Newman2006a}. These networks range in
+size from 34 nodes to 27,519 and the results are tabulated in
+Table~\ref{results}. The pass-the-parcel algorithm shows a similar
+performance to the spectral and the extremal optimization algorithms.
+
+
+
+\begin{table}
+\caption{\label{results}Comparing different algorithms for detecting community
+  structure.  Five algorithms are compared here; as well as the
+  extremal optimization ({\bf DA}) and spectral ({\bf N}) algorithm
+  mentioned earlier, it includes {\bf GN}, a pioneering algorithm
+  which finds the links which carry the largest number of shortest
+  paths and eliminates them \cite{GirvanNewman2002a} and {\bf CNM}, a
+  very quick greedy algorithm which is well suited for extremely large
+  networks \cite{ClausetNewmanMoore2004a}. These are applied to six
+  data sets of varying size and structure. These six sets have become
+  something of a standard for comparing community identification
+  algorithms. They are the {\bf karate} network \cite{Zachary1977a}, a network
+  of {\bf jazz musicians} where the musicians are linked if they
+  played in the same band \cite{GleiserDanon2003a}, the {\bf metabolic}
+  network \cite{JeongEtAl2000a,DuchArenas2005a}, an {\bf email}
+  network based on communication in a medium sized university
+  \cite{GuimeraEtAl2003a}, a PGP web of trust ({\bf key signing})
+  \cite{BogunaEtAl2004a,GuardiolaEtAl2002a} and a network of {\bf
+    physicists} who have placed papers on the cond-mat arXiv, the
+  links represent co-authorship \cite{Newman2001a}. Apart from the
+  addition of the results calculated using the pass-the-parcel
+  algorithm, this table is substantially based on one appearing in
+  \cite{Newman2006a} and is similar to one appearing in \cite{DuchArenas2005a}.}
+\begin{indented}
+\item[]
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrccccc}
+\br
+               &           &\centre{5}{Modularity $Q$}\\
+               &           &\crule{5}\\
+\ns
+network        &  size $n$ & GN    & CNM   & DA    & N      &Here\\
+\mr
+karate         &        34 & 0.401 & 0.381 & 0.419 & 0.419  & 0.419\\
+jazz musicians &       198 & 0.405 & 0.439 & 0.445 & 0.442  & 0.444\\
+metabolic      &       453 & 0.403 & 0.402 & 0.434 & 0.435  & 0.433\\
+email          &      1133 & 0.532 & 0.494 & 0.574 & 0.572  & 0.575\\
+key signing    & $10\,680$ & 0.816 & 0.733 & 0.846 & 0.855  & 0.864\\
+physicists     & $27\,519$ &    -- & 0.668 & 0.679 & 0.723  & 0.730\\
+\br
+\end{tabular}
+\end{indented}
+\end{table}
+
+
+The algorithmic complexity of the pass-the-parcel algorithm is
+comparable to the spectral and extremal optimization algorithms, for
+sparse networks this is $O(n^2\log n)$. Each of the three stages here,
+the game, HAC and refinement are $O(n^2\log n)$. However, memory
+requirement is a significant weakness of the pass-the-parcel algorithm. For large
+networks, it would be expensive to store the whole $n\times n$
+similarity matrix.
+
+To calculate Table~\ref{results} the values were thresholded to make
+the $S$ matrix easier to store. For each row, the diagonal element is
+set to zero, the row average is calculated and all values less than
+this are set to zero. After thresholding, the number of nonzero values
+ranged from 0.044 to 0.323 for the networks considered here. For the
+first four networks, it has been verified that the thresholding makes
+very little difference to the result.
+
+\section{Discussion}
+
+When applied to the six standard networks, this new algorithm finds
+community structures with similar modularities to those found using
+the extremal optimization and spectral algorithms. It is interesting
+that these three algorithms are all very different and, indeed, there
+are a large variety of community detection algorithms
+\cite{DanonEtAl2005a} including a random walk method
+\cite{Zhou2003a}. This random walk method differs from our algorithm in
+that it measures the average length of a random walk between two
+points.
+
+
+The pass-the-parcel algorithm has a pleasingly intuitive motivation;
+it does suffer, however, from being rather ad hoc. In fact, although
+the other two algorithms are better motivated mathematical, none could
+really be described as well understood from a mathematical point of
+view and interest in the mathematics of community detection is likely
+to be ongoing. Although the need to store the similarity matrix is a
+disadvantage to the algorithm in its current form, it may prove useful
+in practical applications because it is well suited to parallel,
+distributed or on-line implementations.
+
+\ack{Acknowledgements}
+Science Foundation Ireland grant 08/RFP/MTH1280 and support by the
+Mathematics Applications Consortium for Science and Industry are
+acknowledged. I am grateful to Alex Arenas and Mark Newman for
+permission to use the data supplied on their websites.
+
+\section*{References}
+
+\bibliographystyle{unsrt}
+\bibliography{bibliography}
+
+
+\end{document}
+
+% end of file template.tex
+

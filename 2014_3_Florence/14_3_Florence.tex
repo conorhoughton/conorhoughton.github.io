@@ -1,0 +1,583 @@
+\documentclass{beamer}
+\usepackage[latin1]{inputenc}
+\usetheme{Montpellier}
+%\usecolortheme[RGB={204,51,255}]{structure}
+%\usecolortheme[named=purple]{structure}
+\usecolortheme[RGB={62,128,62}]{structure}
+%\definecolor{dark}{rgb}{0.3,0.15,0.3}
+%\definecolor{light}{rgb}{0.8,0.6,0.8}
+%\definecolor{reddish}{rgb}{.5,0.15,0.15}
+\definecolor{dark}{rgb}{0.4,0.2,0.4}
+%\definecolor{light}{rgb}{0.8,0.6,0.8}
+\definecolor{reddish}{rgb}{.7,0.25,0.25}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{wrapfig}
+\newcommand{\btVFill}{\vskip0pt plus 1filll}
+
+\def\cd{\color{dark}}
+\def\cb{\color{black}}
+
+\title[Multi-neuron spike trains - distances and information.]{Multi-neuron spike trains - distances and information.}
+\author{Conor Houghton}
+\institute{Computer Science, U Bristol}
+\date{NETT Florence, March 2014}
+
+\begin{document}
+
+\setlength{\unitlength}{1mm}
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+\section{Thanks for the invite}
+
+
+\begin{frame}{}
+\color{black} 
+In 1817 Stendhal reportedly was overcome by the cultural
+richness of Florence he encountered when he first visited the Tuscan
+city. As he described in his book Naples and Florence: A Journey from
+Milan to Reggio:
+\begin{quote}
+As I emerged from the porch of Santa Croce, I was seized with a fierce palpitation of the heart (that same symptom which, in Berlin, is referred to as an attack of the nerves); the well-spring of life was dried up within me, and I walked in constant fear of falling to the ground.
+\end{quote}
+\btVFill
+\begin{flushright}
+\tiny{Wikipedia article \texttt{http://en.wikipedia.org/wiki/Stendhal}.}
+\end{flushright}
+\end{frame}
+
+
+
+\section{Motivation}
+
+
+\begin{frame}{Overview.}
+\color{black}
+\begin{itemize}
+\item Mutual information for spaces with distances.
+\begin{itemize}
+\item{} [Rederive a result due to Kraskov, St\"{o}bauer and Grassberger (PRE 2004)]
+\end{itemize}
+\item Spike trains and sets of spike trains as a space with distance.
+\end{itemize} 
+\color{black}
+\end{frame}
+
+\begin{frame}{Spike trains.}
+Spiking responses in the auditory forebrain of zebra finch.
+\color{reddish}
+\include{raster}
+\color{black}
+\end{frame}
+
+\begin{frame}{Classical approach I.}
+\begin{itemize}
+\item Discretize.
+\color{reddish}
+\begin{center}
+\include{discretization}
+\end{center}
+\color{black}
+\item Split into words.
+\color{dark}
+$$010001000000100\rightarrow 01000,10000,00100$$
+\color{black}
+\end{itemize}
+\btVFill
+\begin{flushright}
+\tiny{Bialek, de Ruyer van Steveninck, Strong and other coworkers, late 1990s.}
+\end{flushright}
+\end{frame}
+
+\begin{frame}{Classical approach II.}
+\begin{itemize}
+\item Estimate probability of words. For example, say $w_8=01000$ then estimate
+\color{dark}
+$$p(w_8)\approx\frac{\#\mbox{ occurrences of }w_8}{\#\mbox{ words}}$$ 
+\color{black}
+\item Calculate
+\color{dark}
+$$H(W)=-\sum_i p(w_i)\log_2 p(w_i) =-\langle\log_2 p(w_i)\rangle$$ 
+\color{black}
+\end{itemize}
+\btVFill
+\begin{flushright}
+\tiny{Bialek, de Ruyer van Steveninck, Strong and other coworkers, late 1990s.}
+\end{flushright}
+\end{frame}
+
+
+\begin{frame}{Classical approach III.}
+\begin{itemize}
+\item Conditional probability.
+\color{reddish}
+\begin{center}
+\include{conditioned}
+\end{center}
+\color{black}
+\end{itemize}
+\btVFill
+\begin{flushright}
+\tiny{Bialek, de Ruyer van Steveninck, Strong and other coworkers, late 1990s.}
+\end{flushright}
+\end{frame}
+
+
+\begin{frame}{Classical approach IV.}
+\begin{itemize}
+\item Mutual information
+\color{dark}
+$$H(W|S)=\langle H(W|s_i)\rangle$$
+\color{black}
+and
+\color{dark}
+$$I(W;S)=H(W)-H(W|S)$$
+\color{black}
+\end{itemize}
+\btVFill
+\begin{flushright}
+\tiny{Bialek, de Ruyer van Steveninck, Strong and other coworkers, late 1990s.}
+\end{flushright}
+\end{frame}
+
+
+\begin{frame}{ms scale information in blow fly spike trains.}
+\begin{center}
+\includegraphics[width=6cm]{blow_fly.jpg}
+\end{center}
+\btVFill
+\begin{flushright}
+\tiny{Bialek, de Ruyer van Steveninck, Strong and other coworkers, late 1990s.}
+\end{flushright}
+\end{frame}
+
+
+
+\begin{frame}{Difficulties with the classical approach.}
+\begin{itemize}
+\item Undersampling. 
+\begin{itemize}
+\item 100 ms words and 2 ms bins gives $2^{50}=1125899906842624$ words.
+\item Lots of clever approaches to this, for example Nemenman et al. (PRE 2004, BMC Neuroscience 2007) where a cunning prior is used for $p(w_i)$.
+\end{itemize}
+\item Sampling bias.
+\begin{itemize}
+\item An even distribution will never give equal counts for each word,
+  giving different $p(w_i)$.
+\item Lots of clever approaches to this too, see Panzeri et al. (J Neurophys. 2007).
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Many fixes but still . . . }
+\begin{itemize}
+\item Neuron - neuron mutual information.
+\item Maze - neuron mutual information.
+\item Mutual information with multiple units.
+\end{itemize}
+\end{frame}
+
+
+
+\section{KDE for spike trains.}
+
+\begin{frame}{Approaches to probability estimation}
+\begin{itemize}
+\item Parameteric approach.
+\begin{itemize} 
+\item See Gillespie and Houghton (JCN 2011).
+\item . . . or Yu et al., (Front. in Comp. Neuro. 2010).
+\end{itemize}
+\item Non-parametric approach
+\begin{itemize}
+\item Histograms.
+\item Kernel density estimation (KDE).
+\item $k$th nearest neighbor (kNN).
+\end{itemize}
+\end{itemize}
+We will see that KDE and kNN lead to more-or-less the same formula.
+\end{frame}
+
+
+\begin{frame}{Kernel density estimation.}
+\begin{center}
+\includegraphics[width=8cm]{Comparison_of_1D_histogram_and_KDE.png}
+\end{center}
+\color{dark}
+$$
+p(x)=\frac{1}{n}\sum_ik(x-x_i)
+$$
+\color{black}
+\btVFill
+\begin{flushright}
+\tiny{Picture from \texttt{http://en.wikipedia.org/wiki/Kernel\_density\_estimation}}
+\end{flushright}
+\end{frame}
+
+\begin{frame}{Histograms and the classical approach}
+\begin{itemize}
+\item Histogram:
+\color{dark} 
+\begin{eqnarray*}
+\mbox{binning}: \mathbf{R}&\rightarrow&\mathbf{Z}\cr
+                         x&\mapsto& \mbox{int}\,(x/\delta x)\mbox{th bin} 
+\end{eqnarray*}
+\color{black}
+\item Converting spike trains to words:
+\color{dark}
+\begin{eqnarray*}
+\mbox{discretization}: \mbox{space of spike trains}&\rightarrow&\mathbf{Z}\cr
+                         r&\mapsto& w
+\end{eqnarray*}
+\color{black}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{What we need for kernel density estimation.}
+\color{dark}
+$$
+p(x)=\frac{1}{n}\sum_ik(x-x_i)
+$$
+\color{black}
+So we must have
+\color{dark}
+$$
+\int k(x)dx=1
+$$
+\color{black}
+That means we need to be able to integrate.
+\end{frame}
+
+
+\begin{frame}{Spike train space.}
+\color{reddish}
+\begin{center}
+\include{spiketrains}
+\end{center}
+\color{black}
+\end{frame}
+
+
+\begin{frame}{Integrating in the space of spike trains I.}
+The space of spike trains has no coordinates, but it does have a
+measure given by the distribution of spike trains.
+\color{dark}
+$$
+\mbox{vol}(\mathcal{D})=P(r\in \mathcal{D})
+$$
+\color{black}
+which can be estimated by the fraction of responses in \color{dark}$\mathcal{D}$
+$$
+\mbox{vol}(\mathcal{D})\approx\frac{\#\mbox{ spike trains in }\mathcal{D}}{\#\mbox{ spike trains}} 
+$$
+\color{black}
+\end{frame}
+ 
+
+\begin{frame}{Integrating in the space of spike trains II.}
+\color{reddish}
+\begin{center}
+\include{volume}
+\end{center}
+\color{black}
+\end{frame}
+ 
+\begin{frame}{Basic idea}
+Want to calculate:
+\color{dark}
+$$
+ I(R;S) =  \sum_{s\in\mathcal{S}}\int_\mathcal{R} p(r,s) \log_2 \frac{p(r|s)}{p(r)} dr  
+$$ \color{black}
+\begin{itemize}
+\item Use \color{dark}$p(r)$\color{black} to give a measure.
+\item Use KDE to estimate \color{dark}$p(r|s)$\color{black}. 
+\item Any integrals will be estimated by counting points. 
+\item Kernels will be defined using volume.
+\end{itemize}
+\btVFill
+\begin{flushright}
+\tiny{Tobin and Houghton (Entropy 2013)}
+\end{flushright}
+\end{frame}
+
+
+\begin{frame}{Result}
+After some fiddling this give
+\color{dark}
+$$
+ I(R;S) \approx \frac{1}{n_r}\sum_{i} \log_2{\frac{n_sc(r_i,s_i;n_h)}{n_h}}
+$$
+\color{black}
+\begin{itemize}
+\item \color{dark}$n_r$\color{black}{} number of responses.
+\item \color{dark}$n_s$\color{black}{} number of stimuli.
+\item \color{dark}$n_h$\color{black}{} size of the kernel.
+\item \color{dark}$c(r_i,s_i;n_h)$\color{black}{} number of responses to stimulus \color{dark}$s_i$\color{black}{} in the kernel around \color{dark}$r_i$\color{black}.
+\end{itemize}
+\btVFill
+\begin{flushright}
+\tiny{Tobin and Houghton (Entropy 2013)}
+\end{flushright}
+\end{frame}
+
+\begin{frame}{$c(r_i,s_i;n_h)$}
+\color{reddish}
+\begin{center}
+\include{c_fig}
+\end{center}
+\color{black}
+\end{frame}
+
+\begin{frame}{Results I}
+We are interested in the structure of spike train space as a metric
+space, so simulated test data was constructed using the sort of
+distribution of spike trains in metric space observed in Gillespie and
+Houghton (JCN 2011).
+\end{frame}
+
+\begin{frame}{Results II}
+\color{reddish}
+\begin{center}
+\include{plot_run1}
+\color{black}
+\color{dark} $n_s=10$\color{black}{} and \color{dark}{} $n_t=10$\color{black}.
+\end{center}
+\color{black}
+\btVFill
+\begin{flushright}
+\tiny{Tobin and Houghton (Entropy 2013)}
+\end{flushright}
+\end{frame}
+
+
+\begin{frame}{Results III}
+\color{reddish}
+\begin{center}
+\include{plot_run2}
+\color{black}
+\color{dark} $n_s=10$\color{black}{} and \color{dark}{} $n_t=200$\color{black}.
+\end{center}
+\color{black}
+\btVFill
+\begin{flushright}
+\tiny{Tobin and Houghton (Entropy 2013)}
+\end{flushright}
+\end{frame}
+
+\begin{frame}{KDE and kNN}
+\color{black}
+\begin{itemize}
+\item KDE
+\color{dark}
+$$
+ I(R;S) \approx \frac{1}{n_r}\sum_{i} \log_2{\frac{n_sc(r_i,s_i;n_h)}{n_h}}
+$$
+\color{black}
+\item kNN
+\color{dark}
+$$
+   I_e(R;S) \approx  \digamma(n_k) + \digamma(n_tn_s)-\digamma(n_t) - \displaystyle \frac{1}{n_r} \sum_{i} \digamma[C(r_i,s_i;n_k)] 
+$$
+\color{black}
+\begin{itemize}
+\item They use a Kozachenko and Leonenko estimator and, by a clever choice of how they pick $k$ for different parts of the estimate, they get all the volume-based terms to cancel.
+\end{itemize} 
+\end{itemize}
+\btVFill
+\begin{flushright}
+\tiny{Kraskov, St\"{o}bauer and Grassberger (PRE 2004)}
+\end{flushright}
+\end{frame}
+
+\section{Distances}
+
+\begin{frame}{Euclidean metric}
+\begin{center}
+\includegraphics[width=4.5cm]{U1.png}
+\end{center}
+\btVFill
+\begin{flushright}
+\tiny{Picture from Google maps}
+\end{flushright}
+\end{frame}
+
+
+\begin{frame}{Non-Euclidean metric}
+\begin{center}
+\includegraphics[width=4.5cm]{U2.png}
+\end{center}
+\btVFill
+\begin{flushright}
+\tiny{Picture from Google maps}
+\end{flushright}
+\end{frame}
+
+
+\begin{frame}{Non-metric}
+\begin{center}
+\includegraphics[width=8cm]{800px-Uffizi_Hallway.jpg}
+\end{center}
+\btVFill
+\begin{flushright}
+\tiny{Picture from \texttt{http://en.wikipedia.org/wiki/Uffizi}}
+\end{flushright}
+\end{frame}
+
+
+\begin{frame}{van Rossum metric}
+\begin{center}
+\includegraphics[width=9cm]{filtered.png}
+\end{center}
+Spike trains mapped to functions and a metric on the space of functions induces a metric on the spike train space.
+\btVFill
+\begin{flushright}
+\tiny{van Rossum (Neural Comp. 2001)}
+\end{flushright}
+\end{frame}
+
+
+\begin{frame}{Multi-unit van Rossum metric}
+\begin{itemize}
+\item There is a multi-unit easily computed version of the van Rossum metric.
+\item It relies on a time constant and a population parameter.
+\end{itemize}
+\btVFill
+\begin{flushright}
+\tiny{Houghton and Sen (Neural Comp. 2008) / Houghton and Kreuz (Network 2012)}
+\end{flushright}
+\end{frame}
+
+\begin{frame}{The Victor-Purpura metric I.}
+\color{black}Edit one spike train in to the other:
+\begin{enumerate}
+\item \color{black}Insertion of a spike with a cost of one.
+\item \color{black}Deletion of a spike with a cost of one.
+\item \color{dark}\textcolor{black}{Moving a spike a distance} $\delta t$ \textcolor{black}{costs} $q|\delta t|$.
+\end{enumerate}
+\color{black}The distance is the cost of the cheapest edit.
+\btVFill
+\begin{flushright}
+\tiny{Victor and Purpura (J. Neurophys. 1996)}
+\end{flushright}
+\end{frame}
+
+
+\begin{frame}{The Victor-Purpura metric II.}
+\color{reddish}
+\include{VP-diagram}
+\color{dark}
+\[
+d=3+q(\delta t_1+\delta t_2)
+\]
+\end{frame}
+
+\begin{frame}{Multi-neuron Victor-Purpura I.}
+\begin{itemize}
+\item \color{black} The Victor-Purpura metric can be extended to measure a
+distance between a pair of population responses by adding a cost
+\color{dark}$k$\color{black}{} for changing the identity of a spike.
+\item \color{black}Edit one spike train in to the other:
+\begin{enumerate}
+\item \color{black}Insertion of a spike with a cost of one.
+\item \color{black}Deletion of a spike with a cost of one.
+\item \color{black}Change the neuron label of a spike at a cost \textcolor{dark}{$k$}.
+\item \color{dark}\textcolor{black}{Moving a spike a distance} $\delta t$ \textcolor{black}{costs} $q|\delta t|$.
+\end{enumerate}
+\color{black}The distance is the cost of the cheapest edit.
+\end{itemize}
+\btVFill
+\begin{flushright}
+\tiny{Aranov et al. (J. Neurophys. 2004)}
+\end{flushright}
+\end{frame}
+
+
+\begin{frame}{Multi-neuron Victor-Purpura II.}
+\color{reddish}
+\include{VP-multiunit}
+\color{dark}
+\[
+d=3+q(\delta t_1+\delta t_2)+k
+\]
+\end{frame}
+
+
+
+\begin{frame}{Labelled-line and population codes}
+\begin{itemize}
+\item If \color{dark}$k=0$\color{black}{} it does not matter what neuron a spike came from, this is \textsl{a population code}.
+\begin{itemize}
+\item It's like superimposing all the spike trains in the population and then working out the distance.
+\end{itemize}
+\item If \color{dark}$k=2$\color{black}{} it is never worth changing the label, this is \textsl{a labelled-line code}.
+\begin{itemize}
+\item The distance between the two population responses is just the sum of the distances for the individual pairs of responses for each neuron.
+\end{itemize}
+\end{itemize}
+\btVFill
+\begin{flushright}
+\tiny{Aranov et al. (J. Neurophys. 2004)}
+\end{flushright}
+\end{frame}
+
+\begin{frame}{Problems}
+\begin{itemize}
+\item Multi-unit VP metric computationally expensive.
+\item How do we calculate \color{dark}$q$\color{black}{} and \color{dark}$k$\color{black}{}?
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{SPIKE metric.}
+\color{reddish}
+\include{SPIKE-diagram}
+\color{dark}
+$$
+d=(\delta t_1+\delta t_2+\delta t_3)+(\delta t_1+\delta t_3)=2\delta t_1+\delta t_2+2\delta t_3
+$$
+\btVFill
+\begin{flushright}
+\tiny{Kreuz, Chicharro, Houghton, Andrzeja and Mormann (J. Neurophys. 2013)}
+\end{flushright}
+\end{frame}
+
+
+\begin{frame}{Multi-neuron SPIKE metric.}
+Extending SPIKE to multiple neurons is easy, just add a \lq{}distance\rq{} between neurons.
+\color{reddish}
+\include{Multi-SPIKE-diagram}
+\color{dark}
+$$
+d==2\delta t_1+2\delta t_2+\delta t_3+k
+$$
+\end{frame}
+
+\begin{frame}{Multi-neuron SPIKE metric - problem.}
+Still stuck with \color{dark}$k$\color{black}.
+\end{frame}
+
+\section{The end}
+
+\begin{frame}{Conclusions}
+\begin{itemize}
+\item Distance-based measures of mutual information.
+\item Multi-neuron distance functions.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Acknowledgements}
+\begin{itemize}
+\item Collaborators.
+\begin{itemize}
+\item Thomas Kreuz / Josh Tobin / James Gillespie / Cathal Cooney.
+\end{itemize}
+\item Funding: the James S McDonnell Foundation.
+\end{itemize}
+\end{frame}
+
+
+\end{document}
+

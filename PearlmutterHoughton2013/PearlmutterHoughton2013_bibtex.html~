@@ -1,0 +1,32 @@
+
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<font face="verdana, Sans-serif">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.51 [en] (X11; I; OSF1 V4.0 alpha) [Netscape]">
+   <title>Conor Houghton
+</title>
+</head>
+
+
+
+<body  bgcolor=white link="#99AFHH" vlink="#99CCHH" alink="#FF0000">
+
+<pre>
+
+
+@incollection{HoughtonVictor2009a,
+author = "C. Houghton and J. Victor",
+fullauthor = "Conor Houghton and Jonathon Victor",
+title = "Spike rates and spike metrics",
+year =2012,
+booktitle="Visual Population Codes: Toward a Common Multivariate Framework for Cell Recording and Functional Imaging",
+editor="N. Kriegeskorte, G. Kreiman",
+publisher="MIT Press",
+pages="chap. 8",
+address="Cambridge, MA",
+}
+
+</pre>
+</body>
