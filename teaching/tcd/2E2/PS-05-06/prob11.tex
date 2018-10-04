@@ -1,0 +1,90 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand\soln{\noindent\textit{Solution:} }
+
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+{\bf 2E2 Tutorial Sheet 11}\footnote{Conor
+Houghton, {\tt houghton@maths.tcd.ie} and {\tt
+http://www.maths.tcd.ie/\char126 houghton/2E2.html}}
+\\[1cm]
+ 22 January 2006
+\end{center}
+{
+\noindent {\bf Useful facts:}\\ 
+\begin{itemize}
+\item The stationary point, or critical point, is the
+point where $y_1'=y_2'=0$, in linear examples where ${\bf y}'=A{\bf
+y}$ this happens only at $y_1=y_2=0$. Because ${\bf y}'$ is determined
+by ${\bf y}$ the stationary point is the only place lines can
+cross. 
+\item If you are asked to name the stationary point, you are asked to
+say what the behaviour around it it, we have seen so far improper and
+proper inward and outward nodes and saddlepoints, next week we will
+see spiral and circle nodes. 
+\item When drawing the phase diagram, put the eigenvectors in first,
+if the eigenvector has a negative eigenvalues it goes inwards, if it
+has positive, it goes out. When the eigenvectors are done, it is
+simple to add the other trajectories.
+\item One eigenvalue positive one negative gives a saddlepoint. Two unequal positive eigenvalues gives an outward improper node, if they are both negative the node is inward, if they are equal the node is proper.
+\end{itemize}
+\newpage
+\noindent{\bf Questions}
+\begin{enumerate}
+\item (2) For the system
+\begin{eqnarray*}
+\frac{dy_1}{dt}&=&-3y_1+2y_2\\
+\frac{dy_2}{dt}&=&-2y_1+2y_2
+\end{eqnarray*}
+The solution is
+\begin{equation}
+{\bf y}=c_1\left(\begin{array}{c}1\\2\end{array}\right)e^t+c_2\left(\begin{array}{c}2\\1\end{array}\right)e^{-2t}
+\end{equation}
+Sketch the phase diagram and and describe the stationary point.
+\vskip .5cm
+\item (2) For the system
+\begin{eqnarray}
+\frac{dy_1}{dt}&=&3y_1+y_2\\
+\frac{dy_2}{dt}&=&y_1+3y_2
+\end{eqnarray}
+The solution is 
+\begin{equation}{\bf y}=\left(\begin{array}{cc}y_1\\y_2\end{array}\right)=c_1\left(\begin{array}{cc}1\\1\end{array}\right)e^{4t}+c_2\left(\begin{array}{cc}-1\\1\end{array}\right)e^{2t}.\end{equation}
+Sketch the phase diagram and and describe the stationary point.
+\vskip .5cm
+\item (4) Find the general solutions for the system
+\begin{eqnarray}
+\frac{dy_1}{dt}&=&2y_1-y_2\\
+\frac{dy_2}{dt}&=&-4y_2
+\end{eqnarray}
+Sketch the phase diagram and and describe the stationary point.
+\end{enumerate}
+}
+\end{document}
+
+
+

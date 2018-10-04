@@ -1,0 +1,128 @@
+ \documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+
+{\bf 2E2 Tutorial Sheet 3 First Term\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/2E2.html}}\\[1cm] 1 November 2005}
+\end{center}
+
+
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\noindent {\bf Useful facts:}
+\begin{itemize}
+\item Laplace transform of differenciated functions: if ${\cal L}[f(t)]=F(s)$ then
+\begin{equation}
+{\cal L}(f')=sF-f(0)
+\end{equation}
+and
+\begin{equation}
+{\cal L}(f'')=s^2F-sf(0)-f'(0)
+\end{equation}                                
+
+\item If there a repeated factor in the fraction the partial fraction expansion
+looks like:
+\begin{equation}
+\frac{1}{(s-a)^2(s-b)}=\frac{A}{s-a}+\frac{B}{(s-a)^2}+\frac{C}{s-b}
+\end{equation}
+
+\item ${\cal L}(f)=F(s)$ then  ${\cal L}(e^{at}f)=F(s-a)$, in particular 
+\begin{equation}
+{\cal L}(e^{at}t)=\frac{1}{(s-a)^2},
+\end{equation}
+
+\item The Heaviside function $H_a(t)$ is zero for $t<a$ and one for $t\ge a$, it Laplace transform is given by
+\begin{equation}
+{\cal L}[H_a(t)]=\frac{e^{-as}}{s}
+\end{equation}
+
+\item The shift theorem: if ${\cal L}(f)=F(s)$ then
+\begin{equation}
+{\cal L}[H_a(t)f(t-a)]=e^{-as}F(s)
+\end{equation}
+
+\end{itemize}
+
+\newpage
+
+\noindent {\bf Questions}
+%made 1 easier by setting a=1 and 4 easier by giving the rhs in terms of heaviside.
+
+\begin{enumerate}
+
+\item (2)
+Using the Laplace transform solve the differential equation
+\begin{equation}
+f''-2f'+f=0
+\end{equation}
+with boundary conditions $f'(0)=1$ and $f(0)=0$.
+
+\item (2)
+Using the Laplace transform solve the differential equation
+\begin{equation}
+f''+f'-6f=e^{-3t}
+\end{equation}
+with boundary conditions $f(0)=f'(0)=0$.
+
+
+\item (2) Use Laplace transform methods to solve the differential equation
+\begin{equation}
+f'' + 2 f' - 3 f =
+\left\{ \begin{array}{ll}
+1, & 0 \leq t < c\\
+0, & t \geq c
+\end{array}\right.
+\end{equation}
+subject to the initial conditions $f(0) =f'(0) = 0$. Notice that the right hand side is $1-H_1(t)$.
+\vskip 1cm
+
+\item (2) Use Laplace transform methods to solve the differential equation
+\begin{equation}
+f'' + 2 f' - 3 f =
+\left\{ \begin{array}{ll}
+0, & 0 \le t < 1\\
+1, & 1\le t < 2\\
+0, & t\ge 2
+\end{array}\right.
+\end{equation}
+subject to the initial conditions $f(0) =f'(0) = 0$. You should begin by rewriting the right-hand side in terms of the Heaviside function:
+\begin{equation}
+H_1(t)-H_2(t)=
+\left\{ \begin{array}{ll}
+0, & 0 \le t < 1\\
+1, & 1\le t < 2\\
+0, & t\ge 2
+\end{array}\right.
+\end{equation}
+\end{enumerate}
+
+\vfill
+
+\noindent
+
+\end{document}

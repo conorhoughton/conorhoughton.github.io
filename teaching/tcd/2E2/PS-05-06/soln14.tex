@@ -1,0 +1,213 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand\soln{\noindent\textit{Solution:} }
+
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+{\bf 2E2 Tutorial Sheet 14 Second Term}\footnote{Conor
+Houghton, {\tt houghton@maths.tcd.ie} and {\tt
+http://www.maths.tcd.ie/\char126 houghton/ 2E2.html}}
+\\[.5cm]
+ 10 February 2006
+\end{center}
+{
+\begin{enumerate}
+\item (2) Find the general solution to 
+\begin{equation}
+y'-2y=-t
+\end{equation}
+\vskip .5cm
+\soln This follows from the general solution to
+\begin{equation}
+y'=ry+f(t)
+\end{equation}
+which is
+\begin{equation}\label{gensol}
+y=Ce^{rt}+e^{rt}\int_0^t e^{-r\tau}f(\tau) d\tau
+\end{equation}
+so here $r=2$ and $f(t)=-t$ so, using integration by parts
+\begin{eqnarray}
+y&=&Ce^{2t}-e^{2t}\int_0^t \tau e^{-2\tau}d\tau\nonumber\\
+&=&Ce^{2t}-e^{2t}\left\{-\frac{1}{2}te^{-2t}+\frac{1}{2}\int e^{-2\tau}d\tau\right\}\cr
+&=&Ce^{2t}-e^{2t}\left\{-\frac{1}{2}te^{-2t}-\frac{1}{4}(e^{-2t})\right\}\cr
+&=&Ce^{2t}+\frac{t}{2}+\frac{1}{4}
+\end{eqnarray}
+where $\exp{2t}$ terms have been absorbed in the $C\exp{2t}$.
+\vskip .5cm
+\item (3) Find the general solution to
+\begin{eqnarray}
+y_1'&=&5y_2-23\nonumber\\ y_2'&=&5y_1+15.
+\end{eqnarray}
+with $y_1(0)=-3$ and $y_2(0)=5$.
+\vskip .5cm
+\soln First of all rewrite the equation in matrix form
+\begin{equation}
+{\bf y}'=\left(\begin{array}{cc}0&5\\5&0\end{array}\right){\bf y}+\left(\begin{array}{c}-23\\15\end{array}\right).
+\end{equation}
+Now, the matrix
+\begin{equation}
+A=\left(\begin{array}{cc}0&5\\5&0\end{array}\right)
+\end{equation}
+has eigenvalue $\lambda_1=5$ with eigenvector  
+\begin{equation}
+{\bf x}_1=\left(\begin{array}{c}1\\1\end{array}\right)
+\end{equation}
+and eigenvalue $\lambda_1=-5$ with eigenvector  
+\begin{equation}
+{\bf x}_2=\left(\begin{array}{c}1\\-1\end{array}\right)
+\end{equation}
+so if we write 
+\begin{equation}\label{yansatz}
+{\bf y}=f_1{\bf x}_1+f_2{\bf x}_2
+\end{equation}
+and subsituting this into the differential equation gives
+\begin{equation}
+(f_1'-5f_1){\bf x}_1+(f_2'+5f_2){\bf
+x}_2=\left(\begin{array}{c}-23\\15\end{array}\right).
+\end{equation}
+\vskip .5cm
+Now to seperate the equation lets decompose the inhomogeneous part, sometimes called the forcing term, over the two eigenvectors:
+\begin{equation}
+\left(\begin{array}{c}-23\\15\end{array}\right)=h_1{\bf x}_1+h_2{\bf x}_2
+\end{equation}
+or, writing it out,
+\begin{equation}
+\left(\begin{array}{c}-23\\15\end{array}\right)=\left(\begin{array}{c}h_1+h_2\\h_1-h_2\end{array}\right)
+\end{equation}
+and, hence, $h_1=-4$ and $h_2=-19$. Putting this back into the equation leads to
+\begin{equation}
+(f_1'-5f_1){\bf x}_1+(f_2'+5f_2){\bf
+x}_2=-4{\bf x}_1-19{\bf x}_2
+\end{equation}
+Hence
+\begin{equation}
+f_1'-5f_1=-4.
+\end{equation}
+Thus, this is of the form $y'=ry+f$ with $r=5$, $f(t)=-4$ and so
+\begin{equation}
+f_1=C_1e^{5t}-4e^{5t}\int^t{e^{-5t}dt}
+\end{equation}
+and so 
+\begin{equation}
+f_1=C_1e^{5t}+\frac{4}{5}
+\end{equation}
+where I have committed the common notational laziness of using $t$ inside the integration sign as well as outside, people do this a lot, because you can think of the integral as being closed off from the rest of the equation, but if it confuses you, keep using $\tau$ inside the integral. 
+Similarly,
+\begin{equation}
+f_2'+5f_2=-19
+\end{equation}
+Thus, $r=-5$, $f(t)=19$ and using integrating gives above 
+\begin{equation}
+f_2=C_2e^{-5t}-\frac{19}{5}.
+\end{equation}
+The general solution is therefore
+\begin{equation}
+{\bf y}=\left(C_1e^{5t}+\frac{4}{5}\right)\left(\begin{array}{c}1\\1\end{array}\right)+\left(C_2e^{-5t}-\frac{19}{5}\right)\left(\begin{array}{c}1\\-1\end{array}\right).
+\end{equation}
+\vskip .5cm
+If $y_1(0)=-3$ and $y_2(0)=5$ then we get
+\begin{equation}
+\left(\begin{array}{c}-3\\5\end{array}\right)
+=\left(C_1+\frac{4}{5}\right)\left(\begin{array}{c}1\\1\end{array}\right)+\left(C_2-\frac{19}{5}\right)\left(\begin{array}{c}1\\-1\end{array}\right).
+\end{equation}
+and hence
+\begin{eqnarray}
+-3&=&C_1+C_2-3\cr
+5&=&C_1-C_2+\frac{23}{5}
+\end{eqnarray}
+so $C_1=-C_2=1/5$ and
+\begin{equation}
+{\bf y}=\left(\frac{1}{5}e^{5t}+\frac{4}{5}\right)\left(\begin{array}{c}1\\1\end{array}\right)+\left(-\frac{1}{5}e^{-5t}-\frac{19}{5}\right)\left(\begin{array}{c}1\\-1\end{array}\right).
+\end{equation}
+\vskip .5cm
+\item (2) Find the solution to
+\begin{eqnarray}
+y_1'&=&y_1+3y_2+e^t\nonumber\\
+y_2'&=&3y_1+y_2
+\end{eqnarray}
+\vskip .5cm
+\soln Here we have
+\begin{equation}
+{\bf y}=A{\bf y}+\left(\begin{array}{c}e^t\\0\end{array}\right)
+\end{equation}
+where 
+\begin{equation}
+A=\left(\begin{array}{cc}1&3\\3&1\end{array}\right),
+\end{equation}
+this has eigenvalue $\lambda_1=4$ with eigenvector  
+\begin{equation}
+{\bf x}_1=\left(\begin{array}{c}1\\1\end{array}\right)
+\end{equation}
+and eigenvalue $\lambda_1=-2$ with eigenvector  
+\begin{equation}
+{\bf x}_2=\left(\begin{array}{c}1\\-1\end{array}\right).
+\end{equation}
+\vskip .5cm
+Once again, we split the forcing term over the two eigenvectors:
+\begin{equation}
+\left(\begin{array}{c}e^t\\0\end{array}\right)=\frac{e^t}{2}{\bf x}_1+\frac{e^t}{2}{\bf x}_2
+\end{equation}
+We get
+\begin{equation}
+f_1-4f_1=\frac{1}{2}e^t
+\end{equation}
+so 
+\begin{equation}
+f_1=C_1e^{4t}+\frac{1}{2}e^{4t}\int^t e^{-3t}dt.
+\end{equation}
+and so, 
+\begin{equation}
+f_1=C_1e^{4t}-\frac{1}{6}e^t
+\end{equation}
+In the same way
+\begin{equation}
+f_2+2f_2=\frac{1}{2}e^t
+\end{equation}
+and so
+\begin{equation}
+f_2=C_2e^{-2t}+\frac{1}{2}e^{-2t}\int^t e^{3t}dt.
+\end{equation}
+Integrating gives
+\begin{equation}
+f_2=C_2e^{-t}+\frac{1}{6}e^t
+\end{equation}
+This means 
+\begin{equation}
+{\bf y}=\left(C_1e^{4t}-\frac{1}{6}e^t\right)\left(\begin{array}{c}1\\1\end{array}\right)+\left(C_2e^{-t}+\frac{1}{6}e^t\right)\left(\begin{array}{c}1\\-1\end{array}\right)
+\end{equation} 
+\vskip .5cm
+\item (1) Rewrite $y''+4y'-3y=0$ as a system of two first order differential equations.
+\vskip .5cm
+\soln So $y_1=y$, $y_2=y_1'$ hence $y_2'=y''=3y-4y'=3y_1-4y_2$ giving
+\begin{eqnarray}
+y_1'&=&y_2\cr
+y_2'&=&3y_1-4y_2
+\end{eqnarray}
+\end{enumerate} 
+}
+\end{document}

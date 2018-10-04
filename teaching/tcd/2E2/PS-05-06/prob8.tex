@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+{\bf 2E2 Tutorial Sheet 8\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/2E2.html}}}\\[1cm] 4 December 2005
+\end{center}
+
+\noindent {\bf Useful facts:}\\
+\begin{itemize}
+\item Standard Z-transforms
+\begin{eqnarray}
+{\cal Z}\left[(r^n)_{n=0}^\infty\right]&=&\frac{z}{z-r}\cr
+{\cal Z}\left[(nr^{n-1})_{n=0}^\infty\right]&=&\frac{z}{(z-r)^2}
+\end{eqnarray}
+\item Advancing and delaying:
+\begin{eqnarray}
+{\cal Z}\left[(x_{n+1})_{n=0}^\infty\right]&=&zX(z)-zx_0\cr
+{\cal Z}\left[(x_{n+2})_{n=0}^\infty\right]&=&z^2X(z)-z^2x_0-zx_1\cr
+{\cal Z}\left[(x_{n-n_0})_{n=0}^\infty\right]&=&\frac{1}{z^{n_0}}X(z)
+\end{eqnarray}
+where ${\cal Z}[(x_n)]=X(z)$ .
+\item Delta pulse: $(\delta_n)_{n=0}^\infty=(1,0,0,0,\ldots)$ and ${\cal Z}\left[(\delta_n)_{n=0}^\infty\right]=1$.
+\end{itemize}
+\vskip .5cm
+{\bf Questions}
+\begin{enumerate}
+\item (2) Use the Z-tranform to solve the difference equation
+\begin{equation}
+x_{k+2}-8x_{k+1}+15x_k=1
+\end{equation}
+with $x_1=0$ and $x_0=0$.
+\vskip .5cm
+\item (2) Use the Z-tranform to solve the difference equation
+\begin{equation}
+x_{k+2}-8x_{k+1}+15x_k=3^k
+\end{equation}
+with $x_1=0$ and $x_0=0$.
+\vskip .5cm
+\item (2) Use the Z-tranform to solve the difference equation
+\begin{equation}
+x_{k+2}-8x_{k+1}+15x_k=\delta_k
+\end{equation}
+with $x_1=0$ and $x_0=0$. Remember $\delta_k$ is the unit pulse with
+$\delta_k=(1,0,0,0,\ldots)$.
+\vskip .5cm
+\item (2) Use the Z-tranform to solve the difference equation
+\begin{equation}
+x_{k+2}-8x_{k+1}+15x_k=0
+\end{equation}
+with $x_1=2$ and $x_0=3$.
+\end{enumerate}
+
+\end{document}

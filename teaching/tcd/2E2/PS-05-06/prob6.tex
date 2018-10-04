@@ -1,0 +1,86 @@
+ \documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand{\soln}{\noindent\textit{Solution:}}
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+
+{\bf 2E2 Tutorial Sheet 6 First Term\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/2E2.html}}\\[1cm] 20 November 2005}
+\end{center}
+
+
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\noindent {\bf Useful facts:}
+
+\begin{itemize}
+
+\item Laplace transform of a periodic function with
+period $c$:
+\begin{equation}
+{\cal L}(f)=\frac{1}{1-e^{-cs}}\int_0^c f(t)e^{-st}dt
+\end{equation}
+
+\item Integration by parts:
+\begin{equation}
+\int_a^b udv=\left. uv\right]_a^b-\int_a^b vdu
+\end{equation}
+
+\item The convolution:
+\begin{equation}
+f*g(t)=\int_0^t f(\tau)g(t-\tau)d\tau
+\end{equation}
+
+
+\item The convolution theorem, for two functions $f(t)$ and $g(t)$
+\begin{equation}
+{\cal L}(f*g)={\cal L}(f){\cal L}(g)
+\end{equation}
+
+\end{itemize}
+
+\vskip 1cm
+
+\noindent {\bf Questions:}
+
+\begin{enumerate}
+
+\item (2) Verify the formula ${\cal L}(f*g)={\cal L}(f){\cal L}(g)$ in the case where $f=\exp{(2t)}$ and $g=\exp{(2t)}$. 
+\vskip 1cm
+\item (3) Find the convolution $(f*g)(t)$ when $f(t) = t$, $g(t) = e^{2t}$ ($t
+\geq 0$).
+\vskip 1cm
+\item (3) Use the convolution theorem to find the function $f(t)$ with
+\begin{equation}
+\mathcal{L}(f) = \frac{1}{s^2(s-4)}.
+\end{equation}
+
+\end{enumerate}
+
+\vfill
+
+
+\end{document}

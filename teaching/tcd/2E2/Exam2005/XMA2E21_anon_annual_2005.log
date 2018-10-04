@@ -1,0 +1,91 @@
+This is TeX, Version 3.14159 (Web2C 7.3.1) (format=latex 2000.8.10)  1 JUL 2005 00:53
+**XMA2E21_anon_annual_2005
+(XMA2E21_anon_annual_2005.tex
+LaTeX2e <2000/06/01>
+Babel <v3.6Z> and hyphenation patterns for american, british, nohyphenation, lo
+aded.
+(/common/teTeX/texmf/tex/latex/LaTeX2000/latex2e/base/article.cls
+Document Class: article 2000/05/19 v1.4b Standard LaTeX document class
+(/common/teTeX/texmf/tex/latex/LaTeX2000/latex2e/base/size10.clo
+File: size10.clo 2000/05/19 v1.4b Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/common/teTeX/texmf/tex/latex/LaTeX2000/latex2e/base/inputenc.sty
+Package: inputenc 2000/07/01 v0.996 Input encoding file 
+
+(/common/teTeX/texmf/tex/latex/LaTeX2000/latex2e/base/latin1.def
+File: latin1.def 2000/07/01 v0.996 Input encoding file 
+))
+No file XMA2E21_anon_annual_2005.aux.
+\openout1 = `XMA2E21_anon_annual_2005.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 6.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 6.
+! Missing $ inserted.
+<inserted text> 
+                $
+l.8 return_
+           type&anonymous mark return\\
+? 
+! Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.8 return_type&
+                anonymous mark return\\
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.8 return_type&
+                anonymous mark return\\
+? r
+OK, entering \nonstopmode...
+! Missing } inserted.
+<inserted text> 
+                }
+l.8 return_type&
+                anonymous mark return\\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+[1
+
+] [2] [3] [4] [5] (XMA2E21_anon_annual_2005.aux) ) 
+Here is how much of TeX's memory you used:
+ 240 strings out of 61443
+ 2706 string characters out of 948236
+ 51028 words of memory out of 263001
+ 3230 multiletter control sequences out of 10000+60000
+ 4245 words of font info for 16 fonts, out of 400000 for 1000
+ 22 hyphenation exceptions out of 1000
+ 23i,7n,17p,157b,162s stack positions out of 300i,100n,500p,50000b,10000s
+
+Output written on XMA2E21_anon_annual_2005.dvi (5 pages, 9304 bytes).

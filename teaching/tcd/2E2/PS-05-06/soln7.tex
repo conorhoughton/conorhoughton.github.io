@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand\soln{\noindent\textit{Solution:} }
+
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+{\bf 2E2 Tutorial Sheet 7 Solutions\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/2E2.html}}}\\[1cm] 27 November 2005
+\end{center}
+{
+{\bf Questions}
+\begin{enumerate}
+\item (2) Find the Z-transform of the sequence $(2,0,1,0,-3,0,0,\ldots)$  where all the other entries are zero. 
+\vskip 1cm
+\soln So, use the formula
+\begin{equation}
+{\cal Z}[(x_n)]=\sum_{n=0}^\infty{\frac{x_n}{z^n}}
+\end{equation}
+to get
+\begin{equation}
+{\cal Z}[(2,0,1,0,-3,0,0,\ldots)]=2+\frac{1}{z^2}-\frac{3}{z^4}
+\end{equation}
+\vskip 1cm
+\item (2) Find the Z-transform of the geometric sequence $(3,15,75,375,\ldots)$. 
+\vskip 1cm
+\soln This sequence has the form $3\times 5^n$ so we can use the
+formula for the geometric sequence to get
+\begin{equation}
+{\cal Z}[(3\times 5^n)]=3{\cal Z}[(5^n)]=\frac{3z}{z-5}
+\end{equation}
+\vskip 1cm
+\item (2) Find the Z-transform of the sequence $(6,12,24,\ldots)$ both
+by considering it the advance of the sequence $(3,6,12,24,\ldots)$ and
+by applying the formula for geometrical sequences directly. Do you get
+the same answer?
+
+\soln Now this example is advanced by one step, so we use the formula
+\begin{equation}
+{\cal Z}[(x_{k+1})]=zX(z)-zx_0
+\end{equation}
+where $X(z)={\cal Z}[(x_{n})]$. In this case we have
+\begin{equation}
+{\cal Z}[(3,6,12,24,\ldots)]=\frac{3z}{z-2}
+\end{equation}
+so
+\begin{equation}
+{\cal Z}[(6,12,24,\ldots)]=z\frac{3z}{z-2}-3z=\frac{3z^2}{z-2}-3z=\frac{6z}{z-2}\end{equation}
+Working directly, this is the sequence $6\times 2^n$ and so the Z-transform is
+\begin{equation}
+{\cal Z}[(6\times 2^n)]=6{\cal Z}[(2^n)]=\frac{6}{z-2}
+\end{equation}
+which is, of course, the same answer.
+
+
+
+\item (2) For the difference equation
+\begin{equation}
+x_{k+1}=-3x_k
+\end{equation}
+with $x_0=1$ work out $X(z)={\cal Z}[(x_n)]$ by taking the Z-transform of both sides of the equation. Use this to solve the equation.
+\vskip 1cm
+\soln So taking the Z-transform of both sides we get
+\begin{equation}
+zX-z=-3X
+\end{equation}
+So 
+\begin{equation}
+X=\frac{z}{z+3}
+\end{equation}
+Now
+\begin{equation}
+x_k=(-3)^k
+\end{equation}
+\end{enumerate}
+}
+\end{document}

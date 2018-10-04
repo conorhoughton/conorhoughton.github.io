@@ -1,0 +1,76 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand\soln{\noindent\textit{Solution:} }
+
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+{\bf 2E2 Tutorial Sheet 7\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/2E2.html}}}\\[1cm] 27 November 2005
+\end{center}
+{
+\noindent {\bf Useful facts:}\\
+\begin{itemize}
+\item Z-transform:
+\begin{equation}
+{\cal Z}\left[(x_n)_{n=0}^\infty\right]=\sum_{n=0}^\infty \frac{x_n}{z^n}
+\end{equation}
+\item Linearity:
+\begin{equation}
+{\cal Z}\left[a(x_n)+b(y_n)\right]=aX(z)+bY(z)
+\end{equation}
+where ${\cal Z}[(x_n)]=X(z)$ and ${\cal Z}[(y_n)]=Y(z)$
+\item The Z-transform of a geometric sequence:
+\begin{equation}
+{\cal Z}\left[(r^n)_{n=0}^\infty\right]=\frac{z}{z-r}
+\end{equation}
+\item Another useful Z-transform:
+\begin{equation}
+{\cal Z}\left[(nr^{n-1})_{n=0}^\infty\right]=\frac{z}{(z-r)^2}
+\end{equation}
+\item Advancing:
+\begin{equation}
+{\cal Z}\left[(x_{n+1})_{n=0}^\infty\right]=zX(z)-zx_0
+\end{equation}
+where ${\cal Z}[(x_n)]=X(z)$ .
+\end{itemize}
+\vskip 1cm
+{\bf Questions}
+\begin{enumerate}
+\item (2) Find the Z-transform of the sequence $(2,0,1,0,-3,0,0,\ldots)$ where all the other entries are zero.
+\item (2) Find the Z-transform of the geometric sequence $(3,15,75,375,\ldots)$. 
+\item (2) Find the Z-transform of the sequence $(6,12,24,\ldots)$ both
+by considering it the advance of the sequence $(3,6,12,24,\ldots)$ and
+by applying the formula for geometrical sequences directly. Do you get
+the same answer?
+\item (2) For the difference equation
+\begin{equation}
+x_{k+1}=-3x_k
+\end{equation}
+with $x_0=1$ work out $X(z)={\cal Z}[(x_n)]$ by taking the Z-transform of both sides of the equation. Use this to solve the equation.
+\end{enumerate}
+}
+\end{document}

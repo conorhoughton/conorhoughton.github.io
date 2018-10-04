@@ -1,0 +1,96 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+{\bf 2E2 Tutorial Sheet 9\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/2E2.html}}}\\[1cm] 8 January 2006
+\end{center}
+
+\noindent {\bf Useful facts:}\\
+\begin{itemize}
+\item Working out the eigenvalues of a $2\times 2$ matrix: say your matrix is
+\begin{equation}
+A=\left(\begin{array}{cc}a_{11}&a_{12}\\a_{21}&a_{22}\end{array}\right)
+\end{equation}
+then the characteristic equation is
+\begin{equation}
+\det{(A-\lambda{\bf 1})}=\left|\begin{array}{cc}a_{11}-\lambda&a_{12}\\a_{21}&a_{22}-\lambda\end{array}\right|=(a_{11}-\lambda)(a_{22}-\lambda)-a_{12}a_{21}=0
+\end{equation}
+The eigenvalues $\lambda_1$ and $\lambda_2$ are the two solutions of this equation.
+\vskip .5cm
+\item Working out the eigenvectors: say $\lambda_1$ is an eigenvalue of the $2\times 2$ matrix $A$ then to work out the eigenvalue ${\bf x}_1$ corresponding to $\lambda_1$ let 
+\begin{equation}
+{\bf x}_1=\left(\begin{array}{c}a\\b\end{array}\right)
+\end{equation}
+and solve the equation
+\begin{equation}
+A{\bf x}_1=\lambda_1{\bf x}_1
+\end{equation}
+Doing out the matrix multiplication will give you two equations, but,
+all being well these will usually be the same equation so all you can
+do is solve $a$ in terms of $b$ or visa versa. To get a particular
+eigenvector you can choose $a$ or $b$ to be one.
+\vskip .5cm
+\item Solving a linear differential equation: for $A$ a $2\times 2$ matrix with eigenvalues $\lambda_1$ and $\lambda_1$ and corresponding eigenvectors ${\bf x}_1$ and ${\bf x}_2$ then if
+\begin{equation}
+{\bf y}'=A{\bf y}
+\end{equation}
+the solution is
+\begin{equation}
+{\bf y}=C_1{\bf x}_1e^{\lambda_1t}+C_2{\bf x}_2e^{\lambda_2t}
+\end{equation}
+where $C_1$ and $C_2$ are arbitrary constants.
+\end{itemize}
+\newpage
+{\bf Questions}
+\begin{enumerate}
+\item (3) Find the eigenvectors and eigenvalues of the following matrices
+\begin{equation}\begin{array}{lcclcclc}
+(i)&\left(\begin{array}{cc}10&-4\\18&-12\end{array}\right)&\qquad&
+(ii)&\left(\begin{array}{cc}4&0\\0&-6\end{array}\right)&\qquad&
+(iii)&\left(\begin{array}{cc}0&r\\r&0\end{array}\right)\\[15pt]
+\end{array}
+\end{equation}
+\vskip .5cm
+\item (2) Find the eigenvectors and eigenvalues of the following matrices
+\begin{equation}\begin{array}{lcclcc}
+(i)&\left(\begin{array}{cc}3&4\\4&-3\end{array}\right)&\qquad&
+(ii)&\left(\begin{array}{cc}0&3\\-3&0\end{array}\right)&\qquad
+\end{array}
+\end{equation}
+\vskip .5cm
+\item (3) Find the solution for the system
+\begin{eqnarray}
+\frac{dy_1}{dt}&=&-3y_1+2y_2\\
+\frac{dy_2}{dt}&=&-2y_1+2y_2
+\end{eqnarray}
+\end{enumerate}
+
+
+
+\end{document}

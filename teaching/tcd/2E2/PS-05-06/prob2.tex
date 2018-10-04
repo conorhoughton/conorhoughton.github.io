@@ -1,0 +1,116 @@
+ \documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+\textsf{
+{\bf 2E2 Tutorial Sheet 2 First Term\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/2E2.html}}}\\[1cm] 26 October 2004}
+\end{center}
+
+
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\noindent {\bf Useful facts:}
+\begin{itemize}
+\item Laplace transform of differenciated functions: if ${\cal L}[f(t)]=F(s)$ then
+\begin{equation}
+{\cal L}(f')=sF-f(0)
+\end{equation}
+and
+\begin{equation}
+{\cal L}(f'')=s^2F-sf(0)-f'(0)
+\end{equation}                                
+
+\item Partial fractions: assume
+\begin{equation}
+\frac{a}{(s-b)(s-c)}=\frac{A}{s-b}+\frac{B}{s-c}
+\end{equation}
+multiply across by $(s-b)(s-c)$
+\begin{equation}
+a=A(s-c)+B(s-b)
+\end{equation}
+and choose $s=c$ and $s=b$ to get $A$ and $B$. 
+
+\item Similarily, 
+\begin{equation}
+\frac{a}{(s-b)(s-c)(s-d)}=\frac{A}{s-b}+\frac{B}{s-c}+\frac{C}{s-d}
+\end{equation}
+then multiply across by $(s-b)(s-c)(s-d)$ and choose $s$ equal to $b$, $c$ and $d$ to get $A$, $B$ and $C$.
+
+\item Finally, it doesn't matter if there is a polynomial in $s$ above the line:\begin{equation}
+\frac{as+e}{(s-b)(s-c)(s-d)}=\frac{A}{s-b}+\frac{B}{s-c}+\frac{C}{s-d}
+\end{equation}
+then multiply across by $(s-b)(s-c)(s-d)$ and choose $s$ equal to $b$, $c$ and $d$ to get $A$, $B$ and $C$.
+
+
+\end{itemize}
+
+\newpage
+
+\noindent {\bf Questions}
+%the previous year had an extra question on laplace of f' that is left out here
+
+\begin{enumerate}
+
+
+\item (2)
+Find the Laplace transform of both sides of the differential equation
+\[
+ 2 \frac{df}{dt} = 1
+\]
+with initial conditions $f(0) =4$. By solving the resulting equations
+find $F(s)$. Based on the Laplace trasforms you know, decide what $f(t)$ is.
+
+
+\item (2)
+Using the Laplace transform solve the differential equation
+\begin{equation}
+f''-4f'+3f=1
+\end{equation}
+with boundary conditions $f(0)=f'(0)=0$. You will need to do partial fractions.
+
+\item (2)
+Using the Laplace transform solve the differential equation
+\begin{equation}
+f''-4f'+3f=0
+\end{equation}
+with boundary conditions $f(0)=1$ and $f'(0)=1$.
+
+\item (2)
+Using the Laplace transform solve the differential equation
+\begin{equation}
+f''-4f'+3f=0
+\end{equation}
+with boundary conditions $f(0)=1$ and $f'(0)=0$.
+
+\end{enumerate}
+
+\vfill
+
+\noindent
+
+\end{document}

@@ -1,0 +1,253 @@
+
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand\soln{\noindent\textit{Solution:} }
+
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+{\bf 2E2 Tutorial Sheet 24, Solutions\footnote{Conor Houghton, {\tt
+houghton@maths.tcd.ie} and {\tt http://www.maths.tcd.ie/\char126
+houghton/2E2.html} }}\\[.5cm] 18 May 2006\\[1cm]
+\end{center}
+{
+\noindent This problem sheet relates to solving the Dirichlet problem
+for the heat equation.. Dirichlet boundary conditions fix the values
+at the end.  Consider an iron bar on which heat obeys the heat
+equation:
+\begin{equation}
+\frac{\partial^2 u}{\partial x^2}=\frac{\partial u}{\partial t}
+\end{equation}
+where  $u(x,t)$ and the boundary conditions are
+\begin{equation}
+ u(0,t)= u(\pi,t)=0
+\end{equation}
+\begin{enumerate}
+\item (2) Writing $u(x,t)=T(t)X(x)$ show this equation is equivalent to the equations
+\begin{eqnarray}
+\frac{d^2 X}{d x^2}&=&EX\nonumber\\
+\frac{d T}{d t}&=&ET
+\end{eqnarray}
+where $E$ is some constant.
+\vskip .25cm
+\soln The main trick for multi-variable problems like this is to try and seperate the
+equation for $u$ into a function of $x$ and $t$ into two equations, one for
+a function of $x$ and the other for a function of $t$. This way, we
+are able to use the ordinary differential equation methods we have
+already learned to solve the more complicated example where there is
+more than one variables. There are a number of trick for doing this
+depending on the equation, but the one that works for the heat
+equation, along with a number of other important examples, is the
+seperation of variables method. According to this method, you assume
+the function $u$ can be written as the multiple of two function, one,
+which we will call $T$ is just a function of $t$ and the other, which
+we call $X$ is just a function of $x$. Obviously, not every function
+of $x$ and $t$ can be split in this way, we are just imagining that
+$u$ can be. Although we won't make much of it here, in fact most functions can be written as the sum of
+functions that are of this form and, for a linear equation, that's
+good enough.
+
+So, we make the assumption and substitute $u=TX$ into the equation. The $x$ differenciation only acts on the $X$ and, in turn, the $X$ only depends on $x$. In the same way, the $t$ differentiation only acts on $T$ and $T$ in turn only depends on $t$. Thus, the equation becomes
+\begin{equation}
+T\frac{d^2 X}{d x^2}=\frac{d T}{dt}X
+\end{equation}
+Now divide across by $TX$
+\begin{equation}
+\frac{1}{X}\frac{d^2 X}{d x^2}=\frac{1}{T}\frac{d T}{dt}
+\end{equation}
+We still have only one equation, but it has a very suprising form, all
+the $x$ stuff is on one side and all the $t$ stuff is on the
+other. $x$ and $t$ are supposed to be independent variables: $x$
+doesn't depend on $t$ and $t$ doesn't depend on $x$. Hence, we should
+be able to hold $x$ fixed and change $t$ and still have the equation
+stay true. But holding $x$ fixed and changing $t$ can only change the
+right hand side of the equation, not the left, and that would be a
+contradition, the equation wouldn't hold, unless it was a fact that
+the right hand side didn't change when $t$ was changed, in other
+words, unless the right hand side of the equation is a
+constant. Basically, by the same arguement the left hand side must be
+a constant too, so the heat equation, using seperation of variables
+comes down to an equation which only makes sense if
+\begin{equation}
+\frac{1}{T}\frac{d T}{dt}
+\end{equation}
+is a constant
+\begin{equation}
+\frac{1}{T}\frac{d T}{dt}
+\end{equation}
+is a constant. Usually, this constant is given the name $E$ and hence,
+by this suprising trick, the seperation of variables assumption
+$u=X(x)T(t)$ has turned one equation with two variables into two
+equations with one variable:
+\begin{eqnarray}
+\frac{1}{X}\frac{d^2 X}{d x^2}&=&E\nonumber\\
+\frac{1}{T}\frac{d T}{d t}&=&E
+\end{eqnarray}
+The only thing is we don't know the value of this new constant $E$, in
+fact, if you solve these two equations to get $X$ and $T$ and multiply
+them together to get $u$, you have a solution to the heat equation, no
+matter what value $E$ has, but we will see that only special values of
+$E$ give solutions that satisfy the boundary conditions.
+
+Multiply the first equation by $X$ and the second by $T$ to get the
+answer.
+\begin{eqnarray}
+\frac{d^2 X}{d x^2}&=&EX\nonumber\\
+\frac{d T}{d t}&=&ET
+\end{eqnarray}
+\vskip .25cm
+\item (2) Solve these equations and argue from the boundary conditions that $E$ must be negative. Writing $E=-k^2$ calculate what values of $k$ satisfy the boundary conditions.
+\vskip .25cm
+\soln Now the $T$ equation is easy to solve, either by guessing the answer and substituting it in, or by integration or indeed by using the Laplace transform, we get
+\begin{equation}
+u=Ae^{Et}
+\end{equation}
+For the second $X$ there are two possibile types of solution depending
+on the sign of $E$, basically, we will see, if $E$ is positive, then
+the $X$ equation is solved by real exponentials, but if it is
+negative, it is solved by trignometric functions. What we find is that
+the corresponding $u$ can only solve the boundary condition if we have
+the trignometric solution, if $E$ is negative. 
+
+So, to go through that, if $E$ is positive, we make that clear by
+writing it as the square of something, the square of a real number is
+positive, so we write $E=k^2$ where $k$ denotes a real number, the
+square root of $E$. Now, it is easy to check, for example, by
+substituting back in, or solving by converting to first order and
+using matrices or even by using Laplace that the solution is
+\begin{equation}
+X=C_1e^{kx}+C_2e^{-kx}
+\end{equation}
+In other words, there are lots of ways to solve the equation, the
+simplest is probably to kind of remember the solution and check you
+guess by substitution:
+\begin{eqnarray}
+X'&=&C_1ke^{kx}-kC_2e^{-kx}\cr
+X''&=&C_1k^2e^{kx}+k^2C_2e^{-kx}=EX\cr
+\end{eqnarray}
+
+On the other hand, if $E$ is negative, we can make it clear by
+writting it is minus the square of something, so we write $E=-k^2$, in which case the solution is
+\begin{equation}
+X=C_1\cos{kx}+C_2\sin{kx}
+\end{equation}
+Again, there are a number of ways of seeing these are the solutions,
+the first is to know they are the solutions and quickly check that
+differenciating $X$ twive gives the right thing, another is to split
+the equation into two first order equations and the write in matrix
+form, as we did after Christmas and the third is to use the Laplace
+transform.
+\vskip .25cm
+Now, the $u$ that comes from the positive case can never satisfy the
+boundary conditions,
+\begin{equation}
+u(0,t)=u(\pi,t)=0
+\end{equation}
+because we have
+\begin{equation}
+u=TX=\left(C_1e^{kx}+C_2e^{-kx}\right)e^{k^2t}
+\end{equation}
+where the $A$ has been absorbed into the other two arbitrary constants.
+and so, if 
+\begin{equation}
+ u(0,t)=0
+\end{equation}
+then 
+\begin{equation}
+\left(C_1+C_2\right)e^{k^2t}
+\end{equation}
+so that $C_1=-C_2$. Now 
+\begin{equation}
+ u(\pi,t)=C_1\left(e^{k\pi}-e^{-k\pi}\right)e^{k^2t}
+\end{equation}
+which is only zero if 
+\begin{equation}
+e^{k\pi}-e^{-k\pi}=0
+\end{equation}
+which never happens for non-zero $\pi$ and $k$. 
+\vskip .25cm
+Choosing the negative solutions, this gives 
+\begin{equation}
+u=TX=\left[C_1\cos{(kx)}+C_2\sin{(kx)}\right]e^{-k^2t}
+\end{equation}
+so
+\begin{equation}
+ u(t,0)=C_1e^{-k^2t}
+\end{equation}
+and only gives zero when $C_1=0$, hence
+\begin{equation}
+ u(\pi,t)= C_2\sin{(k\pi)}e^{-k^2t}
+\end{equation}
+and this is zero if $k=n$ where $n$ is any integer. Hence, if $C_1=0$ and $E$ is fixed to
+be
+\begin{equation}
+E=-n^2
+\end{equation}
+where $n$ is an integer we get a $u$ that solves the heat equation and
+satisfies the boundary conditions. Hence, solutions are of the form
+\begin{equation}
+u=A_n\sin{nx}e^{-n^2 t}
+\end{equation}
+where, for convenience, we are using the name $A_n$ for the arbitrary
+constant when $E=-n^2$.
+
+In fact, this is a linear equation so the sum of solutions is a solution and so
+\begin{equation}
+u=\sum_{n=0}^\infty A_n\sin{nx}e^{-n^2 t}
+\end{equation}
+is a solution. This is the clever thing, we start off looking for one
+solution, but end up with a whole family of solutions, one for each
+$n$ and, since the equation is linear we can just add them all
+together. There is still the initial condition to deal with, in
+general, matching the initial condition comes down to Fourier series,
+but we have an easier example in the next question.
+\vskip .25cm
+\item (2) Say the initial condition is 
+\begin{equation}
+u(x,0)=f(x)=\sin{x}-\sin{4x}
+\end{equation}
+what is $u(x,t)$.
+\vskip .25cm
+\soln So the general solution is
+\begin{equation}
+u=\sum_{n=0}^\infty A_n\sin{nx}e^{-n^2 t}
+\end{equation}
+and at $t=0$ this gives
+\begin{equation}
+u(x,0)=\sum_{n=0}^\infty A_n\sin{nx}
+\end{equation}
+which matches up with the initial condition if $A_1=1$, $A_4=-1$ and
+all the others are zero. Hence putting these $A$s back in
+\begin{equation}
+u(x,t)=\sin{x}e^{-t}-\sin{4x}e^{-16t}
+\end{equation}
+\end{enumerate}
+}
+\end{document}
+
+
+

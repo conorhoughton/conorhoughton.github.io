@@ -1,0 +1,202 @@
+ \documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand{\soln}{\noindent\textit{Solution:}}
+
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+
+{\bf 2E2 Tutorial Sheet 5 Solutions\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/2E2.html}}\\[1cm] 12 November 2005}
+\end{center}
+
+
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+
+
+\noindent {\bf Questions}
+
+\begin{enumerate}
+
+\item (2) Solve, using Laplace transforms, 
+\begin{equation}
+f''+4f=1
+\end{equation}
+with $f(0)=f'(0)=0$.
+
+\soln First take the Laplace transfrom of each side:
+\begin{equation}
+s^2F+4F=\frac{1}{s}
+\end{equation}
+and so 
+\begin{equation}
+F=\frac{1}{s(s+2i)(s-2i)}
+\end{equation}
+Now lets do partial fractions
+\begin{equation}
+\frac{1}{s(s+2i)(s-2i)}=\frac{A}{s}+\frac{B}{s+2i}+\frac{C}{s-2i}
+\end{equation}
+giving
+\begin{equation}
+1=A(s-2i)(s+2i)+Bs(s-2i)+Cs(s+2i)
+\end{equation}
+hence, choosing $s=0$ gives $A=1/4$, $s=-2i$ gives
+\begin{equation}
+1=B(-2i)(-4i)=-8B
+\end{equation}
+hence $B=-1/8$. $s=2i$ gives $C=-1/8$ also. Now
+\begin{equation}
+F=\frac{1}{4}\frac{1}{s}-\frac{1}{8}\frac{1}{s+2i}-\frac{1}{8}\frac{1}{s-2i}
+\end{equation}
+so 
+\begin{equation}
+f=\frac{1}{4}-\frac{1}{8}\left(e^{-2it}+e^{2it}\right)
+\end{equation}
+then, using 
+\begin{equation}
+\cos{2t}=\frac{e^{2it}+e^{-2it}}{2}
+\end{equation}
+we conclude
+\begin{equation}
+f=\frac{1}{4}-\frac{1}{4}\cos{2t}
+\end{equation}
+
+\item (3)
+Using the Laplace transform solve the differential equation
+\begin{equation}
+f''+6f'+13f=e^t
+\end{equation}
+with boundary conditions $f(0)=0$ and $f'(0)=0$.
+
+\soln
+Taking the Laplace transform of the equation gives
+\begin{equation}
+s^2F+6sF+13F=\frac{1}{s-1}
+\end{equation}
+so that
+\begin{equation}
+F=\frac{1}{(s-1)(s+3+2i)(s+3-2i)}.
+\end{equation}
+We write
+\begin{equation}
+\frac{1}{(s-1)(s+3+2i)(s+3-2i)}=\frac{A}{s+3-2i}+\frac{B}{s+3+2i}+\frac{C}{s-1}
+\end{equation}
+giving
+\begin{equation}
+1=A(s-1)(s+3+2i)+B(s-1)(s+3-2i)+C(s+3-2i)(s+3+2i).
+\end{equation}
+$s=-3+2i$ gives
+\begin{equation}
+1=A(-4+2i)(4i)=A(-8-16i)
+\end{equation}
+so
+\begin{equation}
+A=-\frac{1}{8+16i}=-\frac{1}{8+16i}\frac{8-16i}{8-16i}=-\frac{1-2i}{40}
+\end{equation}
+In the same way, $s=-3-2i$ leads to 
+\begin{equation}
+B=-\frac{1+2i}{40}
+\end{equation}
+and, finally, $s=1$ gives
+\begin{equation}
+C=\frac{1}{20}.
+\end{equation}
+\vskip 1cm
+Putting all this together we get
+\begin{equation}
+F=-\frac{1-2i}{40}\frac{1}{s+3-2i}-\frac{1+2i}{40}\frac{1}{s+3+2i}+\frac{1}{20}\frac{1}{s-1}
+\end{equation}
+and so 
+\begin{eqnarray}
+f&=&-\frac{1-2i}{40}e^{-(3-2i)t}-\frac{1+2i}{40}e^{-(3+2i)t}+\frac{1}{20}e^t\nonumber\\
+&=&-\frac{1}{40}e^{-3t}\left[(1-2i)e^{2it}+(1+2i)e^{-2it}\right]+\frac{1}{20}e^t
+\end{eqnarray}
+We then substitute in 
+\begin{eqnarray}
+e^{2it}&=&\cos{2t}+i\sin{2t}\nonumber\\
+e^{-2it}&=&\cos{2t}-i\sin{2t}
+\end{eqnarray}
+to end up with 
+\begin{equation}
+f=-\frac{1}{20}e^{-3t}[2\sin{2t}+\cos{2t}]+\frac{1}{20}e^t
+\end{equation}
+
+\item (3) Use the formula for the Laplace transform of a periodic function
+to find the Laplace transform of  a half-rectified wave
+\begin{equation}
+f(t)=\left\{\begin{array}{ll}\sin{t}&\sin{t}>0\\0&\sin{t}\le 0\end{array}\right.\end{equation}
+\begin{center}
+\epsfig{file=rectifiedwave.epsi,width=15cm}
+\end{center}
+This is the form a AC current has after going through a diode and is a periodic function with period $2\pi$.
+\soln
+So we substitute this into the formula
+\begin{equation}
+{\cal L}(f)=\frac{1}{1-e^{-2\pi s}}\int_0^{2\pi} f(t)e^{-st}dt=\frac{1}{1-e^{-2\pi s}}\int_0^\pi \sin{t}e^{-st}dt
+\end{equation}
+We need to do the integral. There are two obvious ways, the first is
+to split the sine into exponentials
+\begin{eqnarray}
+\int_0^\pi \sin{t}e^{-st}dt&=&\frac{1}{2i}\left(\int_0^\pi e^{(i-s)t}dt-\int_0^\pi e^{-(i+s)t}dt\right)\nonumber\\
+&=&
+\frac{1}{2i}\left[\frac{1}{i-s}\left( e^{(i-s)\pi}-1\right)+\frac{1}{i+s}\left( e^{-(i+s)\pi}-1\right)\right]
+\end{eqnarray}
+Now, we use 
+\begin{equation}
+e^{i\pi}=e^{-i\pi}=-1
+\end{equation}
+and
+\begin{eqnarray}
+\frac{1}{i-s}&=&\frac{1}{i-s}\frac{-i-s}{-i-s}=-\frac{s+i}{s^2+1}\nonumber\\
+\frac{1}{i+s}&=&\frac{1}{i+s}\frac{-i+s}{-i+s}=\frac{s-i}{s^2+1}
+\end{eqnarray}
+to get
+\begin{equation}\label{ans}
+\int_0^\pi \sin{t}e^{-st}dt=\frac{1+e^{-s\pi}}{1+s^2}
+\end{equation}
+or 
+\begin{equation}
+{\cal L}(f)=\frac{1}{s^2+1}\frac{1+e^{-s\pi}}{1-e^{-2s\pi}}=\frac{1}{s^2+1}\frac{1}{1-e^{-s\pi}}
+\end{equation}
+where the final equality uses 
+\begin{equation}
+1-e^{-2s\pi}=\left(1-e^{-s\pi}\right)\left(1+e^{-s\pi}\right)
+\end{equation}
+\vskip 1cm
+The other way to do the integral is to integrate by parts. Briefly, write
+\begin{eqnarray}
+I=\int_0^\pi \sin{t}e^{-st}dt&=&-\frac{1}{s}\int_0^\pi\cos{t}e^{-st}dt\nonumber\\
+&=&-\frac{1}{s}\left[-\frac{1}{s}\left(e^{-\pi s}+1\right)+\frac{1}{s}I\right]
+\end{eqnarray}
+and solve for $I$ to get the answer given at (\ref{ans}) above.
+
+
+\end{enumerate}
+
+\vfill
+
+
+\end{document}

@@ -1,0 +1,193 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand\soln{\noindent\textit{Solution:} }
+
+
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+{\bf 2E2 Tutorial Sheet 8 Solutions\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/2E2.html}}}\\[1cm]
+4 December 2005
+\end{center}
+
+\begin{enumerate}
+\item (2) Use the Z-tranform to solve the difference equation
+\begin{equation}
+x_{k+2}-8x_{k+1}+15x_k=1
+\end{equation}
+with $x_1=0$ and $x_0=0$.
+\vskip 1cm
+\soln Start by taking the Z-transform of both sides. Writing ${\cal Z}[(x_k)]=X(z)$ and using $x_0=x_1=0$ we have
+\begin{equation}
+z^2X-8zX+15X={\cal Z}[(1)]=\frac{z}{z-1}
+\end{equation}
+Since $z^2-8z+15=(z-3)(z-5)$ we have
+\begin{equation}
+X=\frac{z}{(z-1)(z-3)(z-5)}
+\end{equation}
+or
+\begin{equation}
+\frac{1}{z}X=\frac{1}{(z-1)(z-3)(z-5)}
+\end{equation}
+Now, partial fractions:
+\begin{equation}
+\frac{1}{(z-1)(z-3)(z-5)}=\frac{A}{z-1}+\frac{B}{z-3}+\frac{C}{z-5}
+\end{equation}
+so
+\begin{equation}
+1=A(z-3)(z-5)+B(z-1)(z-5)+C(z-1)(z-3)
+\end{equation}
+Next, $z=1$ gives $A=1/8$, $z=3$ gives $B=-1/4$ and $z=5$ gives $C=1/8$. Hence
+\begin{equation}
+\frac{1}{(z-1)(z-3)(z-5)}=\frac{1}{8(z-1)}-\frac{1}{4(z-3)}+\frac{1}{8(z-5)}
+\end{equation}
+giving
+\begin{equation}
+X=\frac{z}{8(z-1)}-\frac{z}{4(z-3)}+\frac{z}{8(z-5)}
+\end{equation}
+Inverting the Z-tranform gives
+\begin{equation}
+x_k=\frac{1}{8}-\frac{1}{4}3^k+\frac{1}{8}5^k
+\end{equation}
+\vskip 1cm
+\item (2) Use the Z-tranform to solve the difference equation
+\begin{equation}
+x_{k+2}-8x_{k+1}+15x_k=3^k
+\end{equation}
+with $x_1=0$ and $x_0=0$.
+\vskip 1cm
+\soln Again, take the Z-tranform of both sides
+\begin{equation}
+z^2X-8zX+15X={\cal Z}[(3^k)]=\frac{z}{z-3}
+\end{equation}
+so
+\begin{equation}
+\frac{1}{z}X=\frac{1}{(z-3)^2(z-5)}
+\end{equation}
+We need to do a partial fraction expansion with a repeated root:
+\begin{equation}
+\frac{1}{(z-3)^2(z-5)}=\frac{A}{(z-3)^2}+\frac{B}{z-3}+\frac{C}{z-5}
+\end{equation}
+and so
+\begin{equation}
+1=A(z-5)+B(z-3)(z-5)+C(z-3)^2
+\end{equation}
+Choose $z=3$ to find $A=-1/2$, $z=5$ to get $C=1/4$ and then substitute $z=0$ to work out $B$ by putting in the known values of $A$ and $C$:
+\begin{equation}
+1=-\frac{1}{2}(-5)+15B+\frac{1}{4}9
+\end{equation}
+Solving this gives $B=-1/4$. This means that
+\begin{equation}
+X=-\frac{z}{2(z-3)^2}-\frac{z}{4(z-3)}+\frac{z}{4(z-5)}
+\end{equation}
+To invert we need to recall the table entry:
+\begin{equation}
+{\cal Z}[(kr^{k-1})]=\frac{z}{(z-r)^2}
+\end{equation}
+We get
+\begin{equation}
+x_k=-\frac{1}{2}k3^{k-1}-\frac{1}{4}3^k+\frac{1}{4}5^k
+\end{equation}
+\vskip 1cm
+\item (2) Use the Z-tranform to solve the difference equation
+\begin{equation}
+x_{k+2}-8x_{k+1}+15x_k=\delta_k
+\end{equation}
+with $x_1=0$ and $x_0=0$. Remember $\delta_k$ is the unit pulse with
+$\delta_k=(1,0,0,0,\ldots)$.
+\vskip 1cm
+\soln Take the Z-tranform of both sides,
+\begin{equation}
+z^2X-8zX+15X={\cal Z}[(\delta_k)]=1
+\end{equation}
+so
+\begin{equation}
+X=\frac{1}{(z-3)(z-5)}
+\end{equation}
+Now, do partial fractions:
+\begin{equation}
+\frac{1}{(z-3)(z-5)}=\frac{A}{z-3}+\frac{B}{z-5}
+\end{equation}
+and so
+\begin{equation}
+1=A(z-5)+B(z-3)
+\end{equation}
+Choose $z=3$ for $A=-1/2$ and $z=5$ for $B=1/2$ and we obtain
+\begin{equation}
+X=-\frac{1}{2(z-3)}+\frac{1}{2(z-5)}
+\end{equation}
+Now, the problem is that there are no $z$'s on top, if there were it would be easy:
+\begin{equation}
+-\frac{1}{2(z-3)}+\frac{1}{2(z-5)}={\cal Z}\left[\left(-\frac{1}{2}3^k+\frac{1}{2}5^k\right)_{k=0}^\infty\right]
+\end{equation}
+In other words
+\begin{equation}
+X=\frac{1}{z}{\cal Z}\left[-\frac{1}{2}3^k+\frac{1}{2}5^k\right]
+\end{equation}
+Now, this is what we get from the delay theorem, $x_k$ is the delay of the sequence by one step, so,
+\begin{equation}
+x_k=\left\{\begin{array}{ll}0&k=0\\-\frac{1}{2}3^{k-1}+\frac{1}{2}5^{k-1}&k>0
+\end{array}\right.
+\end{equation}
+\vskip 1cm
+\item (2) Use the Z-tranform to solve the difference equation
+\begin{equation}
+x_{k+2}-8x_{k+1}+15x_k=0
+\end{equation}
+with $x_1=2$ and $x_0=3$.
+\vskip 1cm
+\soln The complication this time is provided by the initial conditions, remember that ${\cal Z}[(x_{k+2})]=z^2X-z^2x_0-zx_1$ and  that ${\cal Z}[(x_{k+1})]=zX-zx_0$:
+\begin{equation}
+z^2X-3z^2-2z-8zX+24z+15X=0
+\end{equation}
+or
+\begin{equation}
+X=\frac{3z^2-22z}{(z-3)(z-5)}
+\end{equation}
+It is convenient to bring one $z$ over to the right:
+\begin{equation}
+\frac{1}{z}X=\frac{3z-22}{(z-3)(z-5)}
+\end{equation}
+and now do partial fractions:
+\begin{equation}
+\frac{3z-22}{(z-3)(z-5)}=\frac{A}{z-3}+\frac{B}{z-5}
+\end{equation}
+so
+\begin{equation}
+3z-22=A(z-5)+B(z-3)
+\end{equation}
+Hence $z=3$ gives $-13=-2A$ or $A=13/2$ and $z=5$ gives $-7=2B$ so $B=-2/7$, or,
+\begin{equation}
+X=\frac{13z}{2(z-3)}-\frac{7z}{2(z-5)}
+\end{equation}
+and hence
+\begin{equation}
+x_k=\frac{13}{2}3^k-\frac{7}{2}5^k
+\end{equation}
+\end{enumerate}
+
+\end{document}

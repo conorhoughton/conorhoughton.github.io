@@ -1,0 +1,205 @@
+ \documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand{\soln}{\noindent\textit{Solution:}}
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+
+{\bf 2E2 Tutorial Sheet 3 Solutions\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/2E2.html}}\\[1cm] 1 November 2005}
+\end{center}
+
+
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+
+\noindent {\bf Questions}
+%made 1 easier by setting a=1 and 4 easier by giving the rhs in terms of heaviside.
+
+\begin{enumerate}
+
+\item (2)
+Using the Laplace transform solve the differential equation
+\begin{equation}
+f''-2f'+f=0
+\end{equation}
+with boundary conditions $f'(0)=1$ and $f(0)=0$.
+
+\noindent\textit{Solution:} Taking the Laplace transform we get
+\begin{equation}
+s^2F-1-2F+a^2F=0
+\end{equation}
+and hence
+\begin{equation}
+F=\frac{1}{(s-1)^2}
+\end{equation}
+which means that 
+\begin{equation}
+f=te^{at}
+\end{equation}
+
+
+\item (2)
+Using the Laplace transform solve the differential equation
+\begin{equation}
+f''+f'-6f=e^{-3t}
+\end{equation}
+with boundary conditions $f(0)=f'(0)=0$.
+
+\noindent\textit{Solution:} So, as before, the subsidiary equation is
+\begin{equation}
+s^2F+sF-6F=\frac{1}{s+3}
+\end{equation}
+or 
+\begin{equation}
+F=\frac{1}{(s+3)^2(s-2)}
+\end{equation}
+As before, we do partial fractions
+\begin{eqnarray}
+\frac{1}{(s+3)^2(s-2)}&=&\frac{A}{s+3}+\frac{B}{(s+3)^2}+\frac{C}{s-2}\nonumber\\
+1&=&A(s+3)(s-2)+B(s-2)+C(s+3)^2
+\end{eqnarray}
+$s=-3$ gives $B=-1/5$ and $s=2$ gives $C=1/25$. Putting in $s=1$ we find
+\begin{equation}
+1=-4A+\frac{1}{5}+\frac{16}{25}
+\end{equation}
+and so $A=-1/25$. Putting all this together says that
+\begin{equation}
+f=-\frac{1}{25}e^{-3t}-\frac{t}{5}e^{-3t}+\frac{1}{25}e^{2t}
+\end{equation}
+
+
+\item (2) Use Laplace transform methods to solve the differential equation
+\begin{equation}
+f'' + 2 f' - 3 f =
+\left\{ \begin{array}{ll}
+1, & 0 \leq t < c\\
+0, & t \geq c
+\end{array}\right.
+\end{equation}
+subject to the initial conditions $f(0) =f'(0) = 0$. Notice that the right hand side is $1-H_1(t)$.
+\vskip 1cm
+
+\noindent\textit{Solution:}
+Taking Laplace transforms of both sides and using the tables for
+the Laplace transform of the right hand side function, leads to
+\begin{eqnarray}
+(s^2 + 2 s -3)F &=& \frac{1 - e^{-cs}}{s}\nonumber\\
+F &=& \frac{1 - e^{-cs}}{s(s^2 + 2 s -3)}\nonumber\\
+&=& (1 - e^{-cs})\frac{1}{s(s-1)(s+3)}\nonumber\\
+&=& (1 - e^{-cs})\left(\frac{A}{s} + \frac{B}{s-1} +\frac{C}{s+3}
+\right)
+\end{eqnarray}
+Concentrating on the partial fractions part, we have
+\begin{eqnarray*}
+\frac{1}{s(s-1)(s+3)} &=& \frac{A}{s} + \frac{B}{s-1} +\frac{C}{s+3}\\
+1 &=& A(s-1)(s+3) +Bs(s+3) + Cs(s-1)\\
+\underline{s=0:}\\
+1 &=& -3A\\
+A &=& - \frac{1}{3}\\
+\underline{s=1:}\\
+1 & = & 0 + 4B + 0\\
+B &=& \frac{1}{4}\\
+\underline{s=-3:}\\
+1 &=& 0 + 0 12C\\
+C &=& \frac{1}{12}
+\end{eqnarray*}
+Hence we have
+\begin{equation}
+F = (1 - e^{-cs}) \left( - \frac{1}{3} \frac{1}{s} +
+\frac{1}{4} \frac{1}{s-1} + \frac{1}{12} \frac{1}{s+3} \right)
+\end{equation}
+
+\item (2) Use Laplace transform methods to solve the differential equation
+\begin{equation}
+f'' + 2 f' - 3 f =
+\left\{ \begin{array}{ll}
+0, & 0 \le t < 1\\
+1, & 1\le t < 2\\
+0, & t\ge 2
+\end{array}\right.
+\end{equation}
+subject to the initial conditions $f(0) =f'(0) = 0$. You should begin by rewriting the right-hand side in terms of the Heaviside function:
+\begin{equation}
+H_1(t)-H_2(t)=
+\left\{ \begin{array}{ll}
+0, & 0 \le t < 1\\
+1, & 1\le t < 2\\
+0, & t\ge 2
+\end{array}\right.
+\end{equation}
+
+\soln
+So the thing here is to rewrite the right hand side of the equations in terms of Heaviside functions. Remember the definition of the Heaviside function:
+\begin{equation}
+H_a(t)=\left\{\begin{array}{ll}0&t<a\\1&t\ge a\end{array}\right.
+\end{equation}
+so the Heaviside function is zero until $a$ and then it is one. The
+right hand side is zero until $t=1$ and then it is one until $t=2$ and
+then it is zero again. Consider $H_1(t)-H_2(t)$, this is zero until
+you reach $t=1$, then the first Heaviside function switches on, the
+other one remains zero. Things stay like this until you reach $t=2$, then the second Heaviside function switches on aswell and you get $1-1=0$. Thus
+\begin{equation}
+H_1(t)-H_2(t)=\left\{ \begin{array}{ll}
+0, & 0 \le t < 1\\
+1, & 1\le t < 2\\
+0, & t\ge 2
+\end{array}\right.
+\end{equation}
+
+Now, using
+\begin{equation}
+{\cal L}(H_a(t))=\frac{e^{-as}}{s}
+\end{equation}
+we take the Laplace transform of the differential equation:
+\begin{equation}
+s^2F+2sF-3F=\frac{e^{-s}}{s}-\frac{e^{-2s}}{s}
+\end{equation}
+This gives
+\begin{eqnarray}
+(s^2+2s-3)F&=&\frac{1}{s}\left(e^{-s}-e^{-2s}\right)\nonumber\\
+          F=\frac{1}{s(s-1)(s+3)}\left(e^{-s}-e^{-2s}\right)
+\end{eqnarray}
+Now, 
+\begin{equation}
+\frac{1}{s(s-1)(s+3)}=-\frac{1}{3s}+\frac{1}{4(s-1)}+\frac{1}{12(s+3)}
+\end{equation}
+and we know that 
+\begin{equation}
+{\cal L}\left(-\frac{1}{3}+\frac{1}{4}e^t+\frac{1}{12}e^{-3t}\right)
+=-\frac{1}{3}+\frac{1}{4(s-1)}+\frac{1}{12(s+3)}
+\end{equation}
+In other word, if it wasn't for the expontentials we'd know the little $f$. However, we know from the third shift thereom that the affect of the exponential $e^{-as}$ is to change $t$ to $t-a$ and to introduce an overall factor of $H_a(t)$. Thus
+\begin{equation}
+f=H_1(t)\left(-\frac{1}{3}+\frac{1}{4}e^{t-1}+\frac{1}{12}e^{-3t+3}\right)
+-H_2(t)\left(-\frac{1}{3}+\frac{1}{4}e^{t-2}+\frac{1}{12}e^{-3t+6}\right)
+\end{equation}
+\end{enumerate}
+
+\vfill
+
+\noindent
+
+\end{document}

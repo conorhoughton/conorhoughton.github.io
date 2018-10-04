@@ -1,0 +1,103 @@
+ \documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+
+{\bf 2E2 Tutorial Sheet 4 First Term\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/2E2.html}}\\[1cm] 6 November 2005}
+\end{center}
+
+
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\noindent {\bf Useful facts:}
+\begin{itemize}
+
+\item The Heaviside function $H_a(t)$ is zero for $t<a$ and one for $t\ge a$, it Laplace transform is given by
+\begin{equation}
+{\cal L}[H_a(t)]=\frac{e^{-as}}{s}
+\end{equation}
+
+\item The Dirac delta function $\delta(t-a)$ is zero everywhere except
+$t=a$ where it is infinite. It can be thought of as the $b$ goes to
+zero limit of 
+\begin{equation}
+\delta_b(t-a)=\frac{1}{b}\left(H_a(t)-H_{a+b}(t)\right)
+\end{equation}
+
+\item A delta function evaluates an integral:
+\begin{equation}
+\int_0^\infty \delta(t-a)f(t)dt=f(a)
+\end{equation}
+
+\item The Laplace transform: ${\cal L}(\delta(t-a))=e^{-as}$.
+
+\item The shift theorem: if ${\cal L}(f)=F(s)$ then
+\begin{equation}
+{\cal L}[H_a(t)f(t-a)]=e^{-as}F(s)
+\end{equation}
+
+\item The formula for complex exponentials:
+\begin{eqnarray}
+e^{i\theta}&=&\cos{\theta}+i\sin{\theta}\cr
+e^{-i\theta}&=&\cos{\theta}-i\sin{\theta}
+\end{eqnarray}
+
+\item Remember $e^{a+b}=e^a e^b$ so, 
+\begin{eqnarray}
+e^{a+ib}&=&(\cos{b}+i\sin{b})e^{a}\cr
+e^{a-ib}&=&(\cos{b}-i\sin{b})e^{a}
+\end{eqnarray}
+
+\end{itemize}
+
+\newpage
+
+\noindent {\bf Questions}
+
+\begin{enumerate}
+
+\item (4) Use Laplace transform methods to solve the differential equation
+\begin{equation}
+f'' + 2 f' - 3 f = \delta(t-1)
+\end{equation}
+subject to the initial conditions $f(0) = 0$, $f'(0) = 1$. 
+
+\item (4)
+Using the Laplace transform solve the differential equation
+\begin{equation}
+f''+6f'+13f=0
+\end{equation}
+with boundary conditions $f(0)=0$ and $f'(0)=1$ and get your answer into a real form. 
+
+
+\end{enumerate}
+
+\vfill
+
+
+\end{document}

@@ -1,0 +1,1074 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mark_return>
+ <metadata>
+  <value key="XID">XMA2E21</value>
+  <value key="return_type">anonymous mark return</value>
+  <value key="session">annual</value>
+  <value key="year">2005</value>
+ </metadata>
+ <caption>Anonymous exam mark return: annual session 2005</caption>
+ <headings>
+  <heading type="fixed" tag="exam_id">Exam No.</heading>
+  <heading type="fixed" tag="seat_no">Seat No.</heading>
+  <heading type="fixed" tag="drwcode">Class</heading>
+  <heading type="variable" tag="mark">Mark</heading>
+ </headings>
+ <data>
+  <row>
+   <field type="fixed">10028</field>
+   <field type="fixed">974</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">74</field>
+  </row>
+  <row>
+   <field type="fixed">10029</field>
+   <field type="fixed">975</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">50</field>
+  </row>
+  <row>
+   <field type="fixed">10033</field>
+   <field type="fixed">976</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">50</field>
+  </row>
+  <row>
+   <field type="fixed">10248</field>
+   <field type="fixed">977</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">37</field>
+  </row>
+  <row>
+   <field type="fixed">10336</field>
+   <field type="fixed">978</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">48</field>
+  </row>
+  <row>
+   <field type="fixed">10371</field>
+   <field type="fixed">979</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">73</field>
+  </row>
+  <row>
+   <field type="fixed">10372</field>
+   <field type="fixed">980</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">64</field>
+  </row>
+  <row>
+   <field type="fixed">10684</field>
+   <field type="fixed">981</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">60</field>
+  </row>
+  <row>
+   <field type="fixed">10750</field>
+   <field type="fixed">982</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">57</field>
+  </row>
+  <row>
+   <field type="fixed">10810</field>
+   <field type="fixed">983</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">49</field>
+  </row>
+  <row>
+   <field type="fixed">10831</field>
+   <field type="fixed">984</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">73</field>
+  </row>
+  <row>
+   <field type="fixed">10835</field>
+   <field type="fixed">985</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">39</field>
+  </row>
+  <row>
+   <field type="fixed">10896</field>
+   <field type="fixed">986</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">38</field>
+  </row>
+  <row>
+   <field type="fixed">10929</field>
+   <field type="fixed">987</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">18</field>
+  </row>
+  <row>
+   <field type="fixed">10963</field>
+   <field type="fixed">988</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">57</field>
+  </row>
+  <row>
+   <field type="fixed">11035</field>
+   <field type="fixed">989</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">50</field>
+  </row>
+  <row>
+   <field type="fixed">11085</field>
+   <field type="fixed">990</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">66</field>
+  </row>
+  <row>
+   <field type="fixed">11128</field>
+   <field type="fixed">991</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable"></field>
+  </row>
+  <row>
+   <field type="fixed">11187</field>
+   <field type="fixed">992</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">68</field>
+  </row>
+  <row>
+   <field type="fixed">11200</field>
+   <field type="fixed">993</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">36</field>
+  </row>
+  <row>
+   <field type="fixed">11379</field>
+   <field type="fixed">994</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">50</field>
+  </row>
+  <row>
+   <field type="fixed">11967</field>
+   <field type="fixed">995</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">79</field>
+  </row>
+  <row>
+   <field type="fixed">11972</field>
+   <field type="fixed">996</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">57</field>
+  </row>
+  <row>
+   <field type="fixed">12018</field>
+   <field type="fixed">997</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">53</field>
+  </row>
+  <row>
+   <field type="fixed">12417</field>
+   <field type="fixed">998</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">53</field>
+  </row>
+  <row>
+   <field type="fixed">12474</field>
+   <field type="fixed">999</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable"></field>
+  </row>
+  <row>
+   <field type="fixed">12621</field>
+   <field type="fixed">1000</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">69</field>
+  </row>
+  <row>
+   <field type="fixed">12625</field>
+   <field type="fixed">1001</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">50</field>
+  </row>
+  <row>
+   <field type="fixed">12712</field>
+   <field type="fixed">1002</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">66</field>
+  </row>
+  <row>
+   <field type="fixed">12865</field>
+   <field type="fixed">1003</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">53</field>
+  </row>
+  <row>
+   <field type="fixed">12912</field>
+   <field type="fixed">1004</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">57</field>
+  </row>
+  <row>
+   <field type="fixed">13023</field>
+   <field type="fixed">1005</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">52</field>
+  </row>
+  <row>
+   <field type="fixed">13100</field>
+   <field type="fixed">1006</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">79</field>
+  </row>
+  <row>
+   <field type="fixed">13156</field>
+   <field type="fixed">1007</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">52</field>
+  </row>
+  <row>
+   <field type="fixed">13201</field>
+   <field type="fixed">1008</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">61</field>
+  </row>
+  <row>
+   <field type="fixed">13442</field>
+   <field type="fixed">1009</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">56</field>
+  </row>
+  <row>
+   <field type="fixed">13448</field>
+   <field type="fixed">1010</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">68</field>
+  </row>
+  <row>
+   <field type="fixed">13482</field>
+   <field type="fixed">1011</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">64</field>
+  </row>
+  <row>
+   <field type="fixed">13561</field>
+   <field type="fixed">1012</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable"></field>
+  </row>
+  <row>
+   <field type="fixed">13617</field>
+   <field type="fixed">1013</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable"></field>
+  </row>
+  <row>
+   <field type="fixed">13657</field>
+   <field type="fixed">1014</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">72</field>
+  </row>
+  <row>
+   <field type="fixed">13777</field>
+   <field type="fixed">1015</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">24</field>
+  </row>
+  <row>
+   <field type="fixed">13803</field>
+   <field type="fixed">1016</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">55</field>
+  </row>
+  <row>
+   <field type="fixed">13821</field>
+   <field type="fixed">1017</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">64</field>
+  </row>
+  <row>
+   <field type="fixed">13836</field>
+   <field type="fixed">1018</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">65</field>
+  </row>
+  <row>
+   <field type="fixed">13850</field>
+   <field type="fixed">1019</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">51</field>
+  </row>
+  <row>
+   <field type="fixed">14068</field>
+   <field type="fixed">1020</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">70</field>
+  </row>
+  <row>
+   <field type="fixed">14174</field>
+   <field type="fixed">1021</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">61</field>
+  </row>
+  <row>
+   <field type="fixed">14188</field>
+   <field type="fixed">1022</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">35</field>
+  </row>
+  <row>
+   <field type="fixed">14377</field>
+   <field type="fixed">1023</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">67</field>
+  </row>
+  <row>
+   <field type="fixed">14840</field>
+   <field type="fixed">1024</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable"></field>
+  </row>
+  <row>
+   <field type="fixed">14890</field>
+   <field type="fixed">1025</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">50</field>
+  </row>
+  <row>
+   <field type="fixed">15243</field>
+   <field type="fixed">1026</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">34</field>
+  </row>
+  <row>
+   <field type="fixed">15413</field>
+   <field type="fixed">1027</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">28</field>
+  </row>
+  <row>
+   <field type="fixed">15578</field>
+   <field type="fixed">1028</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">66</field>
+  </row>
+  <row>
+   <field type="fixed">15636</field>
+   <field type="fixed">1029</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">51</field>
+  </row>
+  <row>
+   <field type="fixed">15647</field>
+   <field type="fixed">1030</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">88</field>
+  </row>
+  <row>
+   <field type="fixed">15747</field>
+   <field type="fixed">1031</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">57</field>
+  </row>
+  <row>
+   <field type="fixed">15749</field>
+   <field type="fixed">1032</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable"></field>
+  </row>
+  <row>
+   <field type="fixed">15880</field>
+   <field type="fixed">1033</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">62</field>
+  </row>
+  <row>
+   <field type="fixed">15884</field>
+   <field type="fixed">1034</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">43</field>
+  </row>
+  <row>
+   <field type="fixed">15936</field>
+   <field type="fixed">1035</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable"></field>
+  </row>
+  <row>
+   <field type="fixed">15959</field>
+   <field type="fixed">1036</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">57</field>
+  </row>
+  <row>
+   <field type="fixed">15983</field>
+   <field type="fixed">1037</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">57</field>
+  </row>
+  <row>
+   <field type="fixed">15992</field>
+   <field type="fixed">1038</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">75</field>
+  </row>
+  <row>
+   <field type="fixed">16376</field>
+   <field type="fixed">1039</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">44</field>
+  </row>
+  <row>
+   <field type="fixed">16494</field>
+   <field type="fixed">1040</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">63</field>
+  </row>
+  <row>
+   <field type="fixed">16522</field>
+   <field type="fixed">1041</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">83</field>
+  </row>
+  <row>
+   <field type="fixed">16555</field>
+   <field type="fixed">1042</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">50</field>
+  </row>
+  <row>
+   <field type="fixed">16592</field>
+   <field type="fixed">1043</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">44</field>
+  </row>
+  <row>
+   <field type="fixed">16618</field>
+   <field type="fixed">1044</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">71</field>
+  </row>
+  <row>
+   <field type="fixed">16624</field>
+   <field type="fixed">1045</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">81</field>
+  </row>
+  <row>
+   <field type="fixed">16731</field>
+   <field type="fixed">1046</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">55</field>
+  </row>
+  <row>
+   <field type="fixed">16834</field>
+   <field type="fixed">1047</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">79</field>
+  </row>
+  <row>
+   <field type="fixed">16881</field>
+   <field type="fixed">1048</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">85</field>
+  </row>
+  <row>
+   <field type="fixed">16921</field>
+   <field type="fixed">1049</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">63</field>
+  </row>
+  <row>
+   <field type="fixed">16988</field>
+   <field type="fixed">1050</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">50</field>
+  </row>
+  <row>
+   <field type="fixed">17002</field>
+   <field type="fixed">1051</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">67</field>
+  </row>
+  <row>
+   <field type="fixed">17293</field>
+   <field type="fixed">1052</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">45</field>
+  </row>
+  <row>
+   <field type="fixed">17315</field>
+   <field type="fixed">1053</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">36</field>
+  </row>
+  <row>
+   <field type="fixed">17396</field>
+   <field type="fixed">1054</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">36</field>
+  </row>
+  <row>
+   <field type="fixed">17430</field>
+   <field type="fixed">1055</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">43</field>
+  </row>
+  <row>
+   <field type="fixed">17555</field>
+   <field type="fixed">1056</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">46</field>
+  </row>
+  <row>
+   <field type="fixed">17867</field>
+   <field type="fixed">1057</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">52</field>
+  </row>
+  <row>
+   <field type="fixed">17921</field>
+   <field type="fixed">1058</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">34</field>
+  </row>
+  <row>
+   <field type="fixed">18106</field>
+   <field type="fixed">1059</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">50</field>
+  </row>
+  <row>
+   <field type="fixed">18390</field>
+   <field type="fixed">1060</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">46</field>
+  </row>
+  <row>
+   <field type="fixed">18412</field>
+   <field type="fixed">1061</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">49</field>
+  </row>
+  <row>
+   <field type="fixed">18507</field>
+   <field type="fixed">1062</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">38</field>
+  </row>
+  <row>
+   <field type="fixed">18533</field>
+   <field type="fixed">1063</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">72</field>
+  </row>
+  <row>
+   <field type="fixed">18541</field>
+   <field type="fixed">1064</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable"></field>
+  </row>
+  <row>
+   <field type="fixed">18656</field>
+   <field type="fixed">1065</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">42</field>
+  </row>
+  <row>
+   <field type="fixed">18952</field>
+   <field type="fixed">1066</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">73</field>
+  </row>
+  <row>
+   <field type="fixed">19036</field>
+   <field type="fixed">1067</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">72</field>
+  </row>
+  <row>
+   <field type="fixed">19043</field>
+   <field type="fixed">1068</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">40</field>
+  </row>
+  <row>
+   <field type="fixed">19148</field>
+   <field type="fixed">1069</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">61</field>
+  </row>
+  <row>
+   <field type="fixed">19201</field>
+   <field type="fixed">1070</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">38</field>
+  </row>
+  <row>
+   <field type="fixed">19237</field>
+   <field type="fixed">1071</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">60</field>
+  </row>
+  <row>
+   <field type="fixed">19429</field>
+   <field type="fixed">1072</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">60</field>
+  </row>
+  <row>
+   <field type="fixed">19478</field>
+   <field type="fixed">1073</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">27</field>
+  </row>
+  <row>
+   <field type="fixed">19508</field>
+   <field type="fixed">1074</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">51</field>
+  </row>
+  <row>
+   <field type="fixed">19530</field>
+   <field type="fixed">1075</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">33</field>
+  </row>
+  <row>
+   <field type="fixed">19557</field>
+   <field type="fixed">1076</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">87</field>
+  </row>
+  <row>
+   <field type="fixed">19570</field>
+   <field type="fixed">1077</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable"></field>
+  </row>
+  <row>
+   <field type="fixed">19581</field>
+   <field type="fixed">1078</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">69</field>
+  </row>
+  <row>
+   <field type="fixed">19674</field>
+   <field type="fixed">1079</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">35</field>
+  </row>
+  <row>
+   <field type="fixed">19680</field>
+   <field type="fixed">1080</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">62</field>
+  </row>
+  <row>
+   <field type="fixed">19787</field>
+   <field type="fixed">1081</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">78</field>
+  </row>
+  <row>
+   <field type="fixed">19918</field>
+   <field type="fixed">1082</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">61</field>
+  </row>
+  <row>
+   <field type="fixed">20172</field>
+   <field type="fixed">1083</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable"></field>
+  </row>
+  <row>
+   <field type="fixed">20244</field>
+   <field type="fixed">1084</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">45</field>
+  </row>
+  <row>
+   <field type="fixed">20247</field>
+   <field type="fixed">1085</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">61</field>
+  </row>
+  <row>
+   <field type="fixed">20327</field>
+   <field type="fixed">1086</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">80</field>
+  </row>
+  <row>
+   <field type="fixed">20588</field>
+   <field type="fixed">1087</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">38</field>
+  </row>
+  <row>
+   <field type="fixed">20688</field>
+   <field type="fixed">1088</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">57</field>
+  </row>
+  <row>
+   <field type="fixed">20692</field>
+   <field type="fixed">1089</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">77</field>
+  </row>
+  <row>
+   <field type="fixed">20701</field>
+   <field type="fixed">1090</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">76</field>
+  </row>
+  <row>
+   <field type="fixed">20850</field>
+   <field type="fixed">1091</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">65</field>
+  </row>
+  <row>
+   <field type="fixed">20851</field>
+   <field type="fixed">1092</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">63</field>
+  </row>
+  <row>
+   <field type="fixed">20862</field>
+   <field type="fixed">1093</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">73</field>
+  </row>
+  <row>
+   <field type="fixed">20863</field>
+   <field type="fixed">1094</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">54</field>
+  </row>
+  <row>
+   <field type="fixed">20897</field>
+   <field type="fixed">1095</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">41</field>
+  </row>
+  <row>
+   <field type="fixed">20947</field>
+   <field type="fixed">1096</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">61</field>
+  </row>
+  <row>
+   <field type="fixed">21012</field>
+   <field type="fixed">1097</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">69</field>
+  </row>
+  <row>
+   <field type="fixed">21017</field>
+   <field type="fixed">1098</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">33</field>
+  </row>
+  <row>
+   <field type="fixed">21038</field>
+   <field type="fixed">1099</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">51</field>
+  </row>
+  <row>
+   <field type="fixed">21065</field>
+   <field type="fixed">1100</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">33</field>
+  </row>
+  <row>
+   <field type="fixed">21104</field>
+   <field type="fixed">1101</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">64</field>
+  </row>
+  <row>
+   <field type="fixed">21152</field>
+   <field type="fixed">1102</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">41</field>
+  </row>
+  <row>
+   <field type="fixed">21716</field>
+   <field type="fixed">1103</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">59</field>
+  </row>
+  <row>
+   <field type="fixed">21809</field>
+   <field type="fixed">1104</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable"></field>
+  </row>
+  <row>
+   <field type="fixed">21909</field>
+   <field type="fixed">1105</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">62</field>
+  </row>
+  <row>
+   <field type="fixed">21980</field>
+   <field type="fixed">1106</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">84</field>
+  </row>
+  <row>
+   <field type="fixed">22090</field>
+   <field type="fixed">1107</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">75</field>
+  </row>
+  <row>
+   <field type="fixed">22109</field>
+   <field type="fixed">1108</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable"></field>
+  </row>
+  <row>
+   <field type="fixed">22207</field>
+   <field type="fixed">1109</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">76</field>
+  </row>
+  <row>
+   <field type="fixed">22361</field>
+   <field type="fixed">1110</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable"></field>
+  </row>
+  <row>
+   <field type="fixed">22509</field>
+   <field type="fixed">1111</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">54</field>
+  </row>
+  <row>
+   <field type="fixed">22655</field>
+   <field type="fixed">1112</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">70</field>
+  </row>
+  <row>
+   <field type="fixed">22657</field>
+   <field type="fixed">1113</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable"></field>
+  </row>
+  <row>
+   <field type="fixed">22786</field>
+   <field type="fixed">1114</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">66</field>
+  </row>
+  <row>
+   <field type="fixed">22817</field>
+   <field type="fixed">1115</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">63</field>
+  </row>
+  <row>
+   <field type="fixed">22836</field>
+   <field type="fixed">1116</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">70</field>
+  </row>
+  <row>
+   <field type="fixed">22840</field>
+   <field type="fixed">1117</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">75</field>
+  </row>
+  <row>
+   <field type="fixed">22846</field>
+   <field type="fixed">1118</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">77</field>
+  </row>
+  <row>
+   <field type="fixed">22921</field>
+   <field type="fixed">1119</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">76</field>
+  </row>
+  <row>
+   <field type="fixed">23184</field>
+   <field type="fixed">1120</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">39</field>
+  </row>
+  <row>
+   <field type="fixed">23199</field>
+   <field type="fixed">1121</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">68</field>
+  </row>
+  <row>
+   <field type="fixed">23249</field>
+   <field type="fixed">1122</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">70</field>
+  </row>
+  <row>
+   <field type="fixed">23362</field>
+   <field type="fixed">1123</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">72</field>
+  </row>
+  <row>
+   <field type="fixed">23439</field>
+   <field type="fixed">1124</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">47</field>
+  </row>
+  <row>
+   <field type="fixed">23461</field>
+   <field type="fixed">1125</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">39</field>
+  </row>
+  <row>
+   <field type="fixed">23462</field>
+   <field type="fixed">1126</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable"></field>
+  </row>
+  <row>
+   <field type="fixed">23477</field>
+   <field type="fixed">1127</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable"></field>
+  </row>
+  <row>
+   <field type="fixed">23592</field>
+   <field type="fixed">1128</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">57</field>
+  </row>
+  <row>
+   <field type="fixed">23652</field>
+   <field type="fixed">1129</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">67</field>
+  </row>
+  <row>
+   <field type="fixed">23700</field>
+   <field type="fixed">1130</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">45</field>
+  </row>
+  <row>
+   <field type="fixed">23706</field>
+   <field type="fixed">1131</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">45</field>
+  </row>
+  <row>
+   <field type="fixed">23768</field>
+   <field type="fixed">1132</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">36</field>
+  </row>
+  <row>
+   <field type="fixed">23807</field>
+   <field type="fixed">1133</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">29</field>
+  </row>
+  <row>
+   <field type="fixed">23924</field>
+   <field type="fixed">1134</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable"></field>
+  </row>
+  <row>
+   <field type="fixed">23990</field>
+   <field type="fixed">1135</field>
+   <field type="fixed">SFEng</field>
+   <field type="variable">41</field>
+  </row>
+  <row>
+   <field type="fixed">12895</field>
+   <field type="fixed">1136</field>
+   <field type="fixed">SFMEMS</field>
+   <field type="variable">54</field>
+  </row>
+  <row>
+   <field type="fixed">13643</field>
+   <field type="fixed">1137</field>
+   <field type="fixed">SFMEMS</field>
+   <field type="variable">44</field>
+  </row>
+  <row>
+   <field type="fixed">14703</field>
+   <field type="fixed">1138</field>
+   <field type="fixed">SFMEMS</field>
+   <field type="variable">66</field>
+  </row>
+  <row>
+   <field type="fixed">15095</field>
+   <field type="fixed">1139</field>
+   <field type="fixed">SFMEMS</field>
+   <field type="variable">58</field>
+  </row>
+  <row>
+   <field type="fixed">15586</field>
+   <field type="fixed">1140</field>
+   <field type="fixed">SFMEMS</field>
+   <field type="variable">31</field>
+  </row>
+  <row>
+   <field type="fixed">15705</field>
+   <field type="fixed">1141</field>
+   <field type="fixed">SFMEMS</field>
+   <field type="variable">72</field>
+  </row>
+  <row>
+   <field type="fixed">15982</field>
+   <field type="fixed">1142</field>
+   <field type="fixed">SFMEMS</field>
+   <field type="variable">54</field>
+  </row>
+  <row>
+   <field type="fixed">16123</field>
+   <field type="fixed">1143</field>
+   <field type="fixed">SFMEMS</field>
+   <field type="variable">54</field>
+  </row>
+  <row>
+   <field type="fixed">16414</field>
+   <field type="fixed">1144</field>
+   <field type="fixed">SFMEMS</field>
+   <field type="variable">37</field>
+  </row>
+  <row>
+   <field type="fixed">17221</field>
+   <field type="fixed">1145</field>
+   <field type="fixed">SFMEMS</field>
+   <field type="variable">45</field>
+  </row>
+  <row>
+   <field type="fixed">17755</field>
+   <field type="fixed">1146</field>
+   <field type="fixed">SFMEMS</field>
+   <field type="variable">40</field>
+  </row>
+  <row>
+   <field type="fixed">18022</field>
+   <field type="fixed">1147</field>
+   <field type="fixed">SFMEMS</field>
+   <field type="variable">48</field>
+  </row>
+  <row>
+   <field type="fixed">20142</field>
+   <field type="fixed">1148</field>
+   <field type="fixed">SFMEMS</field>
+   <field type="variable">51</field>
+  </row>
+  <row>
+   <field type="fixed">21801</field>
+   <field type="fixed">1149</field>
+   <field type="fixed">SFMEMS</field>
+   <field type="variable">49</field>
+  </row>
+ </data>
+</mark_return>

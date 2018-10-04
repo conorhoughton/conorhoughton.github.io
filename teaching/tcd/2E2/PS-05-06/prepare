@@ -1,0 +1,21 @@
+#! /bin/sh 
+
+latex prob$1.tex
+dvips prob$1 -o
+ps2pdf -sPAPERSIZE=a4 prob$1.ps prob$1.pdf
+psnup -d -2 prob$1.ps prob$1c2.ps
+ps2pdf -sPAPERSIZE=a4 prob$1c2.ps prob$1c2.pdf
+rm prob$1.aux
+rm prob$1.log
+chmod 755 prob$1.*
+chmod 755 prob$1c2.*
+
+latex soln$1.tex
+dvips soln$1 -o
+ps2pdf -sPAPERSIZE=a4 soln$1.ps soln$1.pdf
+psnup -d -2 soln$1.ps soln$1c2.ps
+ps2pdf -sPAPERSIZE=a4 soln$1c2.ps soln$1c2.pdf
+rm soln$1.aux
+rm soln$1.log
+chmod 755 soln$1.*
+chmod 755 soln$1c2.*

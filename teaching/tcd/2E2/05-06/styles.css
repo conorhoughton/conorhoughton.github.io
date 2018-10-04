@@ -1,0 +1,109 @@
+body {
+		background-color: #fff;
+		margin: 0;
+		padding: 0;
+}
+
+
+#nav {
+		background-color: "goldenrod";
+		text-align: center;
+		color: #fff;
+		height: 50px;
+}
+
+#main {
+}
+
+#subnav {
+		background-color:DAA520 ;
+}
+
+#subnav ul {
+		margin: 20px 0 0 10px;
+		padding: 0;
+		list-style-type: none;
+}
+
+#subnavbg {
+		background-color: DAA520;
+}
+
+#content {
+		
+}
+
+#content p {
+		margin: 15px;
+		width: 75%;
+		text-align: left;
+}
+
+#content table {
+		margin: 15px;
+		text-align: left;
+}
+
+#content h3 {
+		margin: 15px;
+		width: 75%;
+		text-align: left;
+		font-weight: bold;
+		font-size: 120%;
+}
+
+#content h1 {
+		margin: 15px;
+		width: 75%;
+		text-align: left;
+		font-weight: bold;
+		font-size: 250%;
+}
+
+
+#content h2 {
+		margin: 15px;
+		width: 75%;
+		text-align: left;
+		font-weight: bold;
+		font-size: 150%;
+}
+
+#nav a {
+		font-size: 140%;
+		font-weight: bold;
+		color: #ECE0EC;
+		text-decoration: none;
+}
+#nav a:hover {
+		text-decoration: underline;
+		color: #fff;
+}
+
+#subnav a {
+		color: black;
+		font-weight: bold;
+}
+#subnav a:hover {
+		text-decoration: underline;
+		color: #fff;
+}
+
+/* ========================================== */
+/* Typography - font-sizing. Do not adjust, 
+   and do not put any other code below this 
+   rule. */
+/* ========================================== */
+
+body, p, ul, li, td, ol, tr, th, td, table {
+		font-family: Verdana, Helvetica, Arial, sans-serif;
+		font-size: x-small; 
+		/* value for WinIE4/5 */
+		voice-family: "\"}\"";
+		/* trick WinIE4/5 into thinking the rule is over */
+		voice-family: inherit;
+		/* recover from trick */
+		font-size: small;
+		/* intended value for better browsers */
+		line-height: 1.5em;
+}

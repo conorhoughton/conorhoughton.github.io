@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand\soln{\noindent\textit{Solution:} }
+
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+{\bf 2E2 Tutorial Sheet 16 Second Term}\footnote{Conor
+Houghton, {\tt houghton@maths.tcd.ie} and {\tt
+http://www.maths.tcd.ie/\char126 houghton/ 2E2.html}}
+\\[1cm]
+ 26 February 2006
+\end{center}
+{
+\noindent{\bf Useful facts:}\vskip .5cm
+\begin{itemize}
+\item Convert into $y_1$, $y_2$ form.
+\item Find the stationary points, these are where $y_1'=y_2'=0$.
+\item Approximate near the stationary points, drop squares and cubes, use $\sin{\theta}\approx \theta$ for small $\theta$.
+\item The arrows will go left to right above the $y_1$-axis and right to left below it.
+\item For the trigonometry tables
+\begin{eqnarray}
+\cos{\left(\frac{\pi}{2}+\theta\right)}&=&-\sin{\theta}\cr
+\cos{\left(3\frac{\pi}{2}+\theta\right)}&=&\sin{\theta}
+\end{eqnarray}
+\end{itemize}
+\vskip .5cm
+\noindent{\bf Questions:}
+\begin{enumerate}
+\item (4) By linearizing around the critical points, draw the phase
+plane portrait of
+\begin{equation}
+y''+y-y^3=0
+\end{equation}
+\vskip .5cm
+\item (4) By linearizing around the critical points, draw the phase
+plane portrait of
+\begin{equation}
+y''=\cos{2y}
+\end{equation}
+\end{enumerate}
+}
+\end{document}
+
+
+

@@ -1,0 +1,124 @@
+ \documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand{\soln}{\noindent\textit{Solution:}}
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+
+{\bf 2E2 Tutorial Sheet 6 Solutions\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/2E2.html}}\\[1cm] 20 November 2005}
+\end{center}
+
+
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+
+\noindent {\bf Questions:}
+
+\begin{enumerate}
+
+\item (2) Verify the formula ${\cal L}(f*g)={\cal L}(f){\cal L}(g)$ in the case where $f=\exp{(2t)}$ and $g=\exp{(2t)}$. 
+
+\soln So, 
+\begin{eqnarray}
+e^{2t}*e^{-2t}
+&=&\int_0^t e^{2\tau}*e^{2(t-\tau)}d\tau=\int_0^t e^{2t}d\tau\cr
+&=&e^{2t}\int_0^td\tau=te^{2t}
+\end{eqnarray}
+Now, this means
+\begin{equation}
+{\cal L}\left(e^{2t}*e^{2t}\right)={\cal L}\left(te^{2t}\right)=\frac{1}{(s-2)^2}
+\end{equation}
+by the shift theorem. Doing it from the formula for the Laplace transform gives
+\begin{equation}
+{\cal L}\left(e^{2t}*e^{2t}\right)=\left[{\cal L}\left(e^{2t}\right)\right]^2=\frac{1}{(s-2)^2}
+\end{equation}
+
+
+\item (3) Find the convolution $(f*g)(t)$ when $f(t) = t$, $g(t) = e^{2t}$ ($t
+\geq 0$).
+
+\soln From the definition of convolutions
+\begin{eqnarray*}
+(f*g)(t) &=& \int_0^t f(\tau ) g(t-\tau ) \, d\tau 
+= \int_0^t \tau  e^{2(t-\tau )} \, d\tau\\ 
+&=& \int_0^t \tau  e^{2t} e^{-2\tau } \, d\tau 
+= e^{2t} \int_0^t \tau  e^{-2\tau } \, d\tau \\
+\mbox{Use integration by parts with}
+&& u = \tau , \quad dv = e^{-2\tau } \, d\tau \\
+&& du = d\tau , \quad v = -\frac{1}{2} e^{-2\tau }\\
+&=& e^{2t} \int_0^t u \, dv
+= e^{2t} \left( \left[ uv \right]_0^t - \int_0^t v \, du \right)\\
+&=& e^{2t} \left( \left[ - \frac{\tau }{2}e^{-2\tau } \right]_0^t - \int_0^t
+-\frac{1}{2} e^{-2\tau } \, d\tau  \right)\\
+&=& e^{2t} \left( - \frac{t}{2} e^{-2t} + 0 + \frac{1}{2} \int_0^t
+e^{-2\tau } \, d\tau  \right)\\
+&=& - \frac{t}{2} + \frac{e^{2t}}{2} \left[ -\frac{1}{2} e^{-2\tau }
+\right]_0^t\\
+&=& - \frac{t}{2} + \frac{e^{2t}}{2} \left( -\frac{1}{2} e^{-2t} +
+\frac{1}{2} \right)\\
+&=& - \frac{t}{2} - \frac{1}{4} + \frac{1}{4} e^{2t}
+\end{eqnarray*}
+
+\item (3) Use the convolution theorem to find the function $f(t)$ with
+\begin{equation}
+\mathcal{L}(f) = \frac{1}{s^2(s-4)}.
+\end{equation}
+
+\soln We know $\mathcal{L}(t)) = \frac{1}{s^2}$ and
+$\mathcal{L}(e^{4t}) = \frac{1}{s-4}$. From the convolution
+theorem, we see
+\[
+\mathcal{L}(f) = \frac{1}{s^2(s-4)} = \mathcal{L}(t)
+\mathcal{L}(e^{4t}) = \mathcal{L}(t * e^{4t}) 
+\]
+so that $f(t)$ is the convolution $t * e^{4t}$.
+\begin{eqnarray*}
+f(t) 
+&=& \int_0^t \tau  e^{4(t-\tau )} \, d\tau \\
+&=& \int_0^t \tau  e^{4t} e^{-4\tau } \, d\tau 
+= e^{4t} \int_0^t \tau  e^{-4\tau } \, d\tau \\
+\mbox{Use integration by parts with}
+&& U = \tau , \quad dV = e^{-4\tau } \, d\tau \\
+&& dU = d\tau , \quad V = -\frac{1}{4} e^{-4\tau }\\
+&=& e^{4t} \int_0^t U \, dV
+= e^{4t} \left( \left[ UV \right]_0^t - \int_0^t V \, dU \right)\\
+&=& e^{4t} \left( \left[ - \frac{\tau }{4}e^{-4\tau } \right]_0^t - \int_0^t
+-\frac{1}{4} e^{-4\tau } \, d\tau  \right)\\
+&=& e^{4t} \left( - \frac{t}{4} e^{-4t} + 0 + \frac{1}{4} \int_0^t
+e^{-4\tau } \, d\tau  \right)\\
+&=& - \frac{t}{4} + \frac{e^{4t}}{4} \left[ -\frac{1}{2} e^{-4\tau }
+\right]_0^t\\
+&=& - \frac{t}{4} + \frac{e^{4t}}{4} \left( -\frac{1}{4} e^{-4t} +
+\frac{1}{4} \right)\\
+&=& - \frac{t}{4} - \frac{1}{16} + \frac{1}{16} e^{4t}
+\end{eqnarray*}
+
+\end{enumerate}
+
+\vfill
+
+
+\end{document}

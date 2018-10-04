@@ -1,0 +1,114 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand\soln{\noindent\textit{Solution:} }
+
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+{\bf 2E2 Tutorial Sheet 17 Second Term}\footnote{Conor
+Houghton, {\tt houghton@maths.tcd.ie} and {\tt
+http://www.maths.tcd.ie/\char126 houghton/ 2E2.html}}
+\\[1cm]
+ 5 March 2006
+\end{center}
+{
+\noindent{\bf Useful facts:}\vskip .5cm
+\begin{itemize}
+\item Substitute 
+\begin{equation}
+y=\sum_{n=0}^{\infty}a_nt^n
+\end{equation}
+and work out each term in the equation, for example, by differenciating
+\begin{equation}
+y'=\sum_{n=0}^{\infty}a_nnt^{n-1}
+\end{equation}
+or by multiplying
+\begin{equation}
+ty=\sum_{n=0}^{\infty}a_nt^{n+1}
+\end{equation}
+\item Do a change of index so all the terms have the same power as the term with the highest power, remove terms from the sums to get the same summation range.
+\item All coefficients are zero, this gives the recursion relation and, often, some other, conditions.
+\end{itemize}
+\vskip .25cm
+{\bf Note:} If 
+\begin{equation}
+y=\sum_{n=0}^{\infty}a_nt^n
+\end{equation}
+then, by setting $t=0$
+\begin{equation}
+y(0)=a_0.
+\end{equation}
+Similarily, 
+\begin{equation}
+y'=\sum_{n=0}^{\infty}na_nt^{n-1}
+\end{equation}
+and, by setting $t=0$ 
+\begin{equation}
+y'(0)=a_1.
+\end{equation}
+On the other hand if no initial condition is given then for a first
+order equation $a_0$ is arbitrary and for a second order equation
+$a_0$ and $a_1$ are both arbitrary, so when you write out the non-zero
+terms, there are $a_0$'s and $a_1$'s appearing. In Q1 the arbitrary
+constant $a_0$ has been renamed $A$, this is just to make the solution
+look nicer.
+\newpage
+\noindent{\bf Questions:}
+\begin{enumerate}
+\item (2) Assuming the solution of 
+\begin{equation}
+(1-t)y'+y=0
+\end{equation}
+ has a series expansion about
+$t=0$ work out the recursion relation. Write out the first few terms
+and show that the series $a_2=0$ so the series actually terminates to give $y=A(1-t)$ for arbitrary $A$.
+\vskip .25cm
+\item (2) Assuming the solution of
+\begin{equation}
+(1-t^2)y'-2ty=0
+\end{equation}
+has a series expansion about $t=0$, work out the recursion relation.
+\vskip .25cm
+\item (2) Assuming the solution of
+\begin{equation}
+y''-3y'+2y=0
+\end{equation}
+has a series expansion about
+$t=0$, by substitution, work out the recursion relation. If $y(0)=1$ and $y'(0)=
+0$ what are the first three non-zero terms.
+\vskip .25cm
+\item (2) Assuming the solution of
+\begin{equation}
+y''-3t^2y=0
+\end{equation}
+ has a series expansion about $t=0$ work out the recursion relation and write out the first four non-zero terms if $y(0)=1$ and $y'(0)=1$.
+\end{enumerate}
+}
+\end{document}
+
+
+

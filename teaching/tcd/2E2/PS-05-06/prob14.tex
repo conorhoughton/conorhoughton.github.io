@@ -1,0 +1,93 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand\soln{\noindent\textit{Solution:} }
+
+%NOTE that the year before has an extra inhomogeneous ode example
+%
+%
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+{\bf 2E2 Tutorial Sheet 14 Second Term}\footnote{Conor
+Houghton, {\tt houghton@maths.tcd.ie} and {\tt
+http://www.maths.tcd.ie/\char126 houghton/ 2E2.html}}
+\\[1cm]
+ 10 February 2006
+\end{center}
+{
+\noindent {\bf Useful facts:}\\
+\begin{itemize}
+\item The first order differential equation $y'=ry+f(t)$ has solution
+\begin{equation}
+y=Ce^{rt}+e^{rt}\int^t_0{f(\tau)e^{-r\tau}d\tau}
+\end{equation}
+\item To solve the inhomogeneous system ${\bf y}'=A{\bf y}+{\bf g}$ substitute 
+\begin{equation}
+{\bf y}=f_1{\bf x}_1+f_2{\bf x}_2
+\end{equation}
+where ${bf x}_1$ and ${\bf x}_2$ are the eigenvectors of $A$. You should also
+split ${\bf g}$ up as ${\bf g}=h_1{\bf x}_1+h_2{\bf x}_2.$ This will
+give you two independant first order inhomogeneous equations, one for
+${\bf x}_1$ and one for ${\bf x}_2$.
+\item Here is an example of converting the second order differential equation $y''+2y'+7y=0$ into a system first order differential equations. First rename $y_1=y$ and define $y_2=y_1'$, now, $y_2'=y_1''$ which we know from the original equation:
+\begin{equation}
+y_1''=y''=-2y'-7y
+\end{equation}
+but $y'$ is $y_2$ and $y$ is $y_1$, hence
+\begin{eqnarray}
+y_1'&=&y_2\cr
+y_2'&=&-7y_1-2y_2
+\end{eqnarray} 
+\end{itemize}
+\newpage
+\noindent{\bf Questions}
+\begin{enumerate}
+\item (2) Find the solution to 
+\begin{equation}
+y'-2y=-t
+\end{equation}
+\vskip .5cm
+\item (3) Find the general solution to
+\begin{eqnarray}
+y_1'&=&5y_2-23\nonumber\\ y_2'&=&5y_1+15.
+\end{eqnarray}
+with $y_1(0)=-3$ and $y_2(0)=5$.
+\vskip .5cm
+\item (2) Find the  general solution to
+\begin{eqnarray}
+y_1'&=&y_1+3y_2+e^t\nonumber\\
+y_2'&=&3y_1+y_2
+\end{eqnarray}
+\vskip .5cm
+\item (1) Rewrite $y''+4y'-3y=0$ as a system of two first order
+differential equations.
+\end{enumerate}
+}
+\end{document}
+
+
+

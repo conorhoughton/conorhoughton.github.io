@@ -1,0 +1,193 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand\soln{\noindent\textit{Solution:} }
+
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+{\bf 2E2 Tutorial Sheet 10 Solutions\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/2E2.html}}}\\[1cm] 15 January 2006
+\end{center}
+{
+{\bf Questions}
+\begin{enumerate}
+\item (2) Find the general solution for the system
+\begin{eqnarray}
+\frac{dy_1}{dt}&=&3y_1+y_2\\
+\frac{dy_2}{dt}&=&y_1+3y_2
+\end{eqnarray}
+\vskip .25cm
+\soln
+The eigenvectors and eigenvalues of
+\begin{equation}A=\left(\begin{array}{cc}3&1\\1&3\end{array}\right)\end{equation}
+are $\lambda_1=4$ with
+\begin{equation}{\bf x}_1=\left(\begin{array}{cc}1\\1\end{array}\right)\end{equation}
+and $\lambda_2=2$ with 
+\begin{equation}{\bf x}_2=\left(\begin{array}{cc}-1\\1\end{array}\right)\end{equation}
+so the general soln is
+\begin{equation}{\bf y}=\left(\begin{array}{cc}y_1\\y_2\end{array}\right)=c_1\left(\begin{array}{cc}1\\1\end{array}\right)e^{4t}+c_2\left(\begin{array}{cc}-1\\1\end{array}\right)e^{2t}.\end{equation}
+\vskip .25cm
+\item (3) Find the solution of the system
+\begin{eqnarray}
+\frac{dy_1}{dt}&=&3y_1+4y_2\\
+\frac{dy_2}{dt}&=&4y_1-3y_2
+\end{eqnarray}
+with $y_1(0)=2$ and $y_2(0)=-1$.
+\vskip .25cm
+he characteristic equation is
+\begin{equation}
+\left|\begin{array}{cc}3-\lambda&4\\4&-3-\lambda\end{array}\right|=0
+\end{equation}
+so
+\begin{equation}
+(3-\lambda)(-3-\lambda)-16=0
+\end{equation}
+or
+\begin{equation}
+\lambda^2+2\lambda-48-25=0
+\end{equation}
+Solve this gives us $\lambda=\pm 5$. Taking the $\lambda=5$ first
+\begin{equation}
+\left(\begin{array}{cc}3&4\\4&-3\end{array}\right)\left(\begin{array}{c}a\\b\end{array}\right)=5\left(\begin{array}{c}a\\b\end{array}\right)
+\end{equation}
+so the first equation is $3a+4b=5a$ or $a=2b$, the other equation is $4a-3b=5b$ which is also $a=2b$. Taking $a=2$ an eigenvalue $5$ eigenvector is,
+\begin{equation}
+{\bf x}=\left(\begin{array}{c}2\\1\end{array}\right)
+\end{equation}
+Taking $\lambda=-5$ next
+\begin{equation}
+\left(\begin{array}{cc}3&4\\4&-3\end{array}\right)\left(\begin{array}{c}a\\b\end{array}\right)=-5\left(\begin{array}{c}a\\b\end{array}\right)
+\end{equation}
+so the first equation is $3a+4b=-5a$ or $2a=-b$, the other equation is $4a-3b=-5b$ which is also $2a=-b$. Taking $a=1$ an eigenvalue $-5$ eigenvector is,
+\begin{equation}
+{\bf x}=\left(\begin{array}{c}1\\-2\end{array}\right)
+\end{equation}
+\vskip .25cm
+Hence, the solution is 
+\begin{equation}
+{\bf y}=C_1\left(\begin{array}{c}2\\1\end{array}\right)e^{5t}+C_2\left(\begin{array}{c}1\\-2\end{array}\right)e^{-5t}
+\end{equation}
+or
+\begin{eqnarray}
+y_1&=&2C_1e^{5t}+C_2e^{-5t}\\
+y_2&=&C_1e^{5t}-2C_2e^{-5t}
+\end{eqnarray}
+So, for $t=0$ we have
+\begin{eqnarray}
+y_1(0)=2&=&2C_1+C_2\\
+y_2(0)=-1&=&C_1-2C_2
+\end{eqnarray}
+giving $C_1=3/5$ and $C_2=4/5$ so
+\begin{eqnarray}
+y_1&=&\frac{6}{5}e^{5t}+\frac{4}{5}e^{-5t}\\
+y_2&=&\frac{3}{5}e^{5t}-\frac{8}{5}e^{-5t}
+\end{eqnarray}
+\vskip .25cm
+\begin{figure}[bht]
+\begin{center}
+$$
+\begin{array}{c}
+\begin{picture}(205,100)(55,615)
+\thinlines
+\put(  55,685){\makebox(0,0)[lb]{\smash{\SetFigFont{12}{14.4}{rm}Tank 1}}}
+\put( 205,685){\makebox(0,0)[lb]{\smash{\SetFigFont{12}{14.4}{rm}Tank 2}}}
+\put( 120,706){\makebox(0,0)[lb]{\smash{\SetFigFont{12}{14.4}{rm}$\frac{1}{2}m^3s^{-1}$}}}
+\put( 118,547){\makebox(0,0)[lb]{\smash{\SetFigFont{12}{14.4}{rm}$\frac{1}{2}m^3s^{-1}$}}}
+\put( 47,627){\makebox(0,0)[lb]{\smash{\SetFigFont{12}{14.4}{rm}$V_1=5m^3$}
+}}
+\put( 200,627){\makebox(0,0)[lb]{\smash{\SetFigFont{12}{14.4}{rm}$V_2=7m^3$}}}
+\end{picture}\end{array}
+$$
+\vskip -3.5cm
+\leavevmode
+\epsfxsize=8cm\epsffile{tanks.eps}
+\end{center}
+\caption{Two containers with flow between them.}
+\label{twosphtri}
+\end{figure}
+\vskip .25cm                  
+\item (3) As illustrated in Fig. 1, two large containers are connected
+and American style sandwich spead is pumped between them at a rate of
+$1/2m^3s^{-1}$. One container has volume $5m^3$, the other
+$7m^3$. Both are full of spread. Initially the smaller container
+contains pure jam, the second container has $5m^3$ of jam and $2m^3$
+of peanut butter. Assume perfect mixing and so on.  \\ (i) Write down
+the differential equation for $y_1(t)$ and $y_2(t)$, the amount of
+peanut butter in the first and second container.\\ (ii) Solve it to
+find $y_1(t)$ and $y_2(t)$ explicitly. \\(iii) Use the initial data to find the values of the constants in the solution.
+\vskip .25cm
+\soln Well if there is
+$y_1$ peanut butter in the small container then the concentration of
+the spead in the small container is $y_1/5$ and so $y_1/10$
+is flowing out per second. In the same way $y_2/7$ is the
+concentration of peanut butter in the second tank and so $y_2/14$ per
+second is going from the large tank to the small one. This means the
+equations are
+\begin{eqnarray}
+y_1'&=&-\frac{1}{10}y_1+\frac{1}{14}y_2\\
+y_2'&=&\frac{1}{10}y_1-\frac{1}{14}y_2
+\end{eqnarray}
+This equation can be rewritten
+\begin{equation}
+{\bf y}'=\left(\begin{array}{cc}-\frac{1}{10}&\frac{1}{14}\\
+\frac{1}{10}&-\frac{1}{14}\end{array}\right){\bf y}
+\end{equation}
+We work out the eigenvalues
+\begin{eqnarray}
+\left|\begin{array}{cc}-\frac{1}{10}-\lambda&\frac{1}{14}\\
+\frac{1}{10}&-\frac{1}{14}-\lambda\end{array}\right|&=&\left(\frac{1}{10}+\lambda\right)\left(\frac{1}{14}+\lambda\right)-\frac{1}{140}\\
+&=&\lambda^2+\frac{6}{35}\lambda=0
+\end{eqnarray}
+This means that there are two eigenvalues, $\lambda_1=0$ and
+$\lambda_2=-6/35$. The corresponding eigenvectors are given by
+\begin{equation}
+\left(\begin{array}{cc}-\frac{1}{10}&\frac{1}{14}\\
+\frac{1}{10}&-\frac{1}{14}\end{array}\right)\left(\begin{array}{c}a\\b\end{array}\right)=0
+\end{equation}
+which has solutions of the form $a=10$ and $b=14$ for $\lambda_1$ and 
+\begin{equation}
+\left(\begin{array}{cc}-\frac{1}{10}&\frac{1}{14}\\
+\frac{1}{10}&-\frac{1}{14}\end{array}\right)\left(\begin{array}{c}a\\b\end{array}\right)=-\frac{6}{35}\left(\begin{array}{c}a\\b\end{array}\right)
+\end{equation}
+for $\lambda_2$. This has solution $a=-1$ and $b=1$. Thus, the general
+solution is
+\begin{equation}
+\left(\begin{array}{c}y_1\\y_2\end{array}\right)=c_1\left(\begin{array}{c}10\\14\end{array}\right)+c_2\left(\begin{array}{c}-1\\1\end{array}\right)e^{-\frac{6}{35}t}
+\end{equation}
+\vskip .25cm
+For part (iii), matching with $y_1(0)=0$ and $y_2(0)=2$, this gives $c_1=1/12$ and $c_2=5/6$ and hence
+\begin{equation}
+\left(\begin{array}{c}y_1\\y_2\end{array}\right)=\frac{1}{12}\left(\begin{array}{c}10\\14\end{array}\right)+\frac{5}{6}\left(\begin{array}{c}-1\\1\end{array}\right)e^{-\frac{6}{35}t}
+\end{equation}
+\vskip .25cm
+By the way, clearly the exponetially decaying part
+goes away with time so that
+\begin{equation}
+\lim_{t\rightarrow \infty}{{\bf y}}=\left(\begin{array}{c}\frac{5}{6}\\ \frac{7}{6}\end{array}\right)
+\end{equation}
+\end{enumerate}
+}
+\end{document}

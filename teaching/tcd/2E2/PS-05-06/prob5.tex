@@ -1,0 +1,106 @@
+ \documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand{\soln}{\noindent\textit{Solution:}}
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+
+{\bf 2E2 Tutorial Sheet 5 First Term\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/2E2.html}}\\[1cm] 12 November 2005}
+\end{center}
+
+
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\noindent {\bf Useful facts:}
+\begin{itemize}
+
+
+
+\item The formula for complex exponentials:
+\begin{eqnarray}
+e^{i\theta}&=&\cos{\theta}+i\sin{\theta}\cr
+e^{-i\theta}&=&\cos{\theta}-i\sin{\theta}
+\end{eqnarray}
+
+\item Remember $e^{a+b}=e^a e^b$ so, 
+\begin{eqnarray}
+e^{a+ib}&=&(\cos{b}+i\sin{b})e^{a}\cr
+e^{a-ib}&=&(\cos{b}-i\sin{b})e^{a}
+\end{eqnarray}
+
+\item Laplace transform of a periodic function with
+period $c$:
+\begin{equation}
+{\cal L}(f)=\frac{1}{1-e^{-cs}}\int_0^c f(t)e^{-st}dt
+\end{equation}
+\item Integration by parts:
+\begin{equation}
+\int_a^b udv=\left. uv\right]_a^b-\int_a^b vdu
+\end{equation}
+\end{itemize}
+
+\newpage
+
+\noindent {\bf Questions}
+
+\begin{enumerate}
+
+\item (2) Solve, using Laplace transforms, 
+\begin{equation}
+f''+4f=1
+\end{equation}
+with $f(0)=f'(0)=0$.
+
+\item (3)
+Using the Laplace transform solve the differential equation
+\begin{equation}
+f''+6f'+13f=e^t
+\end{equation}
+with boundary conditions $f(0)=0$ and $f'(0)=0$.
+
+\item (3) Use the formula for the Laplace transform of a periodic function
+to find the Laplace transform of  a half-rectified wave
+\begin{equation}
+f(t)=\left\{\begin{array}{ll}\sin{t}&\sin{t}>0\\0&\sin{t}\le 0\end{array}\right.\end{equation}
+\begin{center}
+\epsfig{file=rectifiedwave.epsi,width=15cm}
+\end{center}
+This is the form a AC current has after going through a diode and is a periodic function with period $2\pi$. To do the integral, the easiest way is probably to split the sine up using
+\begin{equation}
+\sin{\theta}=\frac{e^{i\theta}-e^{-i\theta}}{2i}
+\end{equation}
+and then use the usual formula from the log tables for the integral of an exponetential:
+\begin{equation}
+\int e^{at}dt=\frac{1}{a}e^{at}
+\end{equation}
+This works for complex $a$. Try to get a real answer.
+\end{enumerate}
+
+
+\vfill
+
+
+\end{document}

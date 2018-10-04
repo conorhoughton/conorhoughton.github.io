@@ -1,0 +1,97 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+{\bf 2E2 Tutorial Sheet 10\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/2E2.html}}}\\[1cm] 15 January 2006
+\end{center}
+
+\noindent {\bf Useful facts:}\\
+\begin{itemize}
+\item Solving a linear differential equation: for $A$ a $2\times 2$ matrix with eigenvalues $\lambda_1$ and $\lambda_1$ and corresponding eigenvectors ${\bf x}_1$ and ${\bf x}_2$ then if
+\begin{equation}
+{\bf y}'=A{\bf y}
+\end{equation}
+the solution is
+\begin{equation}
+{\bf y}=C_1{\bf x}_1e^{\lambda_1t}+C_2{\bf x}_2e^{\lambda_2t}
+\end{equation}
+where $C_1$ and $C_2$ are arbitrary constants.
+\item If initial condition are given, just set $t=0$ to find $y_1(0)$ and $y_2(0)$ and this should give simultaneous equations for $C_1$ and $C_2$.
+\end{itemize}
+\newpage
+{\bf Questions}
+\begin{enumerate}
+\item (2) Find the general solution for the system
+\begin{eqnarray}
+\frac{dy_1}{dt}&=&3y_1+y_2\\
+\frac{dy_2}{dt}&=&y_1+3y_2
+\end{eqnarray}
+\vskip .25cm
+\item (3) Find the solution of the system
+\begin{eqnarray}
+\frac{dy_1}{dt}&=&3y_1+4y_2\\
+\frac{dy_2}{dt}&=&4y_1-3y_2
+\end{eqnarray}
+with $y_1(0)=2$ and $y_2(0)=-1$.
+\vskip .25cm
+\begin{figure}[bh]
+\begin{center}
+$$
+\begin{array}{c}
+\begin{picture}(205,100)(55,615)
+\thinlines
+\put(  55,685){\makebox(0,0)[lb]{\smash{\SetFigFont{12}{14.4}{rm}Tank 1}}}
+\put( 205,685){\makebox(0,0)[lb]{\smash{\SetFigFont{12}{14.4}{rm}Tank 2}}}
+\put( 120,706){\makebox(0,0)[lb]{\smash{\SetFigFont{12}{14.4}{rm}$\frac{1}{2}m^3s^{-1}$}}}
+\put( 118,547){\makebox(0,0)[lb]{\smash{\SetFigFont{12}{14.4}{rm}$\frac{1}{2}m^3s^{-1}$}}}
+\put( 47,627){\makebox(0,0)[lb]{\smash{\SetFigFont{12}{14.4}{rm}$V_1=5m^3$}
+}}
+\put( 200,627){\makebox(0,0)[lb]{\smash{\SetFigFont{12}{14.4}{rm}$V_2=7m^3$}}}
+\end{picture}\end{array}
+$$
+\vskip -3.5cm
+\leavevmode
+\epsfxsize=8cm\epsffile{tanks.eps}
+\end{center}
+\caption{Two containers with flow between them.}
+\label{twosphtri}
+\end{figure}
+\vskip .25cm                  
+\item (3) As illustrated in Fig. 1, two large containers are connected
+and American style sandwich spead is pumped between them at a rate of
+$1/2m^3s^{-1}$. One container has volume $5m^3$, the other
+$7m^3$. Both are full of spread. Initially the smaller container
+contains pure jam, the second container has $5m^3$ of jam and $2m^3$
+of peanut butter. Assume perfect mixing and so on.  \\ (i) Write down
+the differential equation for $y_1(t)$ and $y_2(t)$, the amount of
+peanut butter in the first and second container.\\ (ii) Solve it to
+find $y_1(t)$ and $y_2(t)$ explicitly. \\(iii) Use the initial data to find the values of the constants in the solution.
+\end{enumerate}
+
+\end{document}

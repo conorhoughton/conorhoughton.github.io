@@ -1,0 +1,76 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand\soln{\noindent\textit{Solution:} }
+
+%NOTE that the year before has an extra inhomogeneous ode example
+%
+%
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+{\bf 2E2 Tutorial Sheet 15 Second Term}\footnote{Conor
+Houghton, {\tt houghton@maths.tcd.ie} and {\tt
+http://www.maths.tcd.ie/\char126 houghton/ 2E2.html}}
+\\[1cm]
+ 19 February 2006
+\end{center}
+{
+\noindent{\bf Useful facts:}\vskip .5cm
+The idea is to draw the phase diagram by first making an approximate linearization near all the stationary points. The questions below guide you through the steps, but to summarize
+\begin{enumerate}
+\item Convert into $y_1$, $y_2$ form.
+\item Find the stationary points, these are where $y_1'=y_2'=0$.
+\item Near each stationary point make an approximation. If the
+stationary point is at $(0,0)$ then let $y_1$ and $y_2$ be small so
+$\sin{y_1}\approx y_1$ and you can discard squares or cubes or higher
+powers in $y_1$. If the stationary point is at some other point, say
+$(a,0)$, $a$ a constant, then make $y_1$ be near $a$, hence
+$y_1=a+\eta$ and $\eta$ small. Now substitute that back in and use
+$\eta$ small to make approximations, like dropping powers in $\eta$.
+\item Now draw the phase diagram near each of the stationary points and then try to join it up to make the whole diagram. The arrows will go left to right above the $y_1$-axis.
+\end{enumerate}
+\vskip .5cm
+\noindent{\bf Questions}
+Consider the non-linear differential equation
+\begin{equation}
+y''=y-y^2
+\end{equation}
+\begin{enumerate}
+\item (1) By defining $y_1=y$ and $y_2=y_1'$ convert this into two first order equations.
+\item (1) The stationary points are the points where $y_1'=y_2'=0$, find the two stationary points for this equation.
+\item (2) Consider the $y_1=0$ stationary point, linearize the
+equations near this point by assuming $y_1\ll 1$. Solve the corresponding linear equations. What sort of stationary point is this?
+\item (2) Consider the $y_1=1$ stationary point, linearize the equations near this point by assuming $y_1=1+\eta$ where $\eta\ll 1$. Solve the corresponding linear equations. What sort of stationary point is this?
+\item (2) Try and draw the whole phase diagram, first draw in the two
+stationary points and then try and join the lines, remember the lines
+don't cross.
+\end{enumerate}
+}
+\end{document}
+
+
+

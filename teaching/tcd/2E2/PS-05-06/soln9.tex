@@ -1,0 +1,238 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand\soln{\noindent\textit{Solution:} }
+
+
+%skyline stuff
+\font\upright=cmu10 scaled\magstep1
+\setlength{\unitlength}{0.012500in}
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+
+\begin{document}
+\begin{center}
+{\bf 2E2 Tutorial Sheet 9 Solutions\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/2E2.html}}}\\[1cm] 8 January 2006
+\end{center}
+
+{\bf Questions}
+\begin{enumerate}
+\item (3) Find the eigenvectors and eigenvalues of the following matrices
+\begin{equation}\begin{array}{lcclcclc}
+(i)&\left(\begin{array}{cc}10&-4\\18&-12\end{array}\right)&\qquad&
+(ii)&\left(\begin{array}{cc}4&0\\0&-6\end{array}\right)&\qquad&
+(iii)&\left(\begin{array}{cc}0&r\\r&0\end{array}\right)\\[15pt]
+\end{array}
+\end{equation}
+\vskip .5cm
+\soln In $(i)$ the characteristic equation is
+\begin{equation}
+\left|\begin{array}{cc}4-\lambda&0\\0&-6-\lambda\end{array}\right|=0
+\end{equation}
+so
+\begin{equation}
+(4-\lambda)(-6-\lambda)=0
+\end{equation}
+So $\lambda=4$ or $\lambda=-6$. Taking the $\lambda=4$ first
+\begin{equation}
+\left(\begin{array}{cc}4&0\\0&-6\end{array}\right)\left(\begin{array}{c}a\\b\end{array}\right)=4\left(\begin{array}{c}a\\b\end{array}\right)
+\end{equation}
+so $4a=4a$ and $-6b=4b$, hence $b=0$ and $a$ is arbitrary, taking $a=1$ an eigenvalue $4$ eigenvector is,
+\begin{equation}
+{\bf x}=\left(\begin{array}{c}1\\0\end{array}\right)
+\end{equation}
+ Taking the $\lambda=-6$ 
+\begin{equation}
+\left(\begin{array}{cc}4&0\\0&-6\end{array}\right)\left(\begin{array}{c}a\\b\end{array}\right)=-6\left(\begin{array}{c}a\\b\end{array}\right)
+\end{equation}
+so $4a=-6a$ and $-6b=-6b$, hence $a=0$ and $b$ is arbitrary, taking $b=1$ a eigenvalue $-6$ eigenvector is,
+\begin{equation}
+{\bf x}=\left(\begin{array}{c}0\\1\end{array}\right)
+\end{equation}
+\vskip .25cm
+In $(ii)$ the characteristic equation is
+\begin{equation}
+\left|\begin{array}{cc}10-\lambda&-4\\18&-12-\lambda\end{array}\right|=0
+\end{equation}
+so
+\begin{equation}
+(10-\lambda)(-12-\lambda)-(-4)18=0
+\end{equation}
+or
+\begin{equation}
+\lambda^2+2\lambda-48=0
+\end{equation}
+Solve this gives us $\lambda=6$ or $\lambda=-8$. Taking the $\lambda=6$ first
+\begin{equation}
+\left(\begin{array}{cc}10&-4\\18&-12\end{array}\right)\left(\begin{array}{c}a\\b\end{array}\right)=6\left(\begin{array}{c}a\\b\end{array}\right)
+\end{equation}
+so the first equation is $10a-4b=6a$ or $a=b$, the other equation is $18a-12b=6b$ which is also $a=b$. Taking $a=1$ an eigenvalue $6$ eigenvector is,
+\begin{equation}
+{\bf x}=\left(\begin{array}{c}1\\1\end{array}\right)
+\end{equation}
+Taking the $\lambda=-8$ next
+\begin{equation}
+\left(\begin{array}{cc}10&-4\\18&-12\end{array}\right)\left(\begin{array}{c}a\\b\end{array}\right)=-8\left(\begin{array}{c}a\\b\end{array}\right)
+\end{equation}
+so the first equation is $10a-4b=-8a$ or $9a=2b$, the other equation is $18a-12b=-8b$ which is also $9a=2b$. Taking $a=2$, $b=9$ an eigenvalue $-8$ eigenvector is,
+\begin{equation}
+{\bf x}=\left(\begin{array}{c}2\\9\end{array}\right)
+\end{equation}
+\vskip .25cm
+In $(iii)$ the characteristic equation is
+\begin{equation}
+\left|\begin{array}{cc}-\lambda&r\\r&-\lambda\end{array}\right|=0
+\end{equation}
+so
+\begin{equation}
+\lambda^2-r^2=0
+\end{equation}
+or
+\begin{equation}
+\lambda=\pm r
+\end{equation}
+Taking the $\lambda=r$ first
+\begin{equation}
+\left(\begin{array}{cc}0&r\\r&0\end{array}\right)\left(\begin{array}{c}a\\b\end{array}\right)=r\left(\begin{array}{c}a\\b\end{array}\right)
+\end{equation}
+so the equation is $rb=ra$ or $a=b$. Taking $a=1$ an eigenvalue $r$ eigenvector is,
+\begin{equation}
+{\bf x}=\left(\begin{array}{c}1\\1\end{array}\right)
+\end{equation}
+Taking the $\lambda=-r$ 
+\begin{equation}
+\left(\begin{array}{cc}0&r\\r&0\end{array}\right)\left(\begin{array}{c}a\\b\end{array}\right)=-r\left(\begin{array}{c}a\\b\end{array}\right)
+\end{equation}
+so the equation is $rb=-ra$ or $a=-b$. Taking $a=1$ an eigenvalue $-r$ eigenvector is,
+\begin{equation}
+{\bf x}=\left(\begin{array}{c}1\\-1\end{array}\right)
+\end{equation}
+\vskip .5cm
+\item (2) Find the eigenvectors and eigenvalues of the following matrices
+\begin{equation}\begin{array}{lcclcc}
+(i)&\left(\begin{array}{cc}3&4\\4&-3\end{array}\right)&\qquad&
+(ii)&\left(\begin{array}{cc}0&3\\-3&0\end{array}\right)&\qquad
+\end{array}
+\end{equation}
+\vskip .5cm
+\soln
+In $(i)$ the characteristic equation is
+\begin{equation}
+\left|\begin{array}{cc}3-\lambda&4\\4&-3-\lambda\end{array}\right|=0
+\end{equation}
+so
+\begin{equation}
+(3-\lambda)(-3-\lambda)-16=0
+\end{equation}
+or
+\begin{equation}
+\lambda^2+2\lambda-48-25=0
+\end{equation}
+Solve this gives us $\lambda=\pm 5$. Taking the $\lambda=5$ first
+\begin{equation}
+\left(\begin{array}{cc}3&4\\4&-3\end{array}\right)\left(\begin{array}{c}a\\b\end{array}\right)=5\left(\begin{array}{c}a\\b\end{array}\right)
+\end{equation}
+so the first equation is $3a+4b=5a$ or $a=2b$, the other equation is $4a-3b=5b$ which is also $a=2b$. Taking $a=2$ an eigenvalue $5$ eigenvector is,
+\begin{equation}
+{\bf x}=\left(\begin{array}{c}2\\1\end{array}\right)
+\end{equation}
+Taking $\lambda=-5$ next
+\begin{equation}
+\left(\begin{array}{cc}3&4\\4&-3\end{array}\right)\left(\begin{array}{c}a\\b\end{array}\right)=-5\left(\begin{array}{c}a\\b\end{array}\right)
+\end{equation}
+so the first equation is $3a+4b=-5a$ or $2a=-b$, the other equation is $4a-3b=-5b$ which is also $2a=-b$. Taking $a=1$ an eigenvalue $-5$ eigenvector is,
+\begin{equation}
+{\bf x}=\left(\begin{array}{c}1\\-2\end{array}\right)
+\end{equation}
+\vskip .25cm
+In $(ii)$ the characteristic equation is
+\begin{equation}
+\left|\begin{array}{cc}-\lambda&3\\-3&-\lambda\end{array}\right|=0
+\end{equation}
+so
+\begin{equation}
+\lambda^2+9=0
+\end{equation}
+or
+\begin{equation}
+\lambda=\pm 3i
+\end{equation}
+Taking the $\lambda=3i$ first
+\begin{equation}
+\left(\begin{array}{cc}0&3\\-3&0\end{array}\right)\left(\begin{array}{c}a\\b\end{array}\right)=3i\left(\begin{array}{c}a\\b\end{array}\right)
+\end{equation}
+so the equation is $3b=3ia$ or $a=-ib$. Taking $b=1$ an eigenvalue $3i$ eigenvector is,
+\begin{equation}
+{\bf x}=\left(\begin{array}{c}-i\\1\end{array}\right)
+\end{equation}
+Taking the $\lambda=-3i$ 
+\begin{equation}
+\left(\begin{array}{cc}0&3\\-3&0\end{array}\right)\left(\begin{array}{c}a\\b\end{array}\right)=-3i\left(\begin{array}{c}a\\b\end{array}\right)
+\end{equation}
+so the equation is $3b=-3ia$ or $a=ib$. Taking $a=1$ an eigenvalue $-3i$ eigenvector is,
+\begin{equation}
+{\bf x}=\left(\begin{array}{c}i\\1\end{array}\right)
+\end{equation}
+\vskip .5cm
+\item (3) Find the solution for the system
+\begin{eqnarray}
+\frac{dy_1}{dt}&=&-3y_1+2y_2\\
+\frac{dy_2}{dt}&=&-2y_1+2y_2
+\end{eqnarray}
+\vskip .5cm
+\soln
+This equation is ${\bf y}'=A{\bf y}$ with 
+$$
+A=\left(\begin{array}{cc}-3&2\\-2&2\end{array}\right)
+$$
+We can find the eigenvalues, the characteristic equation is
+$$
+\left|\begin{array}{cc}-3-\lambda&2\\-2&2-\lambda\end{array}\right|
+=(\lambda+3)(\lambda-2)+4=\lambda^2+\lambda-2=0$$
+so that $\lambda_1=1$ and $\lambda_2=-2$. 
+\vskip .25cm
+Next, we need the eigenvectors. First, $\lambda_1$:
+\begin{equation}
+\left(\begin{array}{cc}-3&2\\-2&2\end{array}\right)\left(\begin{array}{c}a\\b\end{array}\right)=\left(\begin{array}{c}a\\b\end{array}\right)
+\end{equation}
+so $-3a+2b=a$ or $b=2a$, hence, choosing $a=1$ we get
+\begin{equation}
+{\bf x}_1=\left(\begin{array}{c}1\\2\end{array}\right).
+\end{equation} 
+For  $\lambda_2$:
+\begin{equation}
+\left(\begin{array}{cc}-3&2\\-2&2\end{array}\right)\left(\begin{array}{c}a\\b\end{array}\right)=-2\left(\begin{array}{c}a\\b\end{array}\right)
+\end{equation}
+so $-3a+2b=-2a$ giving $a=2b$, choosing $b=1$ gives
+\begin{equation}
+{\bf x}_2=\left(\begin{array}{c}2\\1\end{array}\right)
+\end{equation}
+\vskip .25cm
+Now, in general the solution is
+\begin{equation}
+{\bf y}=c_1{\bf x}_1e^{\lambda_1t}+c_2{\bf x}_2e^{\lambda_2t}
+\end{equation}
+so, here,
+\begin{equation}
+{\bf y}=c_1\left(\begin{array}{c}1\\2\end{array}\right)e^{t}+c_2\left(\begin{array}{c}2\\1\end{array}\right)e^{-2t}
+\end{equation}
+\end{enumerate}
+
+\end{document}
