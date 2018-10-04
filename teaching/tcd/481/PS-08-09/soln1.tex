@@ -1,0 +1,203 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand\soln{\noindent\textit{Solution:} }
+
+\begin{document}
+\begin{center}
+{\bf 481 Tutorial Sheet 1, Outline solutions\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/481}}}\\[1cm]{} 14 November 2008
+\end{center}
+\noindent {\bf Questions}
+
+\begin{enumerate}
+\item The Nernst equation was derived under the assumption that the
+  membrane potential was negative and the ion being considered had
+  positive charge. Rederive this result for a negatively charged ion
+  and for the case when $E$ is positive to verify that it applies in
+  all these cases.
+
+\soln We will begin by revising the original derivation. There are two key formula, first, if a positive ion has charge $zq$, the idea being that $q$ is the charge of a proton and $z$ is a positive integer, then the energy required to move it from potential zero to potential $V$ is $zqV$. Secondly, at a temperature $T$ the probability a particle has energy greater than ${\cal E}$ is
+\begin{equation}
+\mbox{prob}(\mbox{energy}>{\cal E})=e^{-{\cal E}/k_bT}
+\end{equation}
+This is calculated by integrating the Boltzmann probability density, as described, for example, in note 4a. Now, in the original senario the cell is at potential $V<0$ and we are considering a positive ion with charge $zq$ where $z>0$. Now the potential gap does not prevent ions diffusing in to the cell, but it does prevent them from diffusing out; only ions with enough energy to cross the gap can diffuse out. Since $V$ is negative the potential gap is $-zqV>0$ and the proportion of cells with energy greater than $-zqV$ is $\exp{zqV/k_bT}=\exp{zV/V_T}$ where we have used the notation $V_T=k_bT/q$. Since the diffusive flow is proportion to the concentration of ions energetically capable of crossing the gap, the flow in is proportional to $\rho_o$, the density outside and flow out is proportional to $\rho_i\exp{zV/V_T}$. Now, the equilibrium potential $V=E$ is the potential for which the two flows balance and hence
+\begin{equation}
+\rho_o=\rho_ie^{zE/V_T}
+\end{equation}
+or
+\begin{equation}
+E=\frac{V_T}{z}\log{\frac{\rho_o}{\rho_i}}
+\end{equation}
+which is the Nernst equation.
+
+Now, to actually address the question, say instead the ion was negatively charged, $z<0$, so that there is no potential barrier to it flowing out of the cell, but there is one to it flowing in. The energy barrier is $zqV>0$ and hence the flow in is proportional to $\rho_o\exp{(-zV/V_T)}$ and at equilibrium potential
+\begin{equation}
+\rho_i=\rho_oe^{-zE/V_T}
+\end{equation}
+or, as before,
+\begin{equation}
+E=\frac{V_T}{z}\log{\frac{\rho_o}{\rho_i}}
+\end{equation}
+If $V$ is positive and the ion is positive then the equation is still
+\begin{equation}
+\rho_i=\rho_oe^{-zE/V_T}
+\end{equation}
+since the positive ion has a potential barrier of $zqV$ to entering the cell and, if the potential is positive and the ion negative, the equation is
+\begin{equation}
+\rho_o=\rho_ie^{zE/V_T}
+\end{equation}
+Hence, the Nernst equation is the same in each case, even though $z$ and $V$ have different signs.
+
+
+\item Consider the effect of a triangular pulse on the integrate and fire neuron. When does this cause a spike?
+\begin{equation}
+I_e=\left\{\begin{array}{ll}At&t\in(0,T)\\
+                            A(2T-t)&t\in(T,2T)\\
+                             0&\mbox{otherwise}
+\end{array}\right.
+\end{equation}
+
+\soln This question is just a big long annoyance, the challenge is to solve the integrate and fire equation 
+\begin{equation}
+\tau_m \dot{V}=E_L-V+R_mI_e
+\end{equation}
+with a different input current. To save on writing lets absorb $R_m$ into $A$ and consider the situation when $t<T$:
+\begin{equation}
+\tau_m \dot{V}=E_L-V+At
+\end{equation}
+and hence
+\begin{equation}
+\dot{V}+\frac{1}{\tau_m}V=\frac{1}{\tau_m}\left(E_L+At\right)
+\end{equation}
+or
+\begin{equation}
+\frac{d}{dt}\left(Ve^{t/\tau_m}\right)=\frac{1}{\tau_m}\left(E_L+At\right)e^{t/\tau_m}
+\end{equation}
+and so, integrating by parts we get
+\begin{equation}
+V=E_L+A(t-\tau)+Ce^{-t/\tau_m}
+\end{equation}
+so, assuming the voltage starts at $E_L$. the resting value, we have 
+\begin{equation}
+E_L=E_L-A\tau+C
+\end{equation}
+and hence $C=A\tau$ giving
+\begin{equation}
+V=E_L+At+A\tau\left(e^{-t/\tau_m}-1\right)
+\end{equation}
+If $V(T)>V_t$, the threshold value, then it spikes before $t=T$; hence we have a spike if
+\begin{equation}
+V_t<E_L+AT+A\tau e^{-T/\tau_m}-A\tau
+\end{equation}
+or
+\begin{equation}
+A>\frac{V_t-E_L}{\exp{(-T/\tau_m)}+T-\tau}
+\end{equation}
+
+On the otherhand, even if it didn't spike as the current increased, it could spike as the current falls. For $T<t<2T$ 
+\begin{equation}
+\dot{V}+\frac{1}{\tau_m}V=\frac{1}{\tau_m}\left(E_L+2AT-At\right)
+\end{equation}
+so, by analogy with the previous solution, we have
+\begin{equation}
+V=E_L+2AT-A(t-\tau)+Ce^{-t/\tau_m}
+\end{equation}
+and setting, $t=T$ and, using the value of $V(T)$ calculated above, we have 
+\begin{equation}
+C=A\tau\left(1-2e^{T/tau}\right)
+\end{equation}
+Substituting this back in we have
+\begin{equation}
+\tau\dot{V}=-A\tau-A\tau e^{-t/\tau}+2A\tau e^{(T-t)/tau}
+\end{equation}
+so $\dot{V}=0$ if $t=t_m$ where
+\begin{equation}
+t_m=\tau\log{\left(2e^{T/\tau}-1\right)}
+\end{equation}
+and there is a spike if $V(t_m)>V_t$ if $t_m<2T$ or if $V(2T)>V_t$
+otherwise. As an exam question, this would be a good enough question
+if I had left out the down slope, that is, if the current had been
+\begin{equation}
+I_e=\left\{\begin{array}{ll}At&t\in(0,T)\\
+0&\mbox{otherwise}
+\end{array}\right.
+\end{equation}
+but this way it is too tedious to ask in an exam.
+
+\item Another model of the synaptic conductance has an auxiliary function $z$ and satisfies
+\begin{eqnarray}
+\tau_s\dot{P}_s&=&eP_mz-P_s\cr
+\tau_z\dot{z}&=&-z
+\end{eqnarray}
+with the rule that $z$ is set to one whenever a spike arrives. $P_m$ is a constant. Solve this for the response to single spike, both with $\tau_s=\tau_z$ and otherwise. In the $\tau_s=\tau_z$ case consider the maximum value of $P_s$ and how this changes if two spikes arrive one after the other. Speculate on the physiological meaning of $z$.
+
+\soln This is a much nicer question: first, the biology, it is easy to surmise that $z$ is the level of neurotransmitter in the cleft so it goes instantaneously to one when the spike arrives. $P_s$ relaxes towards the value of $z$ but $z$ is itself falling because of the re-uptake pumps reabsorb the neurotransmitter. This differs from the model we looked at in the lectures where the neurotransmitter had a block wave form, it rose instantaneously to its maximum value, sustained that value and then disappeared.
+
+Now, $z$ is set to one whenever a spike arrives, so if a spike arrives at time $t=0$ 
+\begin{equation}
+z=e^{-t/\tau_z}
+\end{equation}
+Substituting back in to the equation for $P_s$ we have
+\begin{equation}
+\dot{P}_s+frac{1}{\tau_s}P_s=\frac{e}{\tau_s}P_me^{-t/\tau_z}
+\end{equation}
+Hence
+\begin{equation}
+\frac{d}{dt}\left(P_se^{t/\tau_s}\right)=\frac{e}{\tau_s}P_me^{t/\tau_s-t/\tau_z}
+\end{equation}
+and, if $\tau_s\not=\tau_z$ we integrate to get
+\begin{equation}
+P_s=-\frac{\tau_z}{\tau_s-\tau_z}P_me^{-t\tau_z}+Ce^{-t\tau_s}
+\end{equation}
+where I have used
+\begin{equation}
+\left(\frac{1}{\tau_s}-\frac{1}{\tau_z}\right)^{-1}=-\frac{\tau_s\tau_z}{\tau_s-\tau_z}
+\end{equation}
+and we have switched the terms in the denominator because $\tau_s$ is typically bigger than $\tau_z$. Finally, if this is the first spike in a long time, $P_s(0)=0$ so 
+\begin{equation}
+C=\frac{\tau_z}{\tau_s-\tau_z}P_m
+\end{equation}
+and
+\begin{equation}
+P_s=\frac{\tau_z}{\tau_s-\tau_z}P_m\left(e^{-t\tau_s}-e^{-t\tau_z}\right).
+\end{equation}
+
+If $\tau_s=\tau_z$ then the integration is slightly different, let $\tau=\tau_s=\tau-z$ so
+\begin{equation}
+\frac{d}{dt}\left(P_s e^{t/\tau}\right)=\frac{e}{\tau}P_m
+\end{equation}
+and
+\begin{equation}
+P_s=\frac{e}{\tau}P_mt e^{-t/\tau}+Ce^{-t/\tau}
+\end{equation}
+and, setting $P_s(0)=0$ gives $C=0$ so
+\begin{equation}
+P_s=\frac{1}{\tau}P_mt e^{1-t/\tau}
+\end{equation}
+Substituting this back in to the equation for $\dot{P}_s$ gives
+\begin{equation}
+\tau\dot{P}_s=P_m\left(1-\frac{t}{\tau}\right)e^{1-t/\tau}
+\end{equation}
+so the maximum occurs at $t=\tau$ and, calculating $P_s(\tau)$ shows that the maximum value is $P_m$. 
+
+If $P_s(0)=P_0>0$ as would happen if one spike followed another, we would have $C=P_0$ and hence
+\begin{equation}
+P_s=\frac{1}{\tau}P_mt e^{1-t/\tau}+P_0e^{-t/\tau}
+\end{equation}
+and
+\begin{equation}
+\tau\dot{P}_s=P_m\left(1-\frac{t}{\tau}-\frac{P_0}{e P_m}\right)e^{1-t/\tau}
+\end{equation}
+In this case, the maximum occurs when
+\begin{equation}
+1-\frac{t}{\tau}-\frac{P_0}{P_me}=0
+\end{equation}
+or $t=(1-f)\tau$ where $f=P_0/P_me$. Substituting back into the equation for $P_s$ we get the amazing result
+\begin{equation}
+P_s=P_me^f
+\end{equation}
+so if $P_0=0$ the maximum is $P_m$ as before, if $P_0=P_m$ then the maximum $P_me^{1/e}\approx 1.44 P_m$.
+
+\end{enumerate}
+
+
+\end{document}

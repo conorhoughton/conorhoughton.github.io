@@ -1,0 +1,40 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+
+\begin{document}
+\begin{center}
+{\bf 481 Tutorial Sheet 1\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/481}}}\\[1cm]{} 14 November 2008
+\end{center}
+\noindent {\bf Questions}
+
+\noindent Exam question on this part of the course will {\sl mostly} consist of derivations and descriptions of the course material. Questions 2 and 3 are also questions that could be asked, though in an exam they would be phrased in a less open-ended way.
+
+\begin{enumerate}
+\item The Nernst equation was derived under the assumption that the
+  membrane potential was negative and the ion being considered had
+  positive charge. Rederive this result for a negatively charged ion
+  and for the case when $E$ is positive to verify that it applies in
+  all these cases.
+
+\item Consider the effect of a triangular pulse on the integrate and fire neuron. When does this cause a spike?
+\begin{equation}
+I_e=\left\{\begin{array}{ll}At&t\in(0,T)\\
+                            A(2T-t)&t\in(T,2T)\\
+                             0&\mbox{otherwise}
+\end{array}\right.
+\end{equation}
+
+\item Another model of the synaptic conductance has an auxiliary function $z$ and satisfies
+\begin{eqnarray}
+\tau_s\dot{P}_s&=&eP_mz-P_s\cr
+\tau_z\dot{z}&=&-z
+\end{eqnarray}
+with the rule that $z$ is set to one whenever a spike arrives. $P_m$ is a constant. Solve this for the response to single spike, both with $\tau_s=\tau_z$ and otherwise. In the $\tau_s=\tau_z$ case consider the maximum value of $P_s$ and how this changes if two spikes arrive one after the other. Speculate on the physiological meaning of $z$.
+
+
+
+
+\end{enumerate}
+
+
+\end{document}

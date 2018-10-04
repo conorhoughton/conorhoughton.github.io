@@ -1,0 +1,74 @@
+
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand\soln{\noindent\textit{Solution:} }
+
+
+\begin{document}
+\begin{center}
+{\bf 481 sample paper\footnote{Conor Houghton, {\tt houghton@maths.tc
+d.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/1S1}}}\\[1cm]{} 27 March 2009
+\end{center}
+
+\section*{2 hour exam, do three questions.}
+
+\begin{enumerate}
+\item 
+\begin{enumerate}
+\item (5) Draw a labelled diagram of a neuron indicating the soma,
+  axon and dentrites along with the regions with high concentrations
+  of sodium and potassium concentration.
+\item (4) The Hodgkin-Huxley equation is
+\begin{equation}
+c_m\frac{dV}{dt}=-i_m
+\end{equation}
+where $i_m$ is the membrane current
+\begin{equation}
+i_m=g_L(V-E_L)+g_K(V-E_K)+g_{Na}(V-E_{Na})+\ldots
+\end{equation}
+The $E_L$, $E_K$ and $E_{Na}$ are {\sl reversal potentials}, in the
+case of $E_K$ and $E_{Na}$ explain what is meant by reversal
+potential.
+\item (5) The potassium channel is a persistent channel with
+\begin{equation}
+g_{K}\propto n^4
+\end{equation}
+Draw a Potassium channel and explain where the exponent comes from. Likewise, the sodium channel is a transient channel with
+\begin{equation}
+g_{Na}=m^3h
+\end{equation}
+Draw a transient channel and explain the meaning of $m$ and $h$.
+\item (6) What equation is satisfied by $n$, $m$ and $h$? What do the terms in this equation mean? Give a rough account of the dynamics that produces spikes.
+\end{enumerate}
+
+
+\item 
+\begin{enumerate} 
+\item (6) Write down the equation governing a leaky integrate and fire neuron and describe the model. Is it linear?
+\item (8) Calculate the firing rate for a leaky integrate and fire neuron with a constant injected current.
+\item (6) What is spike rate adaptation? How is it modelled?
+\end{enumerate}
+
+\item
+\begin{enumerate}
+\item (5) With reference to the famous Hubel and Wesel study of vision describe what is meant by a tuning curve.
+\item (5) What is the spike triggered average?
+\item (10) Show how the spike triggered average can be related to the kernel in a linear filter model of the firing rate.
+\end{enumerate}
+
+\item
+\begin{enumerate}
+\item (5) Draw a labelled diagram of a synapse and give a brief account of what happens when a spike arrives. What is meant by a {\sl post-synaptic potential}?
+\item (10) In a useful model of synpatic conductance, the conductance is $g_s=g_0P_s$ where 
+\begin{equation}
+\tau_s\frac{d}{dt}P_s=-P_s
+\end{equation}
+where $\beta_s=1/tau_s$ is the closing rate for the synaptic ionic gates and
+\begin{equation}
+P_s\rightarrow P_s+P_0(1-P_s)
+\end{equation}
+whenever there is a presynaptic spike. Show how this model can be justified. 
+\item (5) What is {\sl Hebb's rule} and how does it differ from \lq{}Neurons that fire together wire together\rq{}. What is {\sl spike timing dependent plasticity}?
+\end{enumerate}
+\end{enumerate}
+\end{document}

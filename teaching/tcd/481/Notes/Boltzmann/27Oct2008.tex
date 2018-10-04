@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+ 
+\begin{document}
+\begin{center}
+{\bf A brief note on the Maxwell-Boltzmann distribution\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie},
+see also {\tt http://www.maths.tcd.ie/\char126 houghton/481}}}\\[1cm]{} 27 October 2008
+\end{center}
+The {\sl Maxwell-Boltzmann distribution} describes the energy
+distribution of molecules in a gas of non-interacting molecules; it is
+probably easiest to discuss for this example, though, in our case we
+will be applying it to ions dissolved in a fluid. The idea is that
+molecules in a gas are moving, they have velocity and kinetic
+energy. The average velocity determines the temperature: what we
+perceive as heat is a measure of the average kinetic energy of
+molecules. This does not tell us the distribution of energies, just
+the average.
+
+The Maxwell-Boltzmann distribution gives the approximate distribution of the
+velocities if interactions are ignored: in this approximation, the
+only interaction is hard collision, the molecules don't attract each
+other or repel by any long range force, but when two molecules collide
+energy can be transfered from one to the other. Obviously this is not
+accurate and there are other distributions that are more
+accurate for particular situations, however, the Maxwell-Boltzmann
+distribution is often accurate enough to be useful.
+
+It is possible to show that the Maxwell-Boltzmann distribution for the energy ${\cal E}$ of a molecule in a gas at temperature $T$ is
+\begin{equation}
+p({\cal E})=\frac{1}{Z}e^{-{\cal E}/k_bT}
+\end{equation}
+where $k_b=1.380\times 10^23 JK^{-1}$ is a constant called the Boltzmann constant. This is a probability distribution, what it means is that
+\begin{equation}
+\mbox{prob}({\cal E}_1<{\cal E}<{\cal E}_2)=\int_{{\cal E}_1}^{{\cal E}_2}{d{\cal E}p({\cal E})}
+\end{equation}
+$Z$ is a normalization constant, chosen to make the integral of distribution over all possible energies equal to one, so
+\begin{equation}
+1=\int_0^\infty{d{\cal E}p({\cal E})}=\frac{1}{Z}\int_0^\infty{d{\cal E}e^{-{\cal E}/k_bT}}=\frac{k_bT}{Z}
+\end{equation}
+and so $Z=k_bT$. In short, through collisions the energy is spread among the
+molecules according to this distribution, a process known as {\sl thermalization}.
+
+It is easy to work out the average energy of particles in the gas:
+\begin{equation}
+<{\cal E}>=\int_0^\infty {d{\cal E}{\cal E}p({\cal E})}=\frac{1}{k_bT}\int_0^\infty {d{\cal E}{\cal E}e^{-{\cal E}/k_bT}}=k_bT
+\end{equation}
+by integrating by parts. In our application it is also useful to know what fraction of ions have energy greater than some value ${\cal E_0}$ say,
+\begin{equation}
+\mbox{prob}({\cal E}>{\cal E}_0)=\int_{{\cal E}_0}^\infty{d{\cal E} p({\cal E})}=\frac{1}{k_bT}\int_{{\cal E}_0}^\infty{d{\cal E} e^{-{\cal E}/k_bT}}=e^{-{\cal E}_0/k_bT}
+\end{equation}
+
+\end{document}

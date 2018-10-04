@@ -1,0 +1,42 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\usepackage{amssymb}
+ 
+\begin{document}
+\begin{center}
+{\bf Gated channels\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie},
+see also {\tt http://www.maths.tcd.ie/\char126 houghton/231}}}\\[1cm]{} 22 October 2008
+\end{center}
+So the persistient Potassium channel has gating probability $n^4$, the transient sodium channel, $m^3h$. The $n$, $m$ and $h$ satisfy 
+\begin{equation}
+\frac{d\ell}{dt}=\alpha_{\ell}(V)(1-\ell)-\beta_{\ell}(V)\ell
+\end{equation}
+which can be rewritten as
+\begin{equation}
+\tau_{\ell}\frac{d\ell}{dt}=\ell_{\infty}-\ell
+\end{equation}
+where
+\begin{equation}
+\tau_{\ell}=\frac{1}{\alpha_{\ell}+\beta_{\ell}}
+\end{equation}
+and
+\begin{equation}
+\ell_{\infty}=\frac{\alpha_{\ell}}{\alpha_{\ell}+\beta_{\ell}}
+\end{equation}
+
+A standard example set of functional forms for  the alpha and beta are givin in Dayan and Abbott:
+\begin{eqnarray}
+\alpha_n&=&\frac{.01(V+55)}{1-\exp(-.1(V+55))}\cr
+\beta_n&=&.125\exp(-.0125(V+65))
+\end{eqnarray}
+for $n$, for $m$
+\begin{eqnarray}
+\alpha_m&=& \frac{.1(V+40)}{1-\exp(-.1(V+40))}\cr
+\beta_m&=&4\exp(-.0556(V+65))
+\end{eqnarray}
+and for $h$
+\begin{eqnarray}
+\alpha_h&=&.07\exp(-.05(V+65))\cr
+\beta_h&=&\frac{1}{1+\exp(-.1(V+35))}
+\end{eqnarray}
+\end{document}

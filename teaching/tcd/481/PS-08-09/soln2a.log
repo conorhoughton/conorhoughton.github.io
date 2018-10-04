@@ -1,0 +1,101 @@
+This is TeX, Version 3.14159 (Web2C 7.3.1) (format=latex 2000.8.10)  12 MAY 2009 11:58
+**soln2a
+(soln2a.tex
+LaTeX2e <2000/06/01>
+Babel <v3.6Z> and hyphenation patterns for american, british, nohyphenation, lo
+aded.
+(/common/teTeX/texmf/tex/latex/LaTeX2000/latex2e/base/article.cls
+Document Class: article 2000/05/19 v1.4b Standard LaTeX document class
+(/common/teTeX/texmf/tex/latex/LaTeX2000/latex2e/base/size12.clo
+File: size12.clo 2000/05/19 v1.4b Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/common/TeX/texmf/tex/latex/misc/a4wide.sty
+Package: a4wide 1994/08/30
+
+(/common/teTeX/texmf/tex/latex/ntgclass/a4.sty
+Package: a4 1999/03/03 v1.2f A4 based page layout
+))
+(/common/teTeX/texmf/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 1997/09/17 v2.2e
+\@emptytoks=\toks14
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 133.
+)
+(/common/teTeX/texmf/tex/latex/LaTeX2000/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+
+(/common/teTeX/texmf/tex/latex/LaTeX2000/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/common/teTeX/texmf/tex/latex/LaTeX2000/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+(/common/teTeX/texmf/tex/latex/LaTeX2000/graphics/graphics.sty
+Package: graphics 1999/02/16 v1.0l Standard LaTeX Graphics (DPC,SPQR)
+
+(/common/teTeX/texmf/tex/latex/LaTeX2000/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/common/teTeX/texmf/tex/latex/config/graphics.cfg)
+Package graphics Info: Driver file: dvips.def on input line 80.
+
+(/common/teTeX/texmf/tex/latex/LaTeX2000/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+\epsfxsize=\dimen105
+\epsfysize=\dimen106
+) (soln2a.aux)
+\openout1 = `soln2a.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Try loading font information for U+msa on input line 7.
+
+(/common/teTeX/texmf/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 1995/01/05 v2.2e AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 7.
+
+(/common/teTeX/texmf/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 1995/01/05 v2.2e AMS font definitions
+) [1
+
+] (soln2a.aux) ) 
+Here is how much of TeX's memory you used:
+ 656 strings out of 61443
+ 7579 string characters out of 948236
+ 55206 words of memory out of 263001
+ 3603 multiletter control sequences out of 10000+60000
+ 10468 words of font info for 42 fonts, out of 400000 for 1000
+ 22 hyphenation exceptions out of 1000
+ 32i,8n,22p,251b,270s stack positions out of 300i,100n,500p,50000b,10000s
+
+Output written on soln2a.dvi (1 page, 3612 bytes).

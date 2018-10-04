@@ -1,0 +1,95 @@
+% LaTeX blank document for exam papers
+% Anything after a % on a line is a comment -- does not appear in
+% final document
+\documentclass[12pt]{article}
+\usepackage{tcdexam}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\newcommand{\Xx}[1]{\mathscr{#1}}
+
+\begin{document}
+\slcode{XMA         }  % insert XID code for the exam, e.g., XMA3211
+\course{Module          }  % insert course e.g. Module 321
+\examiners{} % insert e.g. Dr. R. Timoney
+\groups{
+}  % insert e.g. JF Engineers \\ JF MSISS
+\term{Trinity Term 2009 }  % insert e.g. Trinity Term 2009
+\day{}   % insert e.g. Tuesday, June 2
+\time{9.30 --- 12.30}  % insert e.g. 9.30 --- 12.30  or 2.00 --- 5.00
+\place{}  % insert e.g. Exam Hall
+\instructions{
+Attempt three questions.
+                    % insert e.g. ATTEMPT SIX QUESTIONS
+   \\[12pt]
+Log tables are available from the invigilators, if required.\\[12pt]
+Non-programmable calculators are permitted for this
+examination,---please indicate the make and model of your calculator
+on each answer book used.}
+
+\maketitle
+
+
+\begin{enumerate} %% for questions
+
+\item %1
+\begin{enumerate}
+\item (5) Draw a labelled diagram of a neuron indicating the {\sl soma},
+  {\sl axon} and {\sl dentrites} along with the regions with high concentrations
+  of sodium and potassium concentration.
+\item (5) Derive the typical voltage scale of neuron.
+\item (10) The Nernst equation was derived under the assumption that the
+  membrane potential was negative and the ion being considered had
+  positive charge. Rederive this result for a negatively charged ion
+  and for the case when $E$ is positive to verify that it applies in
+  all these cases.
+\end{enumerate}
+
+\vfill
+
+\item %3
+\begin{enumerate}
+\item (6) Draw a synapse and label the {\sl terminal button}, {\sl synaptic cleft} and {\sl dendritic spine} along with the {\sl vesicles} and {\sl ligand gated ion channels}. Give a description of the dynamics of a synapse in response to a spike arriving.
+\item (7) In a useful model of synaptic conductance, the conductance is $g_s=g_0P_s$ where 
+\begin{equation}
+\frac{d}{dt}P_s=-\beta_sP_s
+\end{equation}
+where $\beta_s$ is the closing rate for the synaptic ionic gates and
+\begin{equation}
+P_s\rightarrow P_s+P_0(1-P_s)
+\end{equation}
+whenever there is a presynaptic spike. Show how this model can be justified. 
+\item (7) Another model of the synaptic conductance has an auxiliary function $z$ and satisfies
+\begin{eqnarray}
+\tau_s\dot{P}_s&=&eP_mz-P_s\cr
+\tau_z\dot{z}&=&-z
+\end{eqnarray}
+with the rule that $z$ is set to one whenever a spike arrives. $P_m$
+is a constant. Solve this for the response to single spike with
+$\tau_s=\tau_z$ and otherwise. Speculate on the physiological meaning
+of $z$.
+
+\vfill
+
+\item %4
+\begin{enumerate} 
+\item (5) Write down the equation governing a leaky integrate and fire neuron and describe the model. 
+\item (5) How does the leaky integrate and fire neuron differ from a Hodgkin-Huxley neuron?
+\item (10) Consider the effect of a linearly increasing current on the integrate and fire neuron: 
+\begin{equation}
+I_e=At
+\end{equation}
+What is the {\sl latency}; that is, the time to the first spike.
+\end{enumerate}
+
+
+\item
+\begin{enumerate}
+\item (5) What is the spike triggered average?
+\item (5) Describe the linear rate response model?
+\item (10) What is the relationship between the spike triggered average and the linear rate response model?
+\end{enumerate}
+
+\end{enumerate}
+\end{document}

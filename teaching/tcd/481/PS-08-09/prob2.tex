@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+
+\begin{document}
+\begin{center}
+{\bf 481 Tutorial Sheet 2\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/481}}}\\[1cm]{} 7 January 2009
+\end{center}
+\noindent {\bf Questions}
+
+
+These questions are all pretty straight-forward if you have the patience to read through their lengthy statement.
+
+\begin{enumerate}
+\item The spike triggered average is
+\begin{equation}
+\bar{A}(t)=\left<\sum_{t_i}{s(t_i-t)}\right>
+\end{equation}
+where $s(t)$ is the stimulus, the $t_i$ are the spike times and the angle brackets denote the average over trials. For convenience let us write the spike triggered average of a single trial as
+\begin{equation}
+A(t)=\sum_{t_i}{s(t_i-t)}
+\end{equation}
+so $\bar{A}=\left<A\right>$. If we represent the spike train as
+\begin{equation}
+\rho(t)=\sum_{t_i}{\delta(t-t_i)}
+\end{equation}
+then 
+\begin{equation}
+\bar{A}(t)=\left<\int{dt' s(t'-t)\rho(t)}\right>=\int{dt' s(t'-t)r(t)}
+\end{equation}
+where the firing rate is 
+\begin{equation}
+r(t)=\left<\rho(t)\right>
+\end{equation}
+If there is only a smooth number of trials, so that the rate is smoothed with a kernel
+\begin{equation}
+r(t)=\left<\int d\tau\rho(t-\tau)k(\tau)\right>
+\end{equation}
+what is $\bar{A}(t)$ in terms of $k(\tau)$ and $A(t)$? What about
+$Q_{\mbox{\scriptsize{rs}}}(\tau)$ which is used in the linear rate model? These comments
+are intended to show that kernel smoothing, something that is always
+done, might be useful when presenting a rate function, but is not
+necessarily useful in applications of the firing rate where some other
+integral might provide some smoothing.
+
+\item For the linear rate model the integral equation for the kernel
+  was calculated using functional differentiation, that equation was
+  then solved by discretizing time and solving the corresponding
+  matrix equation. Show that you get the same answer if you discretize
+  earlier; that is, discretize the linear model
+\begin{equation}
+\tilde{r}=r_0+\int{d\tau h(\tau) s(t-\tau)}
+\end{equation}
+so, for example $H_i=h(i\delta t)$ and then differentiate the error with respect to $H_i$.
+
+\item The convolution theorem for the Fourier transform states that
+\begin{equation}
+{\cal F}(f*g)=2\pi{\cal F}(f){\cal F}(g)
+\end{equation}
+where as usual
+\begin{equation}
+{\cal F}(f)=\frac{1}{2\pi}\int dt f(t)e^{-ikt}
+\end{equation}
+and the convolution is given by
+\begin{equation}
+f*g(t)=\int d\tau f(t)g(t-\tau)
+\end{equation}
+Hence 
+\begin{eqnarray}
+{\cal F}(f*g)&=&\frac{1}{2\pi}\int dt \int d\tau f(t)g(t-\tau) e^{-ikt}\cr
+             &=&\int dt \int d\tau f(\tau)g(t-\tau) e^{-ik(t-\tau)}e^{-ik\tau}\cr
+             &=&\int dt \int dt' f(t)g(t') e^{-ikt'}e^{-ikt}\cr
+             &=&2\pi \frac{1}{2\pi}\int dt f(t)e^{-ikt}\frac{1}{2\pi}\int dt g(t)e^{-ikt}
+\end{eqnarray}
+as required. You should note that in proving the convolution theorem
+we have assumed all the integrals run over $t\in
+(-\infty,\infty)$. Ignoring the finite integration limits use the
+convolution theorem to solve the equation for the kernel
+\begin{equation}
+\int {d\tau' Q_{\mbox{\scriptsize{ss}}}(\tau-\tau')h(\tau')}=Q_{\mbox{\scriptsize{rs}}}(-\tau).
+\end{equation}
+
+
+
+\end{enumerate}
+
+
+\end{document}

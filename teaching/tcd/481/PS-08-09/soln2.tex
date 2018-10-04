@@ -1,0 +1,171 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand\soln{\noindent\textit{Solution:} }
+
+\begin{document}
+\begin{center}
+{\bf 481 Tutorial Sheet 2\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/481}}}\\[1cm]{} 7 January 2009
+\end{center}
+\noindent {\bf Questions}
+
+
+These questions are all pretty straight-forward if you have the patience to read through their lengthy statement.
+
+\begin{enumerate}
+\item The spike triggered average is
+\begin{equation}
+\bar{A}(t)=\left<\sum_{t_i}{s(t_i-t)}\right>
+\end{equation}
+where $s(t)$ is the stimulus, the $t_i$ are the spike times and the angle brackets denote the average over trials. For convenience let us write the spike triggered average of a single trial as
+\begin{equation}
+A(t)=\sum_{t_i}{s(t_i-t)}
+\end{equation}
+so $\bar{A}=\left<A\right>$. If we represent the spike train as
+\begin{equation}
+\rho(t)=\sum_{t_i}{\delta(t-t_i)}
+\end{equation}
+then 
+\begin{equation}
+\bar{A}(t)=\left<\int{dt' s(t'-t)\rho(t)}\right>=\int{dt' s(t'-t)r(t)}
+\end{equation}
+where the firing rate is 
+\begin{equation}
+r(t)=\left<\rho(t)\right>
+\end{equation}
+If there is only a smooth number of trials, so that the rate is smoothed with a kernel
+\begin{equation}
+r(t)=\left<\int d\tau \rho(t-\tau)k(\tau)\right>
+\end{equation}
+what is $\bar{A}(t)$ in terms of $k(\tau)$ and $A(t)$? What about
+$Q_{\mbox{\scriptsize{rs}}}(\tau)$ which is used in the linear rate model? These comments
+are intended to show that kernel smoothing, something that is always
+done, might be useful when presenting a rate function, but is not
+necessarily useful in applications of the firing rate where some other
+integral might provide some smoothing.
+
+\soln The point being made here is that the spike rate is a smoothing of the spike train and this isn't always needed, since the spike train is smoothed anyway:
+\begin{equation}
+Q_{\mbox{\scriptsize{rs}}}(\tau)=\int dt r(\tau')s(\tau-\tau')
+\end{equation}
+and so
+\begin{equation}
+Q_{\mbox{\scriptsize{rs}}}(\tau)=\left<\int dt \rho(\tau'-t)k(t)  s(\tau-\tau')\right>=\int dt k(t) \int dt \left<\rho(\tau'-t)\right> s(\tau-\tau')
+\end{equation}
+so if
+\begin{equation}
+q_{\mbox{\scriptsize{rs}}}(\tau)=\int dt \left<\rho(\tau')\right>s(\tau-\tau')
+\end{equation}
+then
+\begin{equation}
+Q_{\mbox{\scriptsize{rs}}}(\tau)=\int dt k(t) q_{\mbox{\scriptsize{rs}}}(\tau-t)
+\end{equation}
+and so the original smoothing kernel applied to spike trains acts as a
+smoothing kernel on the stimulus-response correllation function, something
+that might not need smoothing since the stimulus will smooth it anyway.
+
+
+
+
+\item For the linear rate model the integral equation for the kernel
+  was calculated using functional differentiation, that equation was
+  then solved by discretizing time and solving the corresponding
+  matrix equation. Show that you get the same answer if you discretize
+  earlier; that is, discretize the linear model
+\begin{equation}
+\tilde{r}=r_0+\int{d\tau h(\tau) s(t-\tau)}
+\end{equation}
+so, for example $H_i=h(i\delta t)$ and then differentiate the error with respect to $H_i$.
+
+\soln So this is just a question of following the instruction to discretize the functional integral:
+\begin{eqnarray}
+H_i&=&h(i\delta t)\cr
+R_i\delta t&=&r(i\delta t)\cr
+\tilde{R}_i&=&\tilde{r}(i\delta t)\cr
+S_{ij}&=&s(i\delta t-j\delta t)
+\end{eqnarray}
+$S_{ij}$ has a special structure, from its definition
+$S_{i-k,j-k}=S_{ij}$ for many values of $i,j$ and $k$. A matrix like
+this is called a {\sl Toeplitz}; suprisingly this property of $S_{ij}$
+plays no r\^{o}le in what follows. The factor of $1/\delta t$ is added for convenience 
+
+Discretizing the linear model gives
+\begin{equation}
+\tilde{R}_i=\bar{R}+\sum_k S_{ik}H_k
+\end{equation}
+where $\bar{R}=r_0\delta t$, the extra factors of $\delta t$ are for
+convenience and mean that $R_i$ is the probability of a spike in the
+small interval labelled by $i$. The error we need to minimize is
+\begin{equation}
+\epsilon=\sum_i(R_i-\tilde{R}_i)^2=\sum_i\left(R_iR_i-2R_i\tilde{R}_i+\tilde{R}_i^2\right)
+\end{equation}
+To minimize with respect to $H_i$ we take the derivative
+\begin{equation}
+\frac{\partial\epsilon}{\partial H_j}=\sum_i(\tilde{R}_i-R_i)\frac{\partial\tilde{R}_i}{\partial H_j}
+\end{equation}
+and
+\begin{equation}
+\frac{\partial\tilde{R}_i}{\partial H_j}=S_{ij}
+\end{equation}
+This means the minimum is at
+\begin{equation}
+\sum_i\left(r_0+\sum_k S_{ik}H_k-R_i\right)S_{ij}=0
+\end{equation}
+and so
+\begin{equation}
+\sum_k Q^{\mbox{\scriptsize{ss}}}_{jk} H_k=Q^{\mbox{\scriptsize{rs}}}_j
+\end{equation}
+where the stimulus-stimulus correllation is
+\begin{equation}
+Q^{\mbox{\scriptsize{ss}}}_{jk}=\sum_i S_{ij}S_{ik}
+\end{equation}
+and the stimulus-response correllation is
+\begin{equation}
+Q^{\mbox{\scriptsize{rs}}}_j=\sum_i (R_i-\bar{R})S_{ij}
+\end{equation}
+
+
+\item The convolution theorem for the Fourier transform states that
+\begin{equation}
+{\cal F}(f*g)=2\pi{\cal F}(f){\cal F}(g)
+\end{equation}
+where as usual
+\begin{equation}
+{\cal F}(f)=\frac{1}{2\pi}\int dt f(t)e^{-ikt}
+\end{equation}
+and the convolution is given by
+\begin{equation}
+f*g(t)=\int d\tau f(t)g(t-\tau)
+\end{equation}
+Hence 
+\begin{eqnarray}
+{\cal F}(f*g)&=&\frac{1}{2\pi}\int dt \int d\tau f(t)g(t-\tau) e^{-ikt}\cr
+             &=&\int dt \int d\tau f(\tau)g(t-\tau) e^{-ik(t-\tau)}e^{-ik\tau}\cr
+             &=&\int dt \int dt' f(t)g(t') e^{-ikt'}e^{-ikt}\cr
+             &=&2\pi \frac{1}{2\pi}\int dt f(t)e^{-ikt}\frac{1}{2\pi}\int dt g(t)e^{-ikt}
+\end{eqnarray}
+as required. You should note that in proving the convolution theorem
+we have assumed all the integrals run over $t\in
+(-\infty,\infty)$. Ignoring the finite integration limits use the
+convolution theorem to solve the equation for the kernel
+\begin{equation}
+\int {d\tau' Q_{\mbox{\scriptsize{ss}}}(\tau-\tau')h(\tau')}=Q_{\mbox{\scriptsize{rs}}}(-\tau).
+\end{equation}
+
+\soln Well this follows fairly directly if we write the equation for the kernel as a convolution
+\begin{equation}
+Q_{\mbox{\scriptsize{ss}}}*h(\tau)==Q_{\mbox{\scriptsize{rs}}}(-\tau).
+\end{equation}
+Now, take the Fourier transform of both sides
+\begin{equation}
+2\pi{\cal F}(Q{\mbox{\scriptsize{ss}}})(k){\cal F}(h)(k)={\cal F}(Q_{\mbox{\scriptsize{rs}}})(-k)
+\end{equation}
+Hence
+\begin{equation}
+h(\tau)=\frac{1}{2\pi}{\cal F}^{-1}\left(\frac{{\cal F}(Q{\mbox{\scriptsize{ss}}})(k)}{{\cal F}(Q_{\mbox{\scriptsize{rs}}})(-k)}\right)
+\end{equation}
+
+
+\end{enumerate}
+
+
+\end{document}

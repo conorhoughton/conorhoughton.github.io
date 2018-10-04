@@ -1,0 +1,45 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand\soln{\noindent\textit{Solution:} }
+
+\begin{document}
+\begin{center}
+{\bf 481 Tutorial Sheet 2a\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/481}}}\\[1cm]{} 12 May 2009
+\end{center}
+
+What is the the Fano factor for inhomogeneous Poisson spiking? Well for inhomogenous Poisson spiking
+\begin{equation}
+P[t_1,t_2,\ldots,t_n]=\prod_{i=1}^nr(t_i)e^{-\int dt r(t)}
+\end{equation}
+and the Fano factor is $\sigma_n^2/<n>$, in other words, it relates to
+the average and variance for the number of spikes. Since it relates to
+the number of spike and not to their distribution you might expect
+that it won't change between the homogeneous and inhomogeneous case
+and that is what happens. To get $P_n$, the probability of $n$ spikes,
+we just have to integrate out the possible spike times and divide by the possible orderings:
+\begin{equation}
+P_n=\frac{1}{n!}\left(\prod_{i=1}^n\int dt_i\right)\left(\prod_{i=1}^nr(t_i)\right)e^{-\int dt r(t)}=\frac{1}{n!}\prod_{i=1}^n\int dt r(t)e^{-\int dt r(t)}
+\end{equation}
+which is the same as for the homogeneous case, but with the $rT$ replaced by $\int dt r(t)$. Everything now goes through the same, to save some writing let $\rho=\int dtr(t)$, then
+\begin{equation}
+<n>=\sum_n nP_n= \sum_n n\frac{1}{n!}\rho^n e^{-\rho}
+\end{equation}
+and, then use 
+\begin{equation}
+e^\rho=\sum_n \frac{\rho^n}{n!} 
+\end{equation} 
+so, differenciating each side by $\rho$ gives
+\begin{equation}
+e^\rho=\sum_n n\frac{\rho^{n-1}}{n!}
+\end{equation}
+from which we see
+\begin{equation}
+<n>=\sum_n nP_n= \sum_n n\frac{1}{n!}\rho^n e^{-\rho}=\rho
+\end{equation}
+A similar calculation, which involves differentiating the expresion for $\exp{\rho}$ twice gives
+\begin{equation}
+<n^2>=\rho+\rho^2
+\end{equation}
+and so $\sigma_n^2=<n^2>-<n>^2=\rho$ and we get a Fano factor of one.
+
+\end{document}

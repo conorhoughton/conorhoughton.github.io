@@ -1,0 +1,111 @@
+% LaTeX blank document for exam papers
+% Anything after a % on a line is a comment -- does not appear in
+% final document
+\documentclass[12pt]{article}
+\usepackage{tcdexam}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\newcommand{\Xx}[1]{\mathscr{#1}}
+
+\begin{document}
+\slcode{XMA         }  % insert XID code for the exam, e.g., XMA3211
+\course{Module          }  % insert course e.g. Module 321
+\examiners{} % insert e.g. Dr. R. Timoney
+\groups{
+}  % insert e.g. JF Engineers \\ JF MSISS
+\term{Trinity Term 2009 }  % insert e.g. Trinity Term 2009
+\day{}   % insert e.g. Tuesday, June 2
+\time{9.30 --- 12.30}  % insert e.g. 9.30 --- 12.30  or 2.00 --- 5.00
+\place{}  % insert e.g. Exam Hall
+\instructions{
+Attempt three questions.
+                    % insert e.g. ATTEMPT SIX QUESTIONS
+   \\[12pt]
+Log tables are available from the invigilators, if required.\\[12pt]
+Non-programmable calculators are permitted for this
+examination,---please indicate the make and model of your calculator
+on each answer book used.}
+
+\maketitle
+
+
+\begin{enumerate} %% for questions
+
+\item %1
+\begin{enumerate}
+\item (5) Derive the typical voltage scale of neuron.
+\item (4) The Hodgkin-Huxley equation is
+\begin{equation}
+c_m\frac{dV}{dt}=-i_m
+\end{equation}
+where $i_m$ is the membrane current
+\begin{equation}
+i_m=g_L(V-E_L)+g_K(V-E_K)+g_{Na}(V-E_{Na})+\ldots
+\end{equation}
+The $E_L$, $E_K$ and $E_{Na}$ are {\sl reversal potentials}, in the
+case of $E_K$ and $E_{Na}$ explain what is meant by reversal
+potential.
+\item (4) The potassium channel is a persistent channel with
+\begin{equation}
+g_{K}\propto n^4
+\end{equation}
+Draw a Potassium channel and explain where the exponent comes from. Likewise, the sodium channel is a transient channel with
+\begin{equation}
+g_{Na}=m^3h
+\end{equation}
+Draw a transient channel and explain the meaning of $m$ and $h$.
+\item (7) What equation is satisfied by $n$, $m$ and $h$? What do the terms in this equation mean? Give a rough account of the dynamics that produces spikes.
+\end{enumerate}
+
+\vfill
+
+\item %3
+\begin{enumerate}
+\item (6) Draw a synapse and label the {\sl terminal button}, {\sl synaptic cleft} and {\sl dendritic spine} along with the {\sl vesicles} and {\sl ligand gated ion channels}. Give a description of the dynamics of a synapse in response to a spike arriving.
+\item (7) In a useful model of synaptic conductance, the conductance is $g_s=g_0P_s$ where 
+\begin{equation}
+\tau_s\frac{d}{dt}P_s=-\beta_sP_s
+\end{equation}
+where $\beta_s$ is the closing rate for the synaptic ionic gates and
+\begin{equation}
+P_s\rightarrow P_s+P_0(1-P_s)
+\end{equation}
+whenever there is a presynaptic spike. Show how this model can be justified. 
+\item (7) Another model of the synaptic conductance has an auxiliary function $z$ and satisfies
+\begin{eqnarray}
+\tau_s\dot{P}_s&=&eP_mz-P_s\cr
+\tau_z\dot{z}&=&-z
+\end{eqnarray}
+with the rule that $z$ is set to one whenever a spike arrives. $P_m$
+is a constant. Solve this for the response to single spike with
+$\tau_s=\tau_z$ and otherwise. Speculate on the physiological meaning
+of $z$.
+
+\vfill
+
+\item %4
+\begin{enumerate} 
+\item (6) Write down the equation governing a leaky integrate and fire neuron and describe the model. Is it linear?
+\item (7) Calculate the firing rate for a leaky integrate and fire neuron with a constant injected current.
+\item (7) What is refractoriness? Suggest how it might be modelled?
+\end{enumerate}
+
+
+\item
+\begin{enumerate}
+\item (5) What is {\sl synaptic plasticity}, {\sl long term depression} and {\sl long term potentiation}. What is {\sl Hebb's rule}.
+\item (10) Describe the rate based model of synaptic plasticity and show how it can be approximated by
+\begin{equation}
+\tau_w\frac{d}{dt}{\bf w}\approx Q{\bf w}
+\end{equation}
+where ${\bf w}$ is a vector of synapse strengths and $Q$ is a measure of the correlation of the input. 
+\item (5) Show how including a threshold in this model gives the approximate dynamics
+\begin{equation}
+\tau_w\frac{d}{dt}{\bf w}\approx C{\bf w}
+\end{equation}
+where $C$ is a measure of covariance.
+
+\end{enumerate}
+\end{document}
