@@ -1,0 +1,143 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand{\soln}{\noindent\textit{Solution:}}
+
+\begin{document}
+\begin{center}
+{\bf 472 Tutorial Sheet 2 Solutions to q2: information audit\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/472}}}\\[1cm]{} 11 Febuary 2008
+\end{center}
+\noindent {\bf Here I go through the solution to the 12 coin problem and try and track the information}\\
+\\
+(C\&T 2.7) Suppose that one has $n$ coins, among which there is one counterfeit coin. If there is a counterfeit coin it will weight either less or more than the other coins. The coins are weighed using a balance.
+\begin{enumerate}
+\item Find an upper bound on the number of coins $n$ so that $k$ weighings will find the counterfeit coin, if any, and correctly declare it to be heavier or lighter.
+\item What is the coin-weighing strategy for $k=3$ weighings and 12 coins?
+\end{enumerate}
+
+\subsection*{Soln} Here I consider the second part. Lets start by numbering the
+coins from one to 12. The three weighings are called $Y_1$, $Y_2$ and
+$Y_3$ and the outcomes are named $l$, $r$ and $n$ for left heavy,
+right heavy and neither heavy. I follow the strategy described in the
+PS2 solutions.
+
+\subsubsection*{The first weighing $Y_1$}
+We weigh $\{1,2,3,4\}$ versus $\{5,6,7,8\}$; the three outcomes are equally likely so 
+\begin{equation}
+p_{Y_1}(l)=p_{Y_1}(r)=p_{Y_1}(n)=1/3
+\end{equation}
+and $H(Y_1)=\log{3}$.
+
+\subsubsection*{$Y_1=l$ or $Y_1=r$}
+
+In this case we weigh $\{1,2,5\}$ versus $\{3,4,6\}$ leaving $\{7,8\}$ aside. Since the bent coin is one of 1 to 8 and only 7 and 8 are left aside
+\begin{eqnarray}
+p_{Y_2|Y_1}(n|l)&=&1/4\cr
+p_{Y_2|Y_1}(l|l)=p_{Y_2|Y_1}(r|l)&=&3/8
+\end{eqnarray}
+and
+\begin{eqnarray}
+H(Y_2|Y_1=l)&=&-\frac{1}{4}\log{\frac{1}{4}}-2\frac{3}{8}\log{\frac{3}{8}}\cr
+            &=&\frac{11}{4}-\frac{3}{4}\log{3}
+\end{eqnarray}
+$H(Y_2|Y_1=r)$ is the same.
+
+\subsubsection*{What about $Y_1=n$?}
+
+In this case we weigh $\{9,10\}$ versus $\{11,1\}$; again, the bent coin must be one of 9 to 12 and only 12 is left aside. Hence
+\begin{eqnarray}
+p_{Y_2|Y_1}(n|n)&=&1/4\cr
+p_{Y_2|Y_1}(l|n)=p_{Y_2|Y_1}(r|n)&=&3/8
+\end{eqnarray}
+and, again
+\begin{eqnarray}
+H(Y_2|Y_1=n)&=&-\frac{1}{4}\log{\frac{1}{4}}-2\frac{3}{8}\log{\frac{3}{8}}\cr
+            &=&\frac{11}{4}-\frac{3}{4}\log{3}
+\end{eqnarray}
+
+\subsubsection*{The conditional entropy $H(Y_2|Y_1)$}
+
+Now
+\begin{equation}
+H(Y_2|Y_1)=p_{Y_1}(l)H(Y_2|l)+p_{Y_1}(r)H(Y_2|r)+p_{Y_1}(r)H(Y_2|r)=\frac{11}{4}-\frac{3}{4}\log{3}
+\end{equation}
+
+In fact this is approximately $1.56$, $\log{3}\approx 1.59$, so, although 
+\begin{equation}
+H(Y_2,Y_1)=H(Y_1)+H(Y_2|Y_1)<2H(Y_1)
+\end{equation}
+the difference is only about $.03$ bits.
+
+\subsubsection*{$Y_1=l$ and $Y_2=l$ and similar}
+
+If $Y_1=l$ and $Y_2=l$ then for $Y_3$ we weigh 1 against 2 knowing
+that the bent coin is 1, 2 or 6. Each is equally likely, so
+\begin{equation}
+p_{Y_3|Y_2,Y_1}(l|l,l)=p_{Y_3|Y_2,Y_1}(r|l,l)=p_{Y_3|Y_2,Y_1}(n|l,l)=\frac{1}{3}
+\end{equation}
+and
+\begin{equation}
+H(Y_3|Y_2=l,Y_1=l)=\log{3}
+\end{equation}
+You get the same for other combinations of $Y_1$ and $Y_2$ each being $l$ or $r$.
+
+\subsubsection*{$Y_1=l$ and $Y_2=n$ and similar}
+
+If $Y_1=l$ and $Y_2=n$ then we know 7 or 8 is bent and we weigh them against each other, the result cannot be $n$ so
+\begin{eqnarray}
+p_{Y_3|Y_2,Y_1}(l|n,l)=p_{Y_3|Y_2,Y_1}(r|n,l)&=&\frac{1}{2}\cr
+p_{Y_3|Y_2,Y_1}(n|n,l)&=&0
+\end{eqnarray}
+and
+\begin{equation}
+H(Y_3|Y_2=n,Y_1=l)=\log{2}=1
+\end{equation}
+
+\subsubsection*{$Y_3$ when $Y_1=n$}
+
+This actually works in a similar way to the $Y_1=l$ cases: if $Y_2=l$
+we know the coin is either 10 or 11 heavy or it is 12 and light: this
+is the same as the $(Y_1=l,Y_2=l)$ case. If $Y_2=n$ we have only 12
+left and we weigh it against the coin 1 which is known to not be bent; here there is no possibility of $Y_3=n$, like the $(Y_1=l,Y_2=n)$ case.
+
+\subsubsection*{The joint distribution $p_{Y_2,Y_1}(y_2,y_1)$}
+To work out $H(Y_3|Y_2,Y_2)$ we need the joint distribution for $Y_1$
+and $Y_2$; we can work that out from what we have above; for example
+\begin{eqnarray}
+p_{Y_2,Y_1}(l,l)&=&p_{Y_2|Y_1}(l)p_{Y_1}(l)=\frac{3}{8}\frac{1}{3}=\frac{1}{8}\cr
+p_{Y_2,Y_1}(r,l)&=&p_{Y_2|Y_1}(r)p_{Y_1}(l)=\frac{3}{8}\frac{1}{3}=\frac{1}{8}\cr
+p_{Y_2,Y_1}(n,l)&=&p_{Y_2|Y_1}(n)p_{Y_1}(l)=\frac{1}{4}\frac{1}{3}=\frac{1}{12}
+\end{eqnarray}
+and, in fact, the same pattern is found for the $Y_1=r$ and the $Y_1=n$ probabilities.
+
+
+\subsubsection*{The conditional entropy $H(Y_3|Y_2,Y_1)$}
+Well this is a long sum over all the possibilities but it is actually
+quite easy, for $Y_1=l$ for example, we have $Y_2=l$ or $Y_2=r$ each with probability $1/8$ with corresponding 
+\begin{equation}
+H(Y_3|Y_2=l,Y_1=l)=H(Y_3|Y_2=r,Y_1=l)=\log{3}
+\end{equation}
+and $Y_2=n$ with probability $1/12$ and 
+\begin{equation}
+H(Y_3|Y_2=n,Y_1=l)=1
+\end{equation}
+The same repeats for $Y_1=r$ and, less obviously, for $Y_1=b$. Hence
+\begin{eqnarray}
+H(Y_3|Y_2,Y_1)&=&\sum{p_{Y_2,Y_1}(y_2,y_1)H(Y_3|Y_2=y_2,Y_1=y_1)}\cr
+&=&3\left(2\frac{1}{8}\log{3}+\frac{1}{12}\right)=\frac{1}{4}+\frac{3}{4}\log{3}
+\end{eqnarray}
+
+\subsubsection*{The punchline: $H(Y_3,Y_2,Y_1)$}
+
+So
+\begin{eqnarray}
+H(Y_3,Y_2,Y_1)&=&H(Y_3|Y_2,Y_1)+H(Y_2|Y_1)+H(Y_1)\cr
+              &=&\frac{1}{4}+\frac{3}{4}\log{3}+\frac{11}{4}-\frac{3}{4}\log{3}+\log{3}\cr
+              &=&3+\log{3}
+\end{eqnarray}
+However, we also have $H(X)=\log{2n}$ where $n$ is the number of coins. Hence
+\begin{equation}
+H(X)=\log{24}=\log{2^33}=3+\log{3}=H(Y_3,Y_2,Y_1)
+\end{equation}
+Which is very cool.
+
+\end{document}

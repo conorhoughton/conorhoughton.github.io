@@ -1,0 +1,92 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+
+
+\begin{document}
+\begin{center}{\Large
+{\bf The Markov Property}\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie} please
+send me any corrections.}}\\[1cm] 24 February 2012\\[1cm]
+\end{center}
+The random variables $X$, $Y$ and $Z$ are said to {\sl form a Markov chain in that order}
+\begin{equation}
+X\rightarrow Y\rightarrow Z
+\end{equation}
+if and only if $p(x|y,z)=p(x|y)$ for all $x$, $y$ and $z$. This is equivalent to requiring $X$, $Z$ are conditional independent on $Y$:
+\begin{equation}
+p(x,z|y)=p(x|y)p(z|y)
+\end{equation}
+
+Here is an example: let $X$ be a random variable taking the values
+${\cal X}=\{-1,0,1\}$ with probabilities
+\begin{equation}
+\begin{array}{c|ccc}
+X&-1&0&1\\
+\hline
+p&\frac{1}{4}&\frac{1}{2}&\frac{1}{4}
+\end{array}
+\end{equation}
+Now let $Y=|X|+W_1$ where $W_1$ takes the values $\{0,1\}$ with equal probabilities. Now the joint distribution is
+\begin{equation}
+\begin{array}{c|ccc}
+Y\setminus X&-1&0&1\\
+\hline
+0&0          &\frac{1}{4}&0           \\
+1&\frac{1}{8}&\frac{1}{4}&\frac{1}{8} \\
+2&\frac{1}{8}&0          &\frac{1}{8}
+\end{array}
+\end{equation}
+This gives a marginal distribution
+\begin{equation}
+\begin{array}{c|ccc}
+Y&0&1&2\\
+\hline
+p&\frac{1}{4}&\frac{1}{2}&\frac{1}{4}
+\end{array}
+\end{equation}
+Finally let $Z=Y+W_2$ where $W_2$ is identical to $W_1$. Now the joint distribution for $X$, $Y$ and $Z$ is hard to write down since there are three variables, here is an attempt, basically there are three copies of the table, one for each value of $X$
+\begin{equation}
+\begin{array}{c|c ccc c ccc c ccc}
+&X=-1&&&&X=0&&&&X=1&&&\\
+Z\setminus Y&&0&1&2&&0&1&2&&0&1&2\\
+\hline
+0&&0&0&0         &&\frac{1}{8}&0&0&&0&0&0\\
+1&&0&\frac{1}{16}&0&&\frac{1}{8}&\frac{1}{8}&0&&0&\frac{1}{16}&0\\
+2&&0&\frac{1}{16}&\frac{1}{16}&&0&\frac{1}{8}&0&&0&\frac{1}{16}&\frac{1}{16}\\
+3&&0&0&\frac{1}{16}&&0&0&0&&0&0&\frac{1}{16}
+\end{array}
+\end{equation}
+Finally, the marginal distribution for $Z$ is
+\begin{equation}
+\begin{array}{c|cccc}
+Z&0&1&2&3\\
+\hline
+p&\frac{1}{8}&\frac{3}{8}&\frac{3}{8}&\frac{1}{8}
+\end{array}
+\end{equation}
+
+Now, consider, as an example, 
+\begin{eqnarray}
+p(X=0,Z=1)&=&p(0,0,1)+p(0,1,1)+p(0,2,1)\cr
+&=&\frac{1}{4}\cr
+&\not=&p(X=0)p(Z=1)=\frac{3}{16}
+\end{eqnarray}
+Now consider the conditional case, for example $Y=1$. Since 
+\begin{equation}
+p(x,z|y)=\frac{p(x,y,z)}{p(y)}
+\end{equation}
+we have
+\begin{equation}
+p_{XZ|Y}(0,1|1)=\frac{p(0,1,1)}{p(1)}=\frac{1}{4}
+\end{equation}
+with
+\begin{equation}
+p_{X|Y}(0|1)=\frac{1}{2}
+\end{equation}
+and
+\begin{equation}
+p_{Z|Y}(1|1)=2\left(\frac{1}{16}+\frac{1}{8}+\frac{1}{16}\right)=\frac{1}{2}
+\end{equation}
+So, in this case $p(x|y)p(z|y)=p(x,z|y)$, as it will be for all $(x,y,z)$ since this is a Markov chain.
+
+
+\end{document}

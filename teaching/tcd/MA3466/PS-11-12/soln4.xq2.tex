@@ -1,0 +1,91 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand{\soln}{\noindent\textit{Solution:}}
+
+\begin{document}
+\begin{center}
+{\bf MA3466 Tutorial Sheet 4, outline solutions, q2\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/MA3466}}}\\[1cm]{} 22 March 2010
+\end{center}
+\begin{enumerate}
+
+\item (C\&T 2.16) Bottleneck. Given a Markov chain $X_1\rightarrow X_2\rightarrow X_3$ where the sets of outcomes have cardinalities $|{\cal X}_1|=n$, $|{\cal X}_2|=k$ and $|{\cal X}_3|=m$ with $k$ is less than both $m$ and $n$. 
+\begin{enumerate}
+\item Show that the dependence of $X_1$ and $X_3$ is limited by the bottleneck by proving that $I(X_1;X_3)\le \log{k}$.
+\item Evaluate $I(X_1;X_3)$ for $k=1$ and conclude that no dependence can survive such a bottleneck.
+\end{enumerate}
+
+\soln Well by the data processing inequality $I(X_1;X_3)\le I(X_1;X_2)$ but
+\begin{equation}
+I(X_1;X_2)\le H(X_2)-H(X_2|X_1)\le H(X_2) \le \log{k}
+\end{equation}
+where the second inequality replaces the entropy by its maximum. Now,
+if $k=1$ then $I(X_1;X_3)=0$ since $\log 1=0$.
+
+\item Consider the game of $\&$\texttrademark: a board game with numbered squares, the idea being to race your token along the square by flipping a coin, heads you advance one place, tails you stay put. Let $Y_1$, $Y_2$ and $Y_3$ be you position after one, two and three turns. Clearly $Y_1\rightarrow Y_2 \rightarrow Y_3$, show this by calculating the conditional probabilites and showing
+\begin{equation}
+p(x,y,z)=p(x)p(x|y)p(z|y)
+\end{equation}
+Calculate $I(Y_1;Y_2)$ and $I(Y_1;Y_3)$.
+
+\item (C\&T 2.43b) A fair six-sided dice is rolled. What is the mutual information between the top face of the dice and the side most facing you?
+
+\soln Well
+\begin{equation}
+I(X;Y)=H(X)-H(X|Y)
+\end{equation}
+Here we use $X$ to denote the front of the dice and $Y$ the front. Obviously 
+\begin{equation}
+H(X)=\log{6}=1+\log{3}
+\end{equation}
+since all possibilities are equally likely and six is the number of possibilities. On the other hand, if the top has a given value, say one, the front has four equally likely values, so,
+\begin{equation}
+H(X|Y=1)=\log{4}=2
+\end{equation}
+and $H(X|Y)$ is the average of the $H(X|Y=y)$ values; since they are all equally likely
+\begin{equation}
+H(X|Y)=2
+\end{equation}
+so
+\begin{equation}
+I(X;Y)=H(X)-H(X|Y)=\log{3}-1.
+\end{equation}
+
+\item (C\&T 2.29) For random variables $X$, $Y$ and $Z$ prove the following inequalities and find conditions for equality.
+\begin{enumerate}
+\item $H(X,Y|Z)\ge H(X|Z)$
+\item $I(X,Y;Z)\ge I(X;Z)$
+\item $H(X,Y,Z)-H(X,Y)\le H(X,Z)-H(X)$
+\item $I(X;Z|Y)\ge I(Z;Y|X)-I(Z;Y)+I(X;Z)$
+\end{enumerate}
+
+
+\soln For $H(X,Y|Z)\ge H(X|Z)$ we have
+\begin{equation}
+H(X,Y|Z)=H(X|Z)+H(Y|X,Z)\ge H(X|Z)
+\end{equation}
+using the chain rule. There is equality if $H(Y|X,Z)=0$, that is, $Y$ is a function of $X$ and $Z$. Next $I(X,Y;Z)\ge I(X;Z)$; now
+\begin{equation}
+I(X,Y;Z)=I(X;Z)+I(Y;Z|X)\ge I(X;Z)
+\end{equation}
+with equality if $I(Y;Z|X)=0$, that is, if $Y$ and $Z$ are conditionally
+independent given $X$. For $H(X,Y,Z)-H(X,Y)\le H(X,Z)-H(X)$ well,
+using the chain rule
+\begin{equation}
+H(X,Y,Z)-H(X,Y)=H(Z|X,Y)
+\end{equation}
+and, similarily 
+\begin{equation}
+H(X,Z)-H(X)=H(Z|X)\ge H(Z|X,Y)
+\end{equation}
+with equality when $H(Z|X)-H(Z|X,Y)=I(Z;Y|X)=0$ which happens when $Z$ and $Y$ are conditionally independent given $X$. Finally $I(X;Z|Y)\ge I(Z;Y|X)-I(Z;Y)+I(X;Z)$; well, by the chain rule for mutual information in different orders
+\begin{eqnarray}
+I(X,Y;Z)&=&I(X;Z|Y)+I(Z;Y)\cr
+I(X,Y;Z)&=&I(Y;Z|X)+I(Z;X)
+\end{eqnarray}
+so $I(X;Z|Y)+I(Z;Y)=I(Y;Z|X)+I(Z;X)$ and moving the $I(Z;Y)$ over the equals we see that the inequality in the question is actually an equality.
+
+
+\end{enumerate}
+
+
+\end{document}

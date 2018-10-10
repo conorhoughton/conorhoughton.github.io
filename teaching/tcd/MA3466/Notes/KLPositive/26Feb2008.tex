@@ -1,0 +1,49 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+
+
+\begin{document}
+\begin{center}{\Large
+{\bf Positivity of the KL Divergence}\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie} please
+send me any corrections.}}\\[1cm] 26 February 2008\\[1cm]
+\end{center}
+
+I misunderstood how the proof of the positivity of the KL divergence (Theorem 2.6.3 in C\&L ed3) works, so I am doing it again here.
+
+\subsection*{Theorem} Given two probability distributions $p$ and $q$ on a set ${\cal X}$ then 
+\begin{equation}
+D(p\|q)\ge 0
+\end{equation}
+with equality if and only if $p(x)=q(x)$ for all $x\in{\cal X}$.
+\\
+\\Proof: By definition
+\begin{equation}
+D(p\|q)=\sum_{x\in {\cal X}} p(x)\log{\frac{p(x)}{q(x)}}
+\end{equation}
+if $p(x)=0$ $x$ does not contribute to the sum, so
+\begin{equation}
+D(p\|q)=\sum_{x\in {\cal A}} p(x)\log{\frac{p(x)}{q(x)}}
+       =-\sum_{x\in {\cal A}} p(x)\log{\frac{q(x)}{p(x)}}
+\end{equation}
+Now let $Y$ be the random variable $q(X)/p(X)$ where $X$ is distributed according to $p(x)$, so there is probability $p(x)$ $X=x$, in which case $Y=p(x)/q(x)$. Of course more than one $x$ might yield the same $p(x)/q(x)$, we don't know the map is $1-1$ and 
+\begin{equation}
+p_Y(y)=\sum_{x:q(x)/p(x)=y}p(x)
+\end{equation}
+This is the maybe obvious point I missed, we are interested in the log
+of a new random variable. Now
+\begin{equation}
+D(p\|q)=E(-\log{Y})
+\end{equation}
+and we can apply the Jensen inequality, so
+\begin{equation}
+D(p\|q)=E(-\log{Y})\ge -\log{EY}=-\log{\sum_{x\in {\cal A}}p(x)\frac{p(x)}{q(x)}}
+\end{equation}
+with equality if and only if $Y=EY$ with probability one, so
+$p(x)=Cq(x)$ for all $x$, $C$ must be one since $p$ and $q$ are both
+probability distributions. Finally, since $\log$ is increasing and $q(x)$ is positive for all $x\in{\cal X}$
+\begin{equation}
+D(p\|q)\ge -\log{\sum_{x\in {\cal A}}p(x)\frac{p(x)}{q(x)}}\ge
+-\log{\sum_{x\in {\cal X}}q(x)}=-\log{1}=0
+\end{equation}
+and this proves the theorem.
+\end{document}

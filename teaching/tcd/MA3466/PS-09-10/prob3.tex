@@ -1,0 +1,40 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+
+\begin{document}
+\begin{center}
+{\bf MA3466 Tutorial Sheet 3\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/MA3466}}}\\[1cm]{} 12 Febuary 2010
+\end{center}
+\begin{enumerate}
+
+\item (C\&T 2.2) Entropy of functions. Let $X$ be a random variable taking on a finite number of values. What is the general inequality relating $H(X)$ and $H(Y)$ if 
+\begin{enumerate}
+\item $Y=2^X$
+\item $Y=\cos{X}$
+\end{enumerate}
+
+\item (C\&T 2.4) Entropy of functions of a random variable. Let $X$ be a discrete random variable. Show that the entropy of a function of $X$ is less than or equal to the entropy of $X$ by justifying the following steps
+\begin{eqnarray}
+H(X,g(X))&=&H(X)+H(g(X)|X)\cr
+         &=&H(X),\cr
+H(X,g(X))&=&H(g(X))+H(X|g(X))\ge H(g(X))
+\end{eqnarray}
+and hence $H(g(X))\le H(X)$.
+
+\item (C\&T 2.8) Drawing with and without replacement. An urn contains
+$r$ red, $w$ white and $b$ black balls. Which has higher entropy,
+drawing $k\ge 2$ balls from the urn with replacement or without
+replacement?
+
+\item (C\&T 2.14) Enropy of a sum. Let $X$ and $Y$ be random variables that take on values $x_1$, $x_2$, $\ldots$, $x_r$ and $y_1$, $y_2$, \ldots, $y_s$ respectively. Let $Z=X+Y$.
+\begin{enumerate}
+\item Show that $H(Z|X)=H(Y|X)$. Argue that if $X$ and $Y$ are independent then $H(Y)\le H(Z)$ and $H(X)\le H(Z)$. Thus the addition of independent random variables add uncertainy.
+\item Give an example of random variables for which $H(X)>H(Z)$ and $H(Y)>H(Z)$.
+\item Under what conditions does $H(Z)=H(X)+H(Y)$.
+\end{enumerate}
+
+
+\end{enumerate}
+
+
+\end{document}

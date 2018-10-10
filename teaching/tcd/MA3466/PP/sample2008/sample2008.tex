@@ -1,0 +1,69 @@
+% LaTeX blank document for exam papers
+% Anything after a % on a line is a comment -- does not appear in
+% final document
+\documentclass[12pt]{article}
+\begin{document}
+Sample paper 2008: two hour exam, do three questions.
+
+\begin{enumerate}
+\item % 1st Question
+\begin{enumerate}
+\item (9 marks) For discrete random variables $X$ and $Y$ define
+\begin{itemize}
+\item The entropy $H(X)$.
+\item The mutual information $I(X;Y)$.
+\item The conditional entropy $H(X|Y)$.
+\end{itemize}
+\item (11 marks) Given the conditional distribution
+$$
+\begin{tabular}{c|ccc}
+&a&b&c\\
+\hline\\
+1&1/3&1/12&1/12\\
+2&1/12&0&1/24\\
+3&1/24&1/3&0
+\end{tabular}
+$$ for $X\in{\cal X}=\{1,2,3\}$ and $Y\in{\cal Y}=\{a,b,c\}$, find
+$H(X)$, $H(Y)$, $H(X|Y)$, $H(Y|X)$ and $I(X;Y)$.
+
+\end{enumerate}
+
+\item % 2rd Question
+For discrete random variables $X$, $Y$ and $Z$
+\begin{enumerate} 
+\item (5 marks) prove
+$$H(X,Y)=H(X)+H(Y|X)$$
+\item (5 marks) prove
+$$I(X;Y)=H(Y)-H(Y|X)$$
+\item (5 marks) prove
+$$H(X,Y|Z)\ge H(X|Z)$$
+\item (5 marks) prove
+$$I(X;Z|Y)=I(Z;Y|X)-I(Z;Y)+I(X;Z)$$ 
+\end{enumerate}
+
+
+\item % 3nd Question
+\begin{enumerate}
+\item (4 marks) What is meant by a Markov chain $X\rightarrow
+  Y\rightarrow Z$ and 
+\item (3 marks) Show that $X\rightarrow Y\rightarrow Z$ implies
+  $Z\rightarrow Y\rightarrow X$.
+\item (8 marks) State and prove the data processing inequality.
+\item (5 marks) Suppose that a Markov chain starts in one of $n$ states, necks down to $k<n$ states and then fans back out to $m>k$ states. Show that the dependence of the first and last variables, $X$ and $Z$ is limited by the bottleneck by showing $I(X,Z)\le\log{k}$.
+\end{enumerate}
+
+
+\item % 4th Question
+\begin{enumerate}
+\item (4 marks) Define a source code and an instantaneous code.
+\item (5 marks) State the Kraft inequality.
+\item (4 marks) Define the expected length $L(C)$ of a source code $C(x)$.
+\item (8 marks) Prove that the expected length $L$ of any instantaneous $D$-ary code for a random variable $X$ is greater than or equal to the entropy $H_D(X)$.
+\end{enumerate}
+\end{enumerate}
+
+
+
+
+% end of document should have this next line
+\end{document}

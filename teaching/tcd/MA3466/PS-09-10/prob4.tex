@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+
+\begin{document}
+\begin{center}
+{\bf MA3466 Tutorial Sheet 4\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/MA3466}}}\\[1cm]{} 26 Febuary 2010
+\end{center}
+\begin{enumerate}
+
+\item (C\&T 2.16) Bottleneck. Given a Markov chain $X_1\rightarrow X_2\rightarrow X_3$ where the sets of outcomes have cardinalities $|{\cal X}_1|=n$, $|{\cal X}_2|=k$ and $|{\cal X}_3|=m$ with $k$ is less than both $m$ and $n$. 
+\begin{enumerate}
+\item Show that the dependence of $X_1$ and $X_3$ is limited by the bottleneck by proving that $I(X_1;X_3)\le \log{k}$.
+\item Evaluate $I(X_1;X_3)$ for $k=1$ and conclude that no dependence can survive such a bottleneck.
+\end{enumerate}
+
+\item Consider the game of $\&$\texttrademark: a board game with numbered squares, the idea being to race your token along the square by flipping a coin, heads you advance one place, tails you stay put. Let $Y_1$, $Y_2$ and $Y_3$ be you position after one, two and three turns. Clearly $Y_1\rightarrow Y_2 \rightarrow Y_3$, show this by calculating the conditional probabilites and showing
+\begin{equation}
+p(x,y,z)=p(x)p(x|y)p(z|y)
+\end{equation}
+Calculate $I(Y_1;Y_2)$ and $I(Y_1;Y_3)$.
+
+\item (C\&T 2.43b) A fair six-sided dice is rolled. What is the mutual information between the top face of the dice and the side most facing you?
+
+\item (C\&T 2.29) For random variables $X$, $Y$ and $Z$ prove the following inequalities and find conditions for equality.
+\begin{enumerate}
+\item $H(X,Y|Z)\ge H(X|Z)$
+\item $I(X,Y;Z)\ge I(X;Z)$
+\item $H(X,Y,Z)-H(X,Y)\le H(X,Z)-H(X)$
+\item $I(X;Z|Y)\ge I(Z;Y|X)-I(Z;Y)+I(X;Z)$
+\end{enumerate}
+
+\end{enumerate}
+
+
+\end{document}

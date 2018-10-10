@@ -1,0 +1,112 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+
+\begin{document}
+\begin{center}
+{\bf MA3466 Tutorial Sheet 2\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/MA3466}}}\\[1cm]{} 5 Febuary 2010
+\end{center}
+\begin{enumerate}
+
+\item (C\&T 2.6) Find joint random variables $X$, $Y$ and $Z$ such that 
+\begin{enumerate}
+\item $I(X;Y|Z)<I(X;Y)$
+\item $I(X;Y|Z)>I(X;Y)$
+\end{enumerate}
+
+\item (C\&T 2.7) Suppose that one has $n$ coins, among which there may or may not be one counterfeit coin. If there is a conterfeit coin it will weight either less or more than the other coins. The coins are weighed using a balance.
+\begin{enumerate}
+\item Find an upper bound on the number of coins $n$ so that $k$ weighings will find the couinterfeit coin, if any, and correctly declare it to be heavier or lighter.
+\item What is the coin-weighing strategy for $k=3$ weighings and 12 coins/
+\end{enumerate}
+
+\item (C\&T 2.9) Let $X_1$ and $X_2$ be discrete random variables drawn accorind to distributions $p_1$ and $p_2$ from their respective alphabets ${\cal X}_1=\{1,2,\ldots,m\}$ and  ${\cal X}_2=\{m+1,m+2,\ldots,n\}$. Let
+\begin{equation}
+X=\left\{\begin{array}{ll}
+X_1&\mbox{with probability $\alpha$}\\
+X_2&\mbox{with probability $1-\alpha$}
+\end{array}\right.
+\end{equation}
+\begin{enumerate}
+\item Find $H(X)$ in terms of $H(X_1)$ and $H(X_2)$.
+\item Maximize over $\alpha$ to show that 
+\begin{equation}
+2^{H(X)}\le 2^{H(X_1)}+2^{H(X_2)}
+\end{equation}
+\end{enumerate}
+
+\item (C\&T 2.12). Let $p(x,y)$ be given by $p(0,0)=p(0,1)=p(1,1)=1/3$
+  and $p(1,0)=0$. Find $H(X)$, $H(Y)$, $H(X|Y)$, $H(Y|X)$, $H(X,Y)$,
+  $H(Y)-H(Y|X)$ and $I(X;Y)$.
+
+
+\soln{} So, the table is
+\begin{equation}
+\begin{array}{l|ll}
+&0&1\\
+\hline\\[-10pt]
+0&1/3&0\\
+1&1/3&1/3
+\end{array}
+\end{equation}     
+So the marginal distribution for $X$ is 
+\begin{equation}
+\begin{array}{l|ll}
+&0&1\\
+\hline\\[-10pt]
+0&2/3&1/3
+\end{array}
+\end{equation}     
+and for $Y$
+\begin{equation}
+\begin{array}{l|ll}
+&0&1\\
+\hline\\[-10pt]
+0&1/3&2/3
+\end{array}
+\end{equation}     
+Now, 
+\begin{equation}
+H(X)=-p(0)\log{p(0)}-p(1)\log{p(1)}=-\frac{2}{3}\log{\frac{2}{3}}-\frac{1}{3}\log{\frac{1}{3}}=\log{3}-\frac{2}{3}
+\end{equation}
+and, in fact, $H(Y)=2/3-\log{3}$ as well. The marginal distributions are $p_{X|Y}(0|0)=1$ and $p_{X|Y}(1|0)=0$, so
+\begin{equation}
+H(X|Y=0)=0
+\end{equation}
+but $p_{X|Y}(0|1)=p_{X|Y}(1|1)=1/2$, so
+\begin{equation}
+H(X|Y=1)=1
+\end{equation}
+so 
+\begin{equation}
+H(X|Y)=p_Y(0)H(X|Y=0)+p_Y(1)H(X|Y=1)=\frac{2}{3}
+\end{equation}
+and, it turns out $H(Y|X)=2/3$ as well. Now
+\begin{equation}
+H(Y)-H(Y|X)=\log{3}-\frac{4}{3}
+\end{equation}
+and we should have $I(X;Y)=H(Y)-H(Y|X)$. Next, we calculate it directly from the formula for $I(X;Y)$:
+\begin{eqnarray}
+I(X;Y)&=&\sum p(x,y)\log{\frac{p(x,y)}{p(x)p(y)}}\cr
+&=&\frac{1}{3}\log{\frac{1/3}{2/9}}+\frac{1}{3}\log{\frac{1/3}{2/9}}+\frac{1}{3}\log{\frac{1/3}{4/9}}\cr
+&=&\frac{2}{3}\log{\frac{3}{2}}+\frac{1}{3}\log{\frac{3}{4}}=\log{3}-\frac{4}{3}
+\end{eqnarray}
+
+
+\item Prove the equals part of Jensen's inequality: if $f$ is stricly cup-like on an interval which includes all outcomes
+\begin{equation}
+\langle f(X)\rangle = f(\langle X\rangle)
+\end{equation}
+if and only if $X=\langle X\rangle$ with probability one.
+
+\soln This question isn't very satisfying, basically you follow the original inductive proof of Jensen's inequality, but observe the consequence and implication of equality, for example
+\begin{equation}
+pf(x_1)+(1-p)f(x_2)=f(px_1+(1-p)x_2)
+\end{equation}
+if and only if $p=0$ or $p=1$; this follows from the definition of strict cup-likeness. In short, the normal proof, applied in this case, when $f$ is strictly cup-like and there is an equality, says that one of the probabilities is one and the rest zero, hence $X$ always takes that value and that value will be the expected value.
+
+
+
+\end{enumerate}
+
+
+\end{document}

@@ -1,0 +1,52 @@
+% LaTeX blank document for exam papers
+% Anything after a % on a line is a comment -- does not appear in
+% final document
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand{\soln}{\noindent\textit{Solution:}}
+\begin{document}
+Sample paper 2008: solution to q3.
+
+\begin{enumerate}
+
+
+\item[3] % 3nd Question
+\begin{enumerate}
+\item (4 marks) What is meant by a Markov chain $X\rightarrow
+  Y\rightarrow Z$ and 
+\item (3 marks) Show that $X\rightarrow Y\rightarrow Z$ implies
+  $Z\rightarrow Y\rightarrow X$.
+\item (8 marks) State and prove the data processing inequality.
+\item (5 marks) Suppose that a Markov chain starts in one of $n$ states, necks down to $k<n$ states and then fans back out to $m>k$ states. Show that the dependence of the first and last variables, $X$ and $Z$ is limited by the bottleneck by showing $I(X,Z)\le\log{k}$.
+\end{enumerate}
+
+\soln So this question is very much book work. Random variable $X$, $Y$ and $Z$ are said to {\sl form a Markov chain in that order} $X\rightarrow Y \rightarrow Z$ if the conditional distribution of $Z$ depends only on $Y$ and is conditionally independent of $X$:
+\begin{equation}
+p(z|x,y)=p(z|y)
+\end{equation}
+for all $x$, $y$ and $z$ in their respective sets of outcomes. Now
+\begin{equation}
+p(x,z|y)=\frac{p(x,y,z)}{p(y)}=\frac{p(x,y)p(z|y)}{p(y)}=p(x|y)p(z|y)
+\end{equation}
+or, the Markov condition is equivalent to $X$ and $Z$ being conditionally independent given $Y$, this condition is symmetric in $X$ and $Z$ so
+\begin{equation}
+X\rightarrow Y \rightarrow Z\Rightarrow Z\rightarrow Y \rightarrow X 
+\end{equation}
+The data processing inequality is Theorem 2.8.1: $X\rightarrow Y \rightarrow Z$ implies $I(X;Y)\ge I(X;Z)$, it is in the book but is actually pretty simple; basically you expand using the chain rule
+\begin{equation}
+I(X;Y,Z)=I(X;Z)+I(X;Y|Z)=I(X;Y)+I(X;Z|Y)
+\end{equation}
+and then use $I(X;Z|Y)=0$ which follow from the conditional independence of $X$ and $Z$, using $I(X;Y|Z)\ge 0$ gives you the proof. Finally, we did the bottleneck before as a problem sheet:
+\begin{equation}
+I(X,Z)\le I(X;Y)=H(Y)-H(Y|X)\le H(Y)
+\end{equation}
+and $H(Y)\le\log{k}$ because that is the upperbound on the entropy of
+a variable with $k$ states.
+
+\end{enumerate}
+
+
+
+
+% end of document should have this next line
+\end{document}

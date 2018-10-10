@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand{\soln}{\noindent\textit{Solution:}}
+\begin{document}
+\begin{center}
+{\bf MA3466 Tutorial Sheet 6: solutions to q1-3\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/MA3466}}}\\[1cm]{} 6 April 2010
+\end{center}
+\begin{enumerate}
+
+\item (C\& T 3.2) AEP and mutual information. Let$(X_i,Y_i)$ be i.i.d with joint distributions $p(x,y)$. We form the log likelhood ration of the hypothesis that $X$ and $Y$ are independent versus the hypothesis that they are dependent. What is the limit of 
+\begin{equation}
+\frac{1}{n}\log{\frac{p({\bf X})p({\bf Y})}{p({\bf X},{\bf Y})}}
+\end{equation}
+
+\soln This is done in a way that mimics the original proof of the AEP; first we use independence
+\begin{equation}
+\frac{1}{n}\log{\frac{p({\bf X})p({\bf Y})}{p({\bf X},{\bf Y})}}=\frac{1}{n}\log{\frac{\prod_ip(X_i)p(Y_i)}{\prod_ip(X_i,Y_i)}}=\frac{1}{n}\sum_i\log{\frac{p(X_i)p(Y_i)}{p(X_i,Y_i)}}
+\end{equation}
+Now, if the $X_i$ and the $Y_i$ are i.i.d. then is the expression in the sum; so, in the sense of the law of the large numbers 
+\begin{equation}
+\frac{1}{n}\log{\frac{p({\bf X})p({\bf Y})}{p({\bf X},{\bf Y})}}\rightarrow E\log{\frac{p(X)p(Y)}{p(X,Y)}}=-I(X,Y)
+\end{equation}
+
+\item (C\& T 3.3) A piece of cake. A cake is sliced roughly in half and the largest piece selected each time, the other bits being discarded. Assume $p(2/3,1/3)=3/4$ and $p(2/5,3/5)=1/4$. How large, to the first order in the exponent, is the piece of cake after $n$ cuts.
+
+\soln So here if there are $b$ $2/3$ cuts and $s$ $3/5$ cuts the size of the remaining piece will be
+\begin{equation}
+S=\left(\frac{2}{3}\right)^b\left(\frac{3}{5}\right)^s\approx\left(\frac{2}{3}\right)^{3n/4}\left(\frac{3}{5}\right)^{n/4}
+\end{equation}
+to leading order.
+
+\item (C\& T 3.6) AEP-like limit. Let $X_1$, $X_2$ and so on be i.i.d., drawn with distribution $p(x)$, what is
+\begin{equation}
+\lim_{n\rightarrow \infty}[p(X_1,X_2,\ldots,X_n)]^{1/n}
+\end{equation}
+For this you need to know the strong law of large numbers: to prove the AEP we used the weak law:
+\begin{equation}
+\frac{1}{n}\sum X_i \rightarrow EX
+\end{equation}
+in probability, the strong law states that it approaches it almost surely.
+
+\soln So the trick here is to use a log so as to be able to change a product into a sum
+\begin{eqnarray}
+\lim_{n\rightarrow \infty}[p(X_1,X_2,\ldots,X_n)]^{1/n}&=&\lim_{n\rightarrow \infty}2^{\log{[p(X_1,X_2,\ldots,X_n)]^{1/n}}}\cr
+&=&\lim_{n\rightarrow \infty}2^{\frac{1}{n}\sum\log{p(X_i)}}=2^{E\log{p(X)}}=2^{-H(X)}
+\end{eqnarray}
+
+
+\end{enumerate}
+
+
+\end{document}

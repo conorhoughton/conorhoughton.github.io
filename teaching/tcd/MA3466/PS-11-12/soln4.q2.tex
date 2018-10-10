@@ -1,0 +1,45 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand{\soln}{\noindent\textit{Solution:}}
+
+\begin{document}
+\begin{center}
+{\bf MA3466 Tutorial Sheet 4, outline solutions, except q2\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/MA3466}}}\\[1cm]{} 22 March 2010
+\end{center}
+\begin{enumerate}
+
+\item [2] Consider the game of $\&$\texttrademark: a board game with numbered squares, the idea being to race your token along the square by flipping a coin, heads you advance one place, tails you stay put. Let $Y_1$, $Y_2$ and $Y_3$ be you position after one, two and three turns. Clearly $Y_1\rightarrow Y_2 \rightarrow Y_3$, show this by calculating the conditional probabilites and showing
+\begin{equation}
+p(x,y,z)=p(x)p(x|y)p(z|y)
+\end{equation}
+Calculate $I(Y_1;Y_2)$ and $I(Y_1;Y_3)$.
+
+\soln Well $p(x,y,z)$ has eight elements but they are all the same since the actual coin flips are independent, hence
+\begin{eqnarray}
+p(0,0,0)&=&p(0,0,1)=p(0,1,1)=p(0,1,2)\cr
+&=&p(1,1,1)=p(1,1,2)=p(1,2,2)=p(1,2,3)=\frac{1}{8}
+\end{eqnarray}
+Now the thing is the marginal distributions aren't so evenly distributioned, just looking above
+\begin{equation}
+p_{Y_3}(0)=\frac{1}{8},\;
+p_{Y_3}(1)=\frac{3}{8},\;
+p_{Y_3}(2)=\frac{3}{8},\;
+p_{Y_3}(1)=\frac{1}{8}
+\end{equation}
+for example. However, the marginal distributions are also all the same; given $Y_2$ for example, there are two possilibities for $Y_3$, it can be the same as $Y_2$ for tails and one greater than $Y_2$ for heads, so
+\begin{equation}
+p_{Y_2|Y_3}(y,z)=\frac{1}{2}
+\end{equation}
+and hence 
+\begin{equation}
+p(x,y,z)=p(x)p(x|y)p(z|y)
+\end{equation}
+simply reduces to
+\begin{equation}
+\frac{1}{8}=\frac{1}{2}\times \frac{1}{2}\times \frac{1}{2}
+\end{equation}
+
+\end{enumerate}
+
+
+\end{document}
