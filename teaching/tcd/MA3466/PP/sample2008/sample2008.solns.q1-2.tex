@@ -1,0 +1,140 @@
+% LaTeX blank document for exam papers
+% Anything after a % on a line is a comment -- does not appear in
+% final document
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand{\soln}{\noindent\textit{Solution:}}
+\begin{document}
+Sample paper 2008: two hour exam, do three questions. Solutions to q1 and 2.
+
+\begin{enumerate}
+\item % 1st Question
+\begin{enumerate}
+\item (9 marks) For discrete random variables $X$ and $Y$ define
+\begin{itemize}
+\item The entropy $H(X)$.
+\item The mutual information $I(X;Y)$.
+\item The conditional entropy $H(X|Y)$.
+\end{itemize}
+\item (11 marks) Given the conditional distribution
+$$
+\begin{tabular}{c|ccc}
+&a&b&c\\
+\hline\\
+1&1/3&1/12&1/12\\
+2&1/12&0&1/24\\
+3&1/24&1/3&0
+\end{tabular}
+$$ for $X\in{\cal X}=\{1,2,3\}$ and $Y\in{\cal Y}=\{a,b,c\}$, find
+$H(X)$, $H(Y)$, $H(X|Y)$, $H(Y|X)$ and $I(X;Y)$.
+
+\end{enumerate}
+
+\soln For a discrete random variable $X$ with outcomes ${\cal X}$ and probability distribution $p_X(x)$ giving the probability of outcome $x\in{\cal X}$ the {\sl entropy} is
+\begin{equation}
+H(X)=-\sum_{x\in {\cal X}}p_X(x)\log{p_X(x)}
+\end{equation}
+If $Y$ is another random variable, using the obvious notation for $Y$ and joint distribution $p_{X,Y}(x,y)$, the {\sl mutual information} between $X$ and $Y$ is
+\begin{equation}
+I(X;Y)=\sum_{(x,y)\in{\cal X}\times{\cal Y}}p_{X,Y}(x,y)\log{\frac{p_{X,Y}(x,y)}{p_X(x)p_Y(y)}}
+\end{equation}
+Finally, if $Y=y$ then the entropy of $X$ is
+\begin{equation}
+H(X|Y=y)=-\sum_{x\in {\cal X}}p_{X|Y}(x|y)\log{p_{X|Y}(x|y)}
+\end{equation}
+and the {\sl conditional entropy} is the average of this
+\begin{equation}
+H(X|Y)=E_YH(X|Y=y)=\sum_{y\in{\cal Y}}p(y)H(X|Y=y)
+\end{equation}
+
+Now to work out $H(X)$ we need the marginal distribution for $X$
+\begin{equation}
+\begin{tabular}{c|c}
+&\\
+\hline\\
+1&1/2\\
+2&1/8\\
+3&3/8
+\end{tabular}
+\end{equation}
+so 
+\begin{equation}
+H(X)=-\frac{1}{2}\log{\frac{1}{2}}-\frac{1}{8}\log{\frac{1}{8}}-\frac{3}{8}\log{\frac{3}{8}}\approx 1.4
+\end{equation}
+and to work out $H(Y)$ we need the marginal distribution for $Y$
+\begin{equation}
+\begin{tabular}{c|ccc}
+&a&b&c\\
+\hline\\
+1&11/24&5/12&3/24
+\end{tabular}
+\end{equation}
+so
+\begin{equation}
+H(Y)=-\frac{11}{24}\log{\frac{11}{24}}-\frac{5}{12}\log{\frac{5}{12}}-\frac{3}{24}\log{\frac{3}{24}}=2-\frac{3}{8}\log{3}\approx 1.41
+\end{equation}
+
+Now it begins to get annoying, working out the conditional probabilities, 
+\begin{eqnarray}
+H(X|Y=a)&=&-\frac{8}{11}\log{\frac{8}{11}}-\frac{2}{11}\log{\frac{2}{11}}-\frac{1}{11}\log{\frac{1}{11}}\approx 1.09\cr
+H(X|Y=b)&=&-\frac{1}{5}\log{\frac{1}{5}}-\frac{4}{5}\log{\frac{4}{5}}\approx 0.72\cr
+H(X|Y=c)&=&-\frac{2}{3}\log{\frac{2}{3}}-\frac{1}{3}\log{\frac{1}{3}}\approx 0.92
+\end{eqnarray}
+and hence
+\begin{equation}
+H(X|Y)=\frac{11}{24}H(X|a)+\frac{5}{12}H(X|b)+\frac{3}{24}H(X|c)\approx 0.91
+\end{equation}
+The other way
+\begin{eqnarray}
+H(Y|X=1)&=&-\frac{2}{3}\log{\frac{2}{3}}-\frac{1}{3}\log{\frac{1}{6}}\approx 1.25\cr
+H(Y|X=2)&=&-\frac{2}{3}\log{\frac{2}{3}}-\frac{1}{3}\log{\frac{1}{3}}\approx 0.92\cr
+H(Y|X=3)&=&-\frac{1}{9}\log{\frac{1}{9}}-\frac{8}{9}\log{\frac{8}{9}}\approx 0.5
+\end{eqnarray}
+and hence
+\begin{equation}
+H(Y|X)=\frac{1}{2}H(Y|1)+\frac{1}{8}H(Y|2)+\frac{3}{8}H(Y|3)\approx 0.99
+\end{equation}
+Finally, we know 
+\begin{equation}
+I(X;Y)=H(Y)-H(Y|X)=1.41-0.99=0.42
+\end{equation}
+or,
+\begin{equation}
+I(X;Y)=H(X)-H(X|Y)=1.40-0.91=0.49
+\end{equation}
+which reflects the rounding errors in the third digit.
+
+
+\item % 2rd Question
+For discrete random variables $X$, $Y$ and $Z$
+\begin{enumerate} 
+\item (5 marks) prove
+$$H(X,Y)=H(X)+H(Y|X)$$
+\item (5 marks) prove
+$$I(X;Y)=H(Y)-H(Y|X)$$
+\item (5 marks) prove
+$$H(X,Y|Z)\ge H(X|Z)$$
+\item (5 marks) prove
+$$I(X;Z|Y)=I(Z;Y|X)-I(Z;Y)+I(X;Z)$$ 
+\end{enumerate}
+
+\soln The first two are from the book being Th 2.2.1 and part of Th 2.4.1; they basically follow from the definition and messing around with the logs and probabilities. The third one is just part one applied to relative entropy
+\begin{eqnarray}
+H(X,Y|Z)&=&E_ZH(X,Y|Z=z)\cr
+&=&E_Z[H(X|Z=z)+H(Y|X,Z=z)]=H(X|Z)+H(Y|X,Z)
+\end{eqnarray}
+and then
+\begin{equation}
+H(X,Y|Z)=H(X|Z)+H(Y|X,Z)\ge H(X|Z)
+\end{equation}
+because $H(Y|X,Z)\ge 0$. Finally, part four is on a problem sheet, it is problem sheet 5, question 2d:  by the chain rule for mutual information in different orders
+\begin{eqnarray}
+I(X,Y;Z)&=&I(X;Z|Y)+I(Z;Y)\cr
+I(X,Y;Z)&=&I(Y;Z|X)+I(Z;X)
+\end{eqnarray}
+so $I(X;Z|Y)+I(Z;Y)=I(Y;Z|X)+I(Z;X)$ and moving the $I(Z;Y)$ over the equals we get the equality.
+
+\end{enumerate}
+ 
+% end of document should have this next line
+\end{document}

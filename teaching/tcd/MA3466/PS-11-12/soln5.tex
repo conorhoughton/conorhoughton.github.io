@@ -1,0 +1,192 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+\newcommand{\soln}{\noindent\textit{Solution:}}
+
+\begin{document}
+\begin{center}
+{\bf MA3364 Tutorial Sheet 5, outline solutions\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/MA3364}}}\\[1cm]{} 6 April 2010
+\end{center}
+\begin{enumerate}
+
+\item (C\&T 2.32) Fano. $X$ and $Y$ are two independent variables with ${\cal X}=\{1,2,3\}$ and ${\cal Y}=\{a,b,c\}$. $p(1,a)=p(2,b)=p(3,c)=1/6$, all the other probabilities are $1/12$. Let $\hat{X}(Y)$ be an estimator for $X$ based on $Y$ and let $P_e=Pr[\hat{X}\not=X]$.
+\begin{enumerate}
+\item Find the minimum probability of error estimator $\hat{X}(Y)$ and the associated $P_e$. 
+\item Evaluate Fano's inequality for this problem and compare.
+\end{enumerate}
+
+
+
+
+\soln Well looking at it, the best estimator is
+\begin{eqnarray}
+\hat{X}(a)&=&1\cr
+\hat{X}(b)&=&2\cr
+\hat{X}(c)&=&3
+\end{eqnarray}
+and $P_e=1/2$; $p(1|Y=a)=1/2$ and so on. Now Fano's inequality tell us
+\begin{equation}
+H(P_e)+P_e\log{|{\cal X}|}\ge H(X|Y)
+\end{equation}
+So, $H(P_e)=1$ and hence the left hand side is
+\begin{equation}
+H(P_e)+P_e\log{|{\cal X}|}=1+\frac{1}{2}\log{3}\approx 1.79
+\end{equation}
+and
+\begin{equation}
+H(X|Y=a)=\frac{1}{2}\log{2}+\frac{1}{2}\log{4}=\frac{3}{2}
+\end{equation}
+and, since the entropy conditional on $Y=b$ and $Y=c$ will be the same
+\begin{equation}
+H(X|Y)=\frac{3}{2}
+\end{equation}
+Furthermore, $\hat{X}$ is determined by $Y$ so $H(X|Y)=3/2$ as well.
+
+
+
+\item (C\&T 2.35 and 2.36). Consider two distributions over the set
+  $\{a,b,c\}$: $p(a)=1/2$ and $p(b)=p(c)=1/4$ and
+  $q(a)=q(b)=q(c)=1/3$. Find $H(p)$, $H(q)$, $D(p\|q)$ and $D(q\|p)$
+  and verify that in this case $D(p\|q)\not=D(q\|p)$. Conversely, give
+  and example of a pair of distinct distributions on the set $\{0,1\}$
+  where $D(p\|q)=D(q\|p)$.
+
+
+\soln So, by straightforward calculation
+\begin{equation}
+H(p)=\frac{1}{2}\log{2}+\frac{1}{2}\log{4}=\frac{3}{2}
+\end{equation}
+and
+\begin{equation}
+H(q)=\log{3}
+\end{equation}
+Next, 
+\begin{equation}
+D(p\|q)=\sum{x\in{\cal X}}p(x)\log{p(x)}{q(x)}
+\end{equation}
+so
+\begin{equation}
+D(p\|q)=\frac{1}{2}\log{\frac{3}{2}}+\frac{1}{2}\log{\frac{3}{4}}=\log{3}-\frac{3}{2}=.08496
+\end{equation}
+whereas
+\begin{equation}
+D(q\|p)=\frac{1}{3}\log{\frac{2}{3}}+\frac{2}{3}\log{\frac{4}{3}}=\frac{5}{3}-\log{3}=.08170
+\end{equation}
+so, although they have very similar values, the two KL divergences are different.
+
+An example of a distribution with distinct $p$ and $q$ where the divergence is symmetric, try one distribution for two symbols with $p(0)=p$ and $p(1)=1-p$ and, conversely, the other with $q(0)=1-p$ and $q(1)=p$, hence
+\begin{equation}
+D(p\|q)=p\log{\frac{p}{1-p}}+(1-p)\log{\frac{1-p}{p}}
+\end{equation}
+and
+\begin{equation}
+D(q\|p)=(1-p)\log{\frac{1-p}{p}}+p\log{\frac{p}{1-p}}
+\end{equation}
+which is the same.
+
+
+\item (C\&T 2.37) Let $X$,$Y$ and $Z$ be three random variable with a joint probability distribution $p(x,y,z)$. The relative entropy between the joint distribution and the product of the marginals is $D(p(x,y,z)\|p(x)p(y)p(z))$; expand this in terms of entropies. When is it zero.
+
+
+\soln Well this is easy enough when you work out what the question is after; first $D(p(x,y,z)\|p(x)p(y)p(z))=0$ if and only if 
+\begin{equation}
+p(x,y,z)=p(x)p(y)p(z)
+\end{equation}
+in other words, when the distributions are independent. To expand it in entropies, just write out the definition and then expand the log
+\begin{eqnarray}
+D(p(x,y,z)\|p(x)p(y)p(z))&=&\sum_{x,y,z}p(x,y,z)\log{\frac{p(x,y,z)}{p(x)p(y)p(z)}}\cr
+&=&\sum_{x,y,z}p(x,y,z)\log{p(x,y,z)}-\sum_{x,y,z}p(x,y,z)\log{p(x)}\cr&&-\sum_{x,y,z}p(x,y,z)\log{p(y)}-\sum_{x,y,z}p(x,y,z)\log{p(z)}
+\end{eqnarray}
+and now we just use the formula for the marginal densities, for example
+\begin{equation}
+\sum_{y,z}p(x,y,z)=p(x)
+\end{equation}
+to give
+\begin{eqnarray}
+D(p(x,y,z)\|p(x)p(y)p(z)&=&\sum_{x,y,z}p(x,y,z)\log{p(x,y,z)}-\sum_{x}p(x)\log{p(x)}\cr&&-\sum_{y}p(y)\log{p(y)}-\sum_{z}p(z)\log{p(z)}\cr
+&=&H(X,Y,Z)-H(X)-H(Y)-H(Z)
+\end{eqnarray}
+
+\item An alternative divergence is the $\lambda$-divergence,
+\begin{equation}
+D_{\lambda}(p\|q) = \lambda D_{\mathrm{KL}}(p\|\lambda p + (1-\lambda)q) + (1-\lambda) D_{\mathrm{KL}}(q\|\lambda p + (1-\lambda)q)
+\end{equation}
+Unlike the KL divergence, this is symmetric in $p$ and $q$. According to Wikipedia this can be interpreted as the expected information gain about X from discovering which probability distribution $X$ is drawn from, $p$ or $q$, if they currently have probabilities $\lambda$ and $(1-\lambda)$ respectively. Explain this.
+
+
+\soln So the idea here is to work through the Wikipedia description. Imagine $X$ is a random variable over a set ${\cal X}$ with two steps, step $A$ has two possiblities \lq $P$\rq{} with probability $\lambda$ and \lq $Q$\rq{} with probability $1-\lambda$. Step $B$ involves the actual selection of the symbol from ${\cal X}$, this is selected according to $p$ if the result from $A$ is $P$ and according to $p$ if the result from $A$ is $Q$. Thus, the probability for $x$ is
+\begin{equation}
+r(x)=\lambda p(x)+(1-\lambda) q(x)
+\end{equation}
+and so the entropy is
+\begin{eqnarray}
+H(X)&=&-\sum_xr(x)\log{r(x)}\cr
+&=&-\lambda\sum_x p(x)\log{r(x)}-(1-\lambda)\sum_x q(x)\log{r(x)}
+\end{eqnarray}
+
+On the otherhand; if the result of step $A$ is known to be $P$ the probability distribution for selecting the element of ${\cal X}$ is p, so
+\begin{equation}
+H(X|{A}=P)=-\sum_x p(x)\log{p(x)}
+\end{equation}
+and, if the result is $Q$                                   
+\begin{equation}
+H(X|{A}=Q)=-\sum_x q(x)\log{q(x)}
+\end{equation}
+Hence
+\begin{eqnarray}
+H(X|{A})&=&\lambda H(H(X|{A}=P)+(1-\lambda)H(X|{A}=Q)\cr
+&=&-\lambda\sum_x p(x)\log{p(x)}-(1-\lambda)\sum_x q(x)\log{q(x)}
+\end{eqnarray}
+Hence the information gain from knowing the result of A is
+\begin{eqnarray}
+I(X;{A})&=&H(X)-H(X|{A})\cr
+&=&-\lambda\sum_x p(x)\log{\frac{r(x)}{p(x)}}-(1-\lambda)\sum_x q(x)\log{\frac{r(x)}{q(x)}}\cr
+&=&D_{\lambda}(p\|q)
+\end{eqnarray}
+
+\item For $\lambda=1/2$, the $\lambda$-divergence is known as Jensen-Shannon divergence. Show this satisfies 
+\begin{enumerate}
+\item $D_{\mathrm{JS}}(p_1,p_2)\ge 0$ with equality if and only if $p_1=p_2$.
+\item $D_{\mathrm{JS}}(p_1,p_2)=D_{\mathrm{JS}}(p_2,p_1)$.
+\end{enumerate}
+However, it does not satisfy the triangular inequality and is therefore not a metric. Give an example of distributions $p_1$, $p_2$ and $p_3$ such that
+\begin{equation}
+D_{\mathrm{JS}}(p_1,p_2)+D_{\mathrm{JS}}(p_2,p_3)<D_{\mathrm{JS}}(p_1,p_3)
+\end{equation}
+
+
+\soln So, substituting $\lambda=1/2$ gives
+\begin{equation}
+D_{\mathrm{JS}}(p\|q) = \frac{1}{2} D_{\mathrm{KL}}(p\|r) + \frac{1}{2} D_{\mathrm{KL}}(q\|r)
+\end{equation}
+where $r=(p+q)/2$. From this the first two properties are straight forward, its non-negativeness follows from the fact that it is the sum of two KL divergences, equality can only occur is the two divergences on the right hand side are both zero, so $p=r$ and $q=r$ and hence $p=q$; the symmetry under exchange of $p$ and $q$ is also obvious from the formula.
+
+To find a counter example to the triangular inequality, obviously we want $p_1$ and $p_3$ to be as different as possible, one guess would be to try, in the obvious notation, $p_1=(1,0)$, $p_3=(0,1)$ and $p_2=(1/2,1/2)$, so for $p_1$ and $p_2$; $r_{12}=(p_1+p_2)/2=(3/4,1/4)$ so
+\begin{equation}
+D(p_1\|r_{12})=\log{4/3}=2-\log{3}
+\end{equation}
+whereas 
+\begin{equation}
+D(p_2\|r_{12})=\frac{1}{2}\log{2/3}+\frac{1}{2}\log{2}=1-\frac{1}{2}\log{3}
+\end{equation}
+and so 
+\begin{equation}
+D_{\mathrm{JS}}(p_1\|p_2)=\frac{3}{2}-\frac{3}{4}\log{3}
+\end{equation}
+and, it is clear $D_{\mathrm{JS}}(p_2\|p_3)$ with be the same. That leaves $p_1$ to $p_3$; $r_{13}=(p_1+p_3)/2=(1/2,1/2)$, so
+\begin{equation}
+D(p_1\|r_{13})=D(p_3\|r_{13})=\log{2}=1
+\end{equation}
+and hence $D_{\mathrm{JS}}(p_1\|p_3)=1$. Now, we have
+\begin{equation}
+D_{\mathrm{JS}}(p_1\|p_2)+D_{\mathrm{JS}}(p_2\|p_3)=3-\frac{3}{2}\log{3}<D_{\mathrm{JS}}(p_1\|p_3)=1
+\end{equation}
+since
+\begin{equation}
+3-\frac{3}{2}\log{3}\approx .623
+\end{equation}
+\end{enumerate}
+
+
+
+
+\end{document}

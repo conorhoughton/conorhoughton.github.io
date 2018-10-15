@@ -1,0 +1,82 @@
+% LaTeX blank document for exam papers
+% Anything after a % on a line is a comment -- does not appear in
+% final document
+\documentclass[12pt]{article}
+\usepackage{tcdexam}
+\begin{document}
+\slcode{XMA}  % insert XID code for the exam, e.g., XMA3211
+\course{Course 472}  % insert course e.g. Course 321
+\examiners{Conor Houghton} % insert e.g. Dr. R. Timoney
+\groups{JS/SS Maths\\JS/SS TP\\MSC in HPC}  % insert e.g. JF Engineers \\ JF MSISS
+\term{2008}  % insert e.g. Trinity Term 1987
+\day{       }   % insert e.g. Tuesday, June 2
+\time{}  % insert e.g. 9.30 --- 12.30  or 2.00 --- 5.00
+\place{}  % insert e.g. Exam Hall
+\instructions{
+ Credit will be given for the best three answers
+   \\[12pt]
+Log tables are available from the invigilators, if required.\\[12pt]
+Non-programmable calculators are permitted for this
+examination,---please indicate the make and model of your calculator
+on each answer book used.}
+
+\maketitle
+
+% begin test of exam use \question{1} to produce a bold face number 1.
+% in the left margin.  Use \part{(a)} or \part{(i)} to number parts
+% of questions. Put a blank line before these if you want it to come
+% on a new line.
+
+\begin{enumerate}
+\item % 1st Question
+\begin{enumerate}
+\item [5 marks] Define the Kullback-Leibler divergence for two
+  probability distributions $p(x)$ and $q(x)$. This quantity is also
+  called the relative entropy or Kullback-Leibler distance.
+\item [5 marks] State Jensen's inequality.
+\item [5 marks] Prove the Kullback-Leibler divergence is non-negative. When is it zero?
+\item [5 marks] Show the Kullback-Leibler divergence is not symmetric in $p$ and $q$. Is it ever symmetric when $p\not=q$?
+\end{enumerate}
+
+\item % 2nd Question
+\begin{enumerate}
+\item [4 marks] What is meant by a Markov chain $X\rightarrow
+  Y\rightarrow Z$.
+\item [4 marks] Show that $X\rightarrow Y\rightarrow Z$ implies
+  $Z\rightarrow Y\rightarrow X$.
+\item [12 marks] The Data-processing inequality tells us that if
+  $X\rightarrow Y\rightarrow Z$ then $I(X;Y)\ge I(X;Z)$. Consider a
+  snakes-and-ladders like board game where a fair coin if flipped for
+  each go and a counter is moved forwards either zero or one square
+  according to whether the coin gives a heads or a tails. $X$, $Y$ and
+  $Z$ denote the positions after one, two and three goes. Calculate
+  $I(X;Y)$ and $I(X;Z)$ and argue that the result is consistient with
+  the data-processing inequality.
+\end{enumerate}
+
+\item % 3rd Question
+\begin{enumerate} 
+\item [8 marks] State and prove Fano's inequality for an estimator $\hat{X}\in\hat{\cal X}$ for a random variable $X\in{\cal X}$.
+\item [5 marks] How can the inequality be sharpened when ${\cal X}=\hat{{\cal X}}$.
+\item [7 marks] Consider joint variables $(X,Y)$ where ${\cal X}=\{1,2,3\}$ and ${\cal Y}=\{a,b}$ with $p(1,a)=p(2,b)=p(3,b)=1/4$ and all other probabilities equal $1/12$. Find a minimal probability estimator $\hat{X}(Y)$ and evaluate both sides of Fano's inequality for this problem.
+\end{enumerate}
+
+\item % 4th Question
+\begin{enumerate}
+\item [5 marks] Define 
+\begin{itemize}
+\item A source code.
+\item The expected length of a code.
+\item A nonsingular code.
+\item A uniquely decodable code.
+\item A prefix code.
+\end{itemize}
+\item [8 marks] State and prove the Kraft inequality for a prefix code with codewords of lengths $l_1,l_2,\ldots,l_m$.
+\item [7 marks] Find a tenary (D=3) Huffman code for ${\cal X}=\{1,2,3,4,5,6,7\}$ with $p(1)=.25$, $p(2)=p(3)=p(4)=.15$, $p(5)=.12$ and $p(6)=p(7)=.09$. Find a 5-ary (D=5) Huffman code in this case.
+\end{enumerate}
+
+
+
+
+% end of document should have this next line
+\end{document}

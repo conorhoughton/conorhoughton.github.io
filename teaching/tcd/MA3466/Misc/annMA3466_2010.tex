@@ -1,0 +1,110 @@
+% LaTeX blank document for exam papers
+% Anything after a % on a line is a comment -- does not appear in
+% final document
+\documentclass[12pt]{article}
+\usepackage{tcdexam}
+\begin{document}
+\slcode{XMA}  % insert XID code for the exam, e.g., XMA3211
+\course{Course MA3466}  % insert course e.g. Course 321
+\examiners{Conor Houghton} % insert e.g. Dr. R. Timoney
+\groups{JS/SS Maths\\JS/SS TP\\MSC in HPC}  % insert e.g. JF Engineers \\ JF MSISS
+\term{2008}  % insert e.g. Trinity Term 1987
+\day{       }   % insert e.g. Tuesday, June 2
+\time{}  % insert e.g. 9.30 --- 12.30  or 2.00 --- 5.00
+\place{}  % insert e.g. Exam Hall
+\instructions{
+ Credit will be given for the best three answers
+   \\[12pt]
+Log tables are available from the invigilators, if required.\\[12pt]
+Non-programmable calculators are permitted for this
+examination.}
+
+\maketitle
+
+% begin test of exam use \question{1} to produce a bold face number 1.
+% in the left margin.  Use \part{(a)} or \part{(i)} to number parts
+% of questions. Put a blank line before these if you want it to come
+% on a new line.
+
+\begin{enumerate}
+\item % 1st Question
+\begin{enumerate}
+\item [5 marks] Define
+\begin{enumerate}
+\item The Shannon Entropy.
+\item The conditional entropy.
+\item The mutual information.
+\end{enumerate}
+\item [5 marks] Prove
+$$H(X,Y)=H(X)+H(Y|X)$$
+and
+$$I(X;Y)=H(X)-H(X|Y).$$
+\item [4 marks] If ${\cal X}={a,b,c}$ and ${\cal Y}=\{r,s\}$ with
+\begin{tabular}{l|ll}
+&$a$&$b$\\
+\hline
+$r$&1/4&1/4\\
+$s$&1/2&0
+\end{tabular}
+calculate $I(X;Y)$. You can write the answer in terms of $\log{3}$ and so on.
+\item [6 marks] Let $X_1$ and $X_2$ be identically distributed but not necessarily independent. Let
+$$\rho=1-\frac{H(X_2|X_1)}{H(X_1)}.$$
+\begin{enumerate}
+\item Show that $$\rho=\frac{I(X_1;X_2)}{H(X_1)}.$$
+\item Show that $$0\le \rho\le 1.$$
+\item When is $\rho=1$?
+\item When is $\rho=0$?
+\end{enumerate}
+
+\item % 2nd Question
+\begin{enumerate}
+\item [4 marks] What is meant by a Markov chain $X\rightarrow
+  Y\rightarrow Z$.
+\item [8 marks] A random variable $X$ takes values $1$ and $0$ with
+  probability $p$ and $1-p$ determined by a distribution $P$. Let $X_1$ to $X_k$ be a set of independent variables each of which has the same distribution as $X$. If 
+$$N=\sum_{i=1}^k X_i$$
+it is clear $P\rightarrow (X_1,\ldots,X_k)\rightarrow N$, argue that
+$$P\rightarrow N\rightarrow (X_1,\ldots,X_k)$$ 
+and say what is meant by a {\sl sufficient statistic}.
+\item [8 marks] Show $H(X_0|X_n)$ is non-decreasing with $n$ for a Markov chain
+$$X_0\rightarrow X_1\rightarrow \ldots \rightarrow X_n.$$
+
+\end{enumerate}
+
+\item % 3rd Question
+\begin{enumerate} 
+\item [8 marks] State and prove Fano's inequality for an estimator $\hat{X}\in\hat{\cal X}$ for a random variable $X\in{\cal X}$.
+\item [5 marks] How can the inequality be sharpened when ${\cal X}=\hat{{\cal X}}$.
+\item [7 marks] Let $\mbox{Pr}\,(X=i)=p_i$ for $i=1,2,\ldots,m$ with $p_1\ge p_2\ge \ldots \ge\p_m$. In the absence of any other information, the best estimate for $X$ is $\hat{X}=1$ with probability of error $P_e=1-p_1$. Maximize $H({\bf p})$ subject to the constraint $1-p_1=P_e$ to give a bound on $P_e$ in terms of $H$; a version of Fano's inequality with no conditioning.
+\end{enumerate}
+
+\item % 4th Question
+\begin{enumerate}
+\item [5 marks] Define 
+\begin{enumerate}
+\item A source code.
+\item The expected length of a code.
+\item A nonsingular code.
+\item A uniquely decodable code.
+\item A prefix code.
+\end{enumerate}
+\item [5 marks] Which of the following codes are {\sl uniquely decodable} and {\sl prefix}:
+\begin{enumerate}
+\item $C_1=\{00,01,0\}$
+\item $C_2=\{00,01,100,101,11\}$
+\item $C_3=\{0,10,110,1110,\ldots\}$
+\item $C_4=\{0,00,000,0000\}$
+\item $C_5\{1,00,101\}$.
+\end{enumerate}
+\item [10 marks] Work out Huffman codes for
+\begin{enumerate}
+\item $p(A)=.5$, $p(B)=.2$, $p(C)=.1$, $p(D)=.1$ and $p(E)=.1$ with $D=2$.
+\item $p(A)=.25$, $p(B)=.15$, $p(C)=.1$, $p(D)=.1$, $p(E)=.1$, $p(F)=.1$, $p(G)=.1$, $p(H)=.05$ and $p(I)=.05$ with $D=3$.
+\end{enumerate}
+Work out the average code length and the entropy in each case.
+\end{enumerate}
+
+
+
+% end of document should have this next line
+\end{document}

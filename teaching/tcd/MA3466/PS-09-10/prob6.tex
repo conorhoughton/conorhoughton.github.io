@@ -1,0 +1,38 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+
+\begin{document}
+\begin{center}
+{\bf MA3364 Tutorial Sheet 6\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/MA3466}}}\\[1cm]{} 19 March 2008
+\end{center}
+\begin{enumerate}
+
+\item (C\& T 3.2) AEP and mutual information. Let$(X_i,Y_i)$ be i.i.d with joint distributions $p(x,y)$. We form the log likelhood ration of the hypothesis that $X$ and $Y$ are independent versus the hypothesis that they are dependent. What is the limit of 
+\begin{equation}
+\frac{1}{n}\log{\frac{p({\bf X})p({\bf Y})}{p({\bf X},{\bf Y})}}
+\end{equation}
+
+\item (C\& T 3.3) A piece of cake. A cake is sliced roughly in half and the largest piece selected each time, the other bits being discarded. Assume $p(2/3,1/3)=3/4$ and $p(2/5,3/5)=1/4$. How large, to the first order in the exponent, is the piece of cake after $n$ cuts.
+
+\item (C\& T 3.6) AEP-like limit. Let $X_1$, $X_2$ and so on be i.i.d., drawn with distribution $p(x)$, what is
+\begin{equation}
+\lim_{n\rightarrow \infty}[p(X_1,X_2,\ldots,X_n)]^{1/n}
+\end{equation}
+For this you need to know the strong law of large numbers: to prove the AEP we used the weak law:
+\begin{equation}
+\frac{1}{n}\sum X_i \rightarrow EX
+\end{equation}
+in probability, the strong law states that it approaches it almost surely.
+
+
+\item (C\& T 3.13) This requires a table, so you need to look at this
+  problem in the book; however the table in the books has some errors,
+  for example, for $k=15$ the middle figure should be $.1616$, not
+  $.5754$.
+
+
+
+\end{enumerate}
+
+
+\end{document}

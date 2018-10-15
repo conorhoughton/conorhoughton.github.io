@@ -1,0 +1,95 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+
+
+\begin{document}
+\begin{center}{\Large
+{\bf Short definition summary for the first part of chapter 2}\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie} please
+send me any corrections.}}\\[1cm] 31 January 2008\\[1cm]
+\end{center}
+
+\subsection*{Probability}
+Consider $X$ and $Y$, two random variables with $X$ taking values in ${\cal X}$ and $Y$ in ${\cal
+  Y}$. The {\sl joint probability} is
+\begin{equation}
+p_{X,Y}(x,y)=\mbox{probability that X=x and Y=y}
+\end{equation}
+From the joint probability we can define the {\sl marginal distributions}
+\begin{eqnarray}
+p_{X}(x)&=&\mbox{probability that $X=x$ irrespective of what $Y$ is}\cr
+p_{Y}(y)&=&\mbox{probability that $Y=y$ irrespective of what $X$ is}
+\end{eqnarray}
+and, it follows that
+\begin{eqnarray}
+p_{X}(x)&=&\sum_{y\in{\cal Y}}p_{X,Y}(x,y)\cr
+p_{Y}(y)&=&\sum_{x\in{\cal X}}p_{X,Y}(x,y)
+\end{eqnarray}
+We can also define the {\sl conditional probabilities}
+\begin{eqnarray}
+p_{X|Y}(x|y)&=&\mbox{probability that $X=x$ if $Y=y$}\cr
+p_{Y|X}(y|x)&=&\mbox{probability that $Y=y$ if $X=x$}
+\end{eqnarray}
+These are calculated using Bayes rule, basically this says that the probability of $X=x$ and $Y=y$ is the probability of $X=x$ multiplied by the probability of $Y=y$ given that $X=x$:
+\begin{equation}
+p_{X,Y}(x,y)=p_X(x)p_{Y|X}(y|x)
+\end{equation}
+and, similarily
+\begin{equation}
+p_{X,Y}(x,y)=p_Y(y)p_{X|Y}(x|y)
+\end{equation}
+and, of course, this means
+\begin{eqnarray}
+p_{Y|X}(y|x)&=&\frac{p_{X,Y}(x,y)}{p_X(x)}\cr
+p_{X|Y}(x|y)&=&\frac{p_{X,Y}(x,y)}{p_Y(y)}
+\end{eqnarray}
+
+\subsection*{Entropy, information and divergence}
+
+The {\sl entropy} of a random variable $X$ with probability distribution $p_x(x)$ is
+\begin{equation}
+H(X)=-\sum_{x\in{\cal X}}p_X(x)\log{p_X(x)}
+\end{equation}
+Now, this can be applied to a joint distribution, after all, a join distribution is just a distribution for $(X,Y)\in {\cal X}\times{\cal Y}$ so
+\begin{equation}
+H(X,Y)=-\sum_{(x,y)\in{\cal X}\times {\cal Y}}p_{X,Y}(x,y)\log{p_{X,Y}(x,y)}
+\end{equation}
+
+The {\sl KL divergence} sometimes called the {\sl relative entropy} of two distributions $p_X(x)$ and $q_X(x)$ for the same random variable $X$ is
+\begin{equation}
+D(p_X(x)\|q_X(x))=\sum_{x\in{\cal X}}p_X(x)\log\frac{p_X(x)}{q_X{x}}
+\end{equation}
+It can be thought of as measuring the difference between two putative probability distribution. Note that it is not symmetric in $p_X(x)$ and $q_X(x)$.
+
+The {\sl mutual information} of a pair of random variables is
+\begin{equation}
+I(X,Y)=\sum_{(x,y)\in{\cal X}\times{\cal Y}}p_{X,Y}(x,y)\log{\frac{p_{X,Y}(x,y)}{p_X(x)p_Y(y)}}
+\end{equation}
+Hence
+\begin{equation}
+I(X,Y)=D(p_{X,Y}(x,y)\|p_X(x)p_Y(y))
+\end{equation}
+and the mutual information measures the KL-divergence between the joint probability and the multiple of the marginal probabilities.
+
+\subsection*{Conditional entropy and information}
+
+If we have a joint distribution $p_{X,Y}(x,y)$ then for given value of $Y$, $Y=y$ the conditional distribution can be used to give an entropy. The {\sl conditional entropy} is the average of this entropy over all values of $Y$:
+\begin{equation}
+H(X|Y)=\sum_{y\in {\cal Y}}p_Y(y)\sum_{x\in {\cal X}} p_{X|Y}(x|y)\log p_{X|Y}(x|y)
+\end{equation}
+and, by Bayes,                                   
+\begin{equation}
+H(X|Y)=\sum_{(x,y)\in {\cal X}\times{\cal Y}}p_{X,Y}(x,y)\log p_{X|Y}(x|y)
+\end{equation}
+There is an important result which can be derived straight from the definitions:
+\begin{equation}
+H(X,Y)=H(X)+H(Y|X)
+\end{equation}
+and
+\begin{equation}
+I(X,Y)=H(X)-H(X|Y)=H(Y)-H(Y|X)
+\end{equation}
+
+
+
+
+\end{document}

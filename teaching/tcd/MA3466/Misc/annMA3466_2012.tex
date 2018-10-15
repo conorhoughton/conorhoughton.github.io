@@ -1,0 +1,89 @@
+% LaTeX blank document for exam papers
+% Anything after a % on a line is a comment -- does not appear in
+% final document
+\documentclass[12pt]{article}
+\usepackage{tcdexam}
+\begin{document}
+\slcode{XMA}  % insert XID code for the exam, e.g., XMA3211
+\course{Course MA3466}  % insert course e.g. Course 321
+\examiners{Conor Houghton} % insert e.g. Dr. R. Timoney
+\groups{JS/SS Maths\\JS/SS TP\\MSC in HPC}  % insert e.g. JF Engineers \\ JF MSISS
+\term{2012}  % insert e.g. Trinity Term 1987
+\day{       }   % insert e.g. Tuesday, June 2
+\time{}  % insert e.g. 9.30 --- 12.30  or 2.00 --- 5.00
+\place{}  % insert e.g. Exam Hall
+\instructions{
+ Credit will be given for the best three answers
+   \\[12pt]
+Log tables are available from the invigilators, if required.\\[12pt]
+Non-programmable calculators are permitted for this
+examination.}
+
+\maketitle
+
+% begin test of exam use \question{1} to produce a bold face number 1.
+% in the left margin.  Use \part{(a)} or \part{(i)} to number parts
+% of questions. Put a blank line before these if you want it to come
+% on a new line.
+
+\begin{enumerate}
+\item % 1st Question
+\begin{enumerate}
+\item [3 marks] Define the Shannon Entropy $H(X)$ for a discrete random variable $X$. For a joint random variable $(X,Y)$ define the mutual information $I(X;Y)$. Given two probability distributions on the same set of outcomes ${\cal X}$, $p(x)$ and $q(x)$, define the Kullback-Leibler divergence $D(p\|q)$.
+\item [3 marks] State and prove Jensen's inequality.
+\item [3 marks] Prove the information inequality using Jensen's inequality, that is, show
+$$D(p||q)>0$$ 
+with equality if and only if $p(x)=q(x)$ for all $x\in{\cal X}$. 
+\item [3 marks] Show that $I(X,Y)\ge 0$ and derive an upper bound on $H(X)$. Show $H(X)\ge H(X|Y)$.
+\item [5 marks] In fact $\ln{x}\le x -1$ for $0\le x le \infty$, with equality if and only if $x=1$, use this to prove the information inequality for the Kullback-Leibler divergence with base $e$:
+$$D(p\|q)=\sum_{x} p(x)\ln\frac{p(x)}{q(x)}.
+\item [3 marks]
+Write down a probability distribution for joint random variables $(X,Y)$ such that $H(X|Y=a)>H(X)$ for some $a\in{\cal Y}$; calculate $H(X|Y)$ for this distribution.
+
+\item % 2rd Question
+For discrete random variables $X$, $Y$ and $Z$
+\begin{enumerate} 
+\item [5 marks] Prove
+$$I(X,Y;Z)=I(Y;Z|X)+I(X;Z)$$
+You may use the idenities
+\begin{eqnarray*}
+H(X,Y)&=&H(X)+H(Y|X)\\
+H(X,Y|Z)&=&H(X|Z)+H(Y|X,Z)\\
+I(X;Y)&=&H(X)-H(X|Y)\\
+I(X;Y|Z)&=&H(X|Z)-H(X|Y,Z)
+\end{eqnarray*}
+without proof.
+\item [8 marks] A triple mutual inforamation is defined as
+$$
+I(X;Y;Z)=I(X;Y)-I(X;Y|Z)
+$$
+This definition is more symmetric than it looks, demonstrate this by showing that
+$$
+I(X;Y;Z)=H(X,Y,Z)-H(X,Y)-H(Y,Z)-H(Z,X)+H(X)+H(Y)+H(Z).
+$$
+\item [5 marks] However $I(X;Y;Z)$ is not nonegative in general; find $X$, $Y$ and $Z$ such that $I(X;Y;Z)<0$.
+
+
+\item % 3nd Question
+\begin{enumerate}
+\item [7 marks] State and prove the Data Processing Inequality.
+\item [6 marks] State and prove Fano's Inequality.
+\item [7 marks] State and prove the Asymptotic Equipartition Property Theorem.
+
+
+
+\item % 4th Question
+\begin{enumerate}
+\item [5 marks] Define a source code and an instantaneous code. Define the expected length $L(C)$ of a source code $C(x)$.
+\item [10 marks] State and prove the Kraft inequality.
+\item [5 marks] Work out Huffman codes for
+$$
+\item $p(A)=.4$, $p(B)=.2$, $p(C)=.2$, $p(D)=.1$ and $p(E)=.1$ with $D=2$.
+$$
+Work out the average code length.
+\end{enumerate}
+
+\end{enumerate}
+
+% end of document should have this next line
+\end{document}

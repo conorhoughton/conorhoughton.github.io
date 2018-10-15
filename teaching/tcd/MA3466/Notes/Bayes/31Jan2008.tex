@@ -1,0 +1,118 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+
+
+\begin{document}
+\begin{center}{\Large
+{\bf Bayes Rule}\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie} please
+send me any corrections.}}\\[1cm] 31 January 2008\\[1cm]
+\end{center}
+
+Consider $X$ and $Y$, two random variables with $X$ taking values in ${\cal X}$ and $Y$ in ${\cal
+  Y}$. The {\sl joint probability} is
+\begin{equation}
+p_{X,Y}(x,y)=\mbox{probability that X=x and Y=y}
+\end{equation}
+Here is an example with ${\cal X}=\{0,1\}$ and ${\cal Y}=\{0,1,2\}$
+\begin{equation}
+\begin{array}{l|ll}
+&0&1\\
+\hline\\[-10pt]
+0&1/4&1/8\\
+1&1/16&3/8\\
+2&1/16&1/8
+\end{array}
+\end{equation}
+So the probability of $(X,Y)=(0,1)$ is $1/16$.
+
+From the joint probability we can define the {\sl marginal distributions}
+\begin{eqnarray}
+p_{X}(x)&=&\mbox{probability that $X=x$ irrespective of what $Y$ is}\cr
+p_{Y}(y)&=&\mbox{probability that $Y=y$ irrespective of what $X$ is}
+\end{eqnarray}
+and, it follows that
+\begin{eqnarray}
+p_{X}(x)&=&\sum_{y\in{\cal Y}}p_{X,Y}(x,y)\cr
+p_{Y}(y)&=&\sum_{x\in{\cal X}}p_{X,Y}(x,y)
+\end{eqnarray}
+For the example above
+\begin{equation}
+\begin{array}{l|ll}
+X&0&1\\
+\hline\\[-10pt]
+ &3/8&5/8
+\end{array}
+\end{equation}
+and
+\begin{equation}
+\begin{array}{l|lll}
+Y&0&1&2\\
+\hline\\[-10pt]
+&3/8&7/16&3/16
+\end{array}
+\end{equation}
+
+We can also define the {\sl conditional probabilities}
+\begin{eqnarray}
+p_{X|Y}(x|y)&=&\mbox{probability that $X=x$ if $Y=y$}\cr
+p_{Y|X}(y|x)&=&\mbox{probability that $Y=y$ if $X=x$}
+\end{eqnarray}
+These are calculated using Bayes rule, basically this says that the probability of $X=x$ and $Y=y$ is the probability of $X=x$ multiplied by the probability of $Y=y$ given that $X=x$:
+\begin{equation}
+p_{X,Y}(x,y)=p_X(x)p_{Y|X}(y|x)
+\end{equation}
+and, similarily
+\begin{equation}
+p_{X,Y}(x,y)=p_Y(y)p_{X|Y}(x|y)
+\end{equation}
+and, of course, this means
+\begin{eqnarray}
+p_{Y|X}(y|x)&=&\frac{p_{X,Y}(x,y)}{p_X(x)}\cr
+p_{X|Y}(x|y)&=&\frac{p_{X,Y}(x,y)}{p_Y(y)}
+\end{eqnarray}
+so in the example above
+For the example above
+\begin{equation}
+\begin{array}{l|ll}
+X|Y=0&0&1\\
+\hline\\[-10pt]
+ &2/3&1/3
+\end{array}
+\end{equation}
+\begin{equation}
+\begin{array}{l|ll}
+X|Y=1&0&1\\
+\hline\\[-10pt]
+ &1/7&6/7
+\end{array}
+\end{equation}
+\begin{equation}
+\begin{array}{l|ll}
+X|Y=2&0&1\\
+\hline\\[-10pt]
+ &1/3&2/3
+\end{array}
+\end{equation}
+and
+\begin{equation}
+\begin{array}{l|lll}
+Y|X=0&0&1&2\\
+\hline\\[-10pt]
+&4/6&1/6&1/6
+\end{array}
+\end{equation}
+\begin{equation}
+\begin{array}{l|lll}
+Y|X=1&0&1&2\\
+\hline\\[-10pt]
+&1/5&3/5&1/5
+\end{array}
+\end{equation}
+Finally, since $p_{X,Y}(x,y)=p_{Y,X}(y,x)$ we can write Bayes rule in the more familiar form
+\begin{equation}
+p_{Y|X}(y|x)=\frac{p_Y(y)p_{X|Y}(x|y)}{p_X(x)}
+\end{equation}
+
+
+
+\end{document}

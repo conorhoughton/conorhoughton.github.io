@@ -1,0 +1,196 @@
+% LaTeX blank document for exam papers
+% Anything after a % on a line is a comment -- does not appear in
+% final document
+\documentclass[12pt]{article}
+\usepackage{tcdexam}
+\begin{document}
+\slcode{XMA}  % insert XID code for the exam, e.g., XMA3211
+\course{Course MA3466}  % insert course e.g. Course 321
+\examiners{Conor Houghton} % insert e.g. Dr. R. Timoney
+\groups{JS/SS Maths\\JS/SS TP\\MSC in HPC}  % insert e.g. JF Engineers \\ JF MSISS
+\term{2012}  % insert e.g. Trinity Term 1987
+\day{       }   % insert e.g. Tuesday, June 2
+\time{}  % insert e.g. 9.30 --- 12.30  or 2.00 --- 5.00
+\place{}  % insert e.g. Exam Hall
+\instructions{
+ Credit will be given for the best three answers
+   \\[12pt]
+Log tables are available from the invigilators, if required.\\[12pt]
+Non-programmable calculators are permitted for this
+examination.}
+
+\maketitle
+
+% begin test of exam use \question{1} to produce a bold face number 1.
+% in the left margin.  Use \part{(a)} or \part{(i)} to number parts
+% of questions. Put a blank line before these if you want it to come
+% on a new line.
+
+\begin{enumerate}
+\item % 1st Question
+\begin{enumerate}
+\item [3 marks] Define the Shannon Entropy $H(X)$ for a discrete random variable $X$. For a joint random variable $(X,Y)$ define the mutual information $I(X;Y)$. Given two probability distributions on the same set of outcomes ${\cal X}$, $p(x)$ and $q(x)$, define the Kullback-Leibler divergence $D(p\|q)$.
+
+{\bf Solution:} Standard definitions, see Thomas and Cover.
+
+\item [3 marks] State and prove Jensen's inequality.
+
+{\bf Solution:} Thomas and Cover, Theorem 2.6.1 - covered in class; proof by iteration.
+
+\item [4 marks] Prove the information inequality using Jensen's inequality, that is, show
+$$D(p||q)>0$$ 
+with equality if and only if $p(x)=q(x)$ for all $x\in{\cal X}$. 
+
+{\bf Solution:} Thomas and Cover, Theorem 2.6.2 - covered in class; tricky but important theorem.
+
+\item [2 marks] Show that $I(X,Y)\ge 0$ and derive an upper bound on $H(X)$. Show $H(X)\ge H(X|Y)$.
+
+{\bf Solution:} Straight-forward corrollaries of the information inequality, follows from the definitions.
+
+\item [5 marks] In fact $\ln{x}\le x -1$ for $0\le x le \infty$, with equality if and only if $x=1$, use this to prove the information inequality for the Kullback-Leibler divergence with base $e$:
+$$D(p\|q)=\sum_{x} p(x)\ln\frac{p(x)}{q(x)}.
+
+{\bf Solution:} Let ${\cal A}$ be the compact support of $p(x)$, then 
+\begin{eqnarray}
+-D(p\|q)&=&\sum_{x\in {\cal A}} p(x)\ln q(x)/p(x)\cr
+        &\le& \sum_{x \in {\cal A}} p(x)[q(x)/p(x)-1]\cr
+        &=& \sum_{x \in {\cal A}} q(x)- \sum_{x \in {\cal A}} p(x)\cr
+        &\le& \sum_{x \in {\cal X}} q(x)- \sum_{x \in {\cal A}} p(x)=0
+\end{eqnarray}
+where the first inequality is an equality if $p(x)=q(x)$ for all $x\in
+{\cal A}$ which implies ${\cal X}={\cal A}$ which makes the second
+inequality an equality.
+
+\item [3 marks]
+Write down a probability distribution for joint random variables $(X,Y)$ such that $H(X|Y=a)>H(X)$ for some $a\in{\cal Y}$; calculate $H(X|Y)$ for this distribution.
+
+{\bf Solution:} For example $p(a,b)=0$, $p(b,b)=3/4$, $p(a,a)=1/8$ and $p(b,a)=1/8$ so you can calculate the marginal $p_X(a)=1/8$ and $p_X(b)=7/8$ 
+\begin{equation}
+H(X)=\frac{1}{8}\log{8}+\frac{7}{8}\log(\frac{8}{7}}\approx 0.543
+\end{equation}
+whereas the conditionals are $p(a|a)=1/2$ and $p(b|a)=1/2$ so 
+\begin{equation}
+H(X|Y=a)=1>0.543
+\end{equation}
+Since $H(X|Y=b)=0$, $p_Y(a)=1/4$ and $p_Y(b)=3/4$  
+\begin{equation}
+H(X|Y)=0.25
+\end{equation}
+
+\item % 2rd Question
+For discrete random variables $X$, $Y$ and $Z$
+\begin{enumerate} 
+\item [5 marks] Prove
+$$I(X,Y;Z)=I(Y;Z|X)+I(X;Z)$$
+You may use the idenities
+\begin{eqnarray*}
+H(X,Y)&=&H(X)+H(Y|X)\\
+H(X,Y|Z)&=&H(X|Z)+H(Y|X,Z)\\
+I(X;Y)&=&H(X)-H(X|Y)\\
+I(X;Y|Z)&=&H(X|Z)-H(X|Y,Z)
+\end{eqnarray*}
+without proof.
+
+{\bf Solution:} So
+\begin{equation}
+I(X,Y;Z)=H(X,Y)-H(X,Y|Z)
+\begin{equation}
+then substituting in for $H(X,Y)$ and $H(X,Y|Z)$
+\begin{equation}
+I(X,Y;Z)=H(X)+H(Y|X)-H(X|Z)-H(Y|Z)
+\end{equation}
+Now
+\begin{equation}
+I(Y;Z|X)=H(Y|X)-H(Z|X,Y)
+\end{equation}
+and
+ \begin{equation}
+I(X;Z)=H(X)-H(X|Z)
+\end{equation}
+proving the identity.
+
+\item [8 marks] A triple mutual inforamation is defined as
+$$
+I(X;Y;Z)=I(X;Y)-I(X;Y|Z)
+$$
+This definition is more symmetric than it looks, demonstrate this by showing that
+$$
+I(X;Y;Z)=H(X,Y,Z)-H(X,Y)-H(Y,Z)-H(Z,X)+H(X)+H(Y)+H(Z).
+$$
+
+{\bf Solution:} So
+\begin{eqnarray}
+I(X;Y;Z)&=&I(X;Y)-I(X;Y|Z)\cr
+&=&H(X)+H(Y)-H(X,Y) - [H(X|Z)+H(Y|Z)-H(X,Y|Z)]\cr
+&=&H(X)+H(Y)-H(X,Y)-[H(X,Z)-H(Z)]-[H(Y,Z)-H(Z)]+[H(X,Y,Z)-H(Z)]
+\end{eqnarray}
+from which the result follows.
+
+\item [5 marks] However $I(X;Y;Z)$ is not nonegative in general; find $X$, $Y$ and $Z$ such that $I(X;Y;Z)<0$.
+
+{\bf Solution:} So we want an example where $I(X;Y)$ is smaller than
+$I(X;Y|Z)$; that is, the conditional mutual information is bigger than
+the unconditioned. Let ${\cal Z}=\{a,b}$ with marginal $p_Z(a)=p_Z(b)=1/2$ and with $p(X,Y|Z=a)$
+\begin{equation}
+\begin{array}{cc}1/2&0\\1/4&1/4\end{array}
+\end{equation}
+and $p(X,Y|Z=b)$
+\begin{equation}
+\begin{array}{cc}0&1/2\\1/4&1/4\end{array}
+\end{equation}
+so that the marginal distribution $p(X,Y)$ is
+\begin{equation}
+\begin{array}{cc}1/4&1/4\\1/4&1/4\end{array}
+\end{equation}
+and $H(X,Y)=2$ with $H(X)=1$ and $H(Y)=1$, so $I(X,Y)=0$, however, for $Z=a$, 
+\begin{equation}
+H(X,Y|Z=a)=\frac{1}{2}\log{2}+\frac{1}{2}\log{4}=\frac{3}{2}
+\end{equation}
+with $H(X|Z=a)=1$ and
+\begin{equation}
+H(Y|Z=a)=\frac{1}{4}\log{4}+\frac{3}{4}\log{\frac{3}{4}}\approx 0.811
+\end{equation}
+and the same for $Z=b$ which means
+\begin{equation}
+I(X,Y|Z)= 1.1811
+\end{equation}
+giving a negative value of $I(X;Y;Z)$.
+
+
+\item % 3nd Question
+\begin{enumerate}
+\item [7 marks] State and prove the Data Processing Inequality.
+
+{\bf Solution:} This is Cover and Thomas Theorem 2.8.1 - one of the classic theorems of introductary information theory. Easy to prove but difficult to understand.
+
+\item [6 marks] State and prove Fano's Inequality.
+
+{\bf Solution:} This is Cover and Thomas Theorem 2.10.1 - a classic theorem whose proof is slightly tricky.
+
+\item [7 marks] State and prove the Asymptotic Equipartition Property Theorem.
+
+{\bf Solution:} This is Cover and Thomas Theorem 3.1.1 - another classic theorem, again, easy to prove if you understand it, but difficult to prove.
+
+
+\item % 4th Question
+\begin{enumerate}
+\item [5 marks] Define a source code and an instantaneous code. Define the expected length $L(C)$ of a source code $C(x)$.
+
+{\bf Solution:} See Cover and Thomas.
+
+\item [10 marks] State and prove the Kraft inequality.
+
+{\bf Solution:} This is Cover and Thomas Theorem 5.2.1 - a classic theorem with a lengthy proof.
+
+\item [5 marks] Work out two and three letter Huffman codes for
+$$
+\item $p(A)=.4$, $p(B)=.2$, $p(C)=.2$, $p(D)=.1$ and $p(E)=.1$ with $D=2$.
+$$
+Work out the average code length.
+\end{enumerate}
+
+{\bf Solution:} This involves a tree diagram so it hard to include, similar to, but longer than Cover and Thomas Example 5.6.2.
+
+\end{enumerate}
+
+\end{document}

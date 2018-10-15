@@ -1,0 +1,43 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide, amsfonts, epsfig}
+
+\begin{document}
+\begin{center}
+{\bf MA3466 Tutorial Sheet 2\footnote{Conor Houghton, {\tt houghton@maths.tcd.ie}, see also {\tt http://www.maths.tcd.ie/\char126 houghton/MA3466}}}\\[1cm]{} 2 February 2012
+\end{center}
+\begin{enumerate}
+
+\item (C\&T 2.6) Find joint random variables $X$, $Y$ and $Z$ such that 
+\begin{enumerate}
+\item $I(X;Y|Z)<I(X;Y)$
+\item $I(X;Y|Z)>I(X;Y)$
+\end{enumerate}
+
+\item (C\&T 2.7) Suppose that one has $n$ coins, among which there may or may not be one counterfeit coin. If there is a counterfeit coin it will weight either less or more than the other coins. The coins are weighed using a balance.
+\begin{enumerate}
+\item Find an upper bound on the number of coins $n$ so that $k$ weighings will find the counterfeit coin, if any, and correctly declare it to be heavier or lighter.
+\item What is the coin-weighing strategy for $k=3$ weighings and 12 coins/
+\end{enumerate}
+
+\item (C\&T 2.9) Let $X_1$ and $X_2$ be discrete random variables drawn according to distributions $p_1$ and $p_2$ from their respective alphabets ${\cal X}_1=\{1,2,\ldots,m\}$ and  ${\cal X}_2=\{m+1,m+2,\ldots,n\}$. Let
+\begin{equation}
+X=\left\{\begin{array}{ll}
+X_1&\mbox{with probability $\alpha$}\\
+X_2&\mbox{with probability $1-\alpha$}
+\end{array}\right.
+\end{equation}
+\begin{enumerate}
+\item Find $H(X)$ in terms of $H(X_1)$ and $H(X_2)$.
+\item Maximize over $\alpha$ to show that 
+\begin{equation}
+2^{H(X)}\le 2^{H(X_1)}+2^{H(X_2)}
+\end{equation}
+\end{enumerate}
+
+\item (C\&T 2.12). Let $p(x,y)$ be given by $p(0,0)=p(0,1)=p(1,1)=1/3$
+  and $p(1,0)=0$. Find $H(X)$, $H(Y)$, $H(X|Y)$, $H(Y|X)$, $H(X,Y)$,
+  $H(Y)-H(Y|X)$ and $I(X;Y)$.
+
+\end{enumerate}
+
+\end{document}
