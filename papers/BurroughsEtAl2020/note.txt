@@ -1,0 +1,18 @@
+Purkinje cells produce two types of action potential; simple spikes
+and complex spikes. Other cells have two types of spiking activity,
+CA3 pyramidal neurons have a bursting behaviour for example. Complex
+spikes are different though, there is an initial spike and then lots
+of smaller spikelets. It would be great to know why the Purkinje cell
+does this, a useful step might seem working out how it does it. There
+are huge, complicated and very impressive models of Purkinje cells,
+they are an amazing achievement, capturing the detailed behaviour of
+the cell.  However, because they are so complicated, the don't isolate
+the mechanism behind the complex spiking. That's what we try to do in
+our paper, we try to find as simple a model as possible that has
+complex spiking.  Neuronal electrodynamics seems designed to produce
+stereotypical spikes, so finding a mechanism for spikelets, smaller
+and more variable in amplitude than a typical action potential is
+hard.  However, Purkinje cells have a "resurgent channel", a different
+sort of sodium channel that has an addition inactive state.  What we
+show in our paper is that this resurgent channel can give
+complex-spike-like behaviour.
