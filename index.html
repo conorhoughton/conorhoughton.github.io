@@ -58,19 +58,23 @@ England<p>
   <a href="https://arxiv.org/abs/2411.05867">arXiv: 2411.05867</a></p>
 <p>
 Modelling dynamical systems using differential equations is often,
-maybe even typically, difficult; we don't know all the terms in the
+maybe even typically, difficult: we don't know all the terms in the
 equations, we don't all the parameters. The modern alternative is to
-give it to a neural network, maybe an RNN; however, this can be a
-disaster, the RNN will learn the training data but find some cunning
+give the problem to a neural network, maybe an RNN; however, this can be a
+disaster, the RNN will learn the training data perfectly but find some cunning
 way to draw bizarre conclusions about what the system would do in just
 slightly different circumstances to the ones in the data. The neural
 network also commits the twin crimes of ignore our existing intuition
 for the behaviour of the system and supplies no new qualitative insight into what's going on.</p>
-  <p>Here we consider a hybrid; a neural network
-    coupled to a
-differential equation. If we used a `proper' RNN with end-to-end
-training it would just take over and not leave anything for the
-  differential equations. Instead we use a reservoir computer, a recurrent neural network with fixed connections: all that is learned in a final read out layer. This follows the ideas described in:</p>
+<p><img src="images/hybridSchematic.png" alt="Hybrid Schematic" width="600px"></p>
+  <p>Here we consider a hybrid; a neural network coupled to an expert
+    model: the system of differential equations we believe captures
+    some important aspects of the behaviour. If we used a `proper' RNN
+    with end-to-end training it would just take over and not leave
+    anything for the differential equations. Instead we use a
+    reservoir computer, a recurrent neural network with fixed
+    connections: all that is learned in a final read out layer. This
+    follows the ideas described in:</p>
   <p>Karniadakis, G. E. et al. Physics-informed machine learning. Nature Reviews Physics 3, 422-440 (2021).</p>
   <p>We test this physics-informed hybrid reservoir computing approach
   on an oscillating system: these have lots of applications including
@@ -85,7 +89,11 @@ training it would just take over and not leave anything for the
   <p>The answer is a bit complicated: the hybrid is mostly better than
   the alternative of using just the reservoir or just the expert model
   and the hybrid is much less sensitive to the choice of parameters,
-  but all three approaches struggle a bit with the task.</p>
+  but all three approaches struggle a bit with the task. Our
+  conclusion is that the hybrid systems are likely to be useful for
+  control systems, but our interest is using the hybrid systems to
+  better fit the expert system: the idea is that the expert system
+  contains important aspects of our knowledge of the system, but if extra nonlinear terms mean we can't fit the model, we can't use the data to understand the system. Using a hybrid might allow us to find the parameters, couplings and the like, that are informative about they system: that's what we're going to look at next.</p>
 </p>
 <p><br></p>
   <p><b><a href="./old.html">Old news</a><b></b>
