@@ -50,25 +50,43 @@ England<p>
 
 
   <p><b>The latest news</b></p>
-  <p><b>(2024-10-22)</b> George wins funding for:</p>
-  <p>
-    <i>Collecting and analysing multilingual EEG data</i></p>
-  <p><b>George Sains</b> is a doctoral teaching associate in my lab; this means he is partly a PhD student and partly involved in teaching, something like an American style PhD student with TA duties. He recently apply to the Jean Golding Institute</p>
-  <p><a href="https://www.bristol.ac.uk/golding/">www.bristol.ac.uk/golding/</a></p>
-  <p>for <b>seedcorn funding</b> to run an EEG study, unusually for a student
-  with a computational background George has from the start wanted to
-  run an experiment. We have just heard his application was
-    successful.</p>
-  <p>George has been working on the analysis of EEG data building
-  on early work by <b>Davide Turco</b>:</p>
-  <p><i>Bayesian modeling of language-evoked event-related potentials</i><br>
-Davide Turco and Conor Houghton<br>
-Conference on Cognitive Computational Neuroscience (CCN 2022)<br>
-<a href="https://arxiv.org/abs/2207.0339">arxiv.org/abs/2207.0339</a>
-  </p>
-  <p>We have had some interesting results that tell a fascinating story about grammar and the brain. The next stage demands multi-lingual data: recording from speakers of different languages. To this end George will record EEG  data from English and Chinese speakers. This will in collaboration with the Bristol Digital Futures Institute:</p>
-  <p><a href="https://www.bristol.ac.uk/bristol-digital-futures-institute/">www.bristol.ac.uk/bristol-digital-futures-institute/</a></p>
-  <p>The award will pay experimental costs and participant fees and also includes some help from the Jean Golding Institute data scientists to improve our data workflow, which is very cool. <b>We are excited</b> to see what George finds!</p>
+  <p><b>(2024-10-22)</b> New paper:</p>
+<p>
+  <i>Modeling nonlinear oscillator networks using physics-informed hybrid reservoir computing.</i><br>
+  Andrew Shannon, Conor Houghton, David Barton, Martin Homer<br>
+  (Under review, 2024)<br>
+  <a href="https://arxiv.org/abs/2411.05867">arXiv: 2411.05867</a></p>
+<p>
+Modelling dynamical systems using differential equations is often,
+maybe even typically, difficult; we don't know all the terms in the
+equations, we don't all the parameters. The modern alternative is to
+give it to a neural network, maybe an RNN; however, this can be a
+disaster, the RNN will learn the training data but find some cunning
+way to draw bizarre conclusions about what the system would do in just
+slightly different circumstances to the ones in the data. The neural
+network also commits the twin crimes of ignore our existing intuition
+for the behaviour of the system and supplies no new qualitative insight into what's going on.</p>
+  <p>Here we consider a hybrid; a neural network
+    coupled to a
+differential equation. If we used a `proper' RNN with end-to-end
+training it would just take over and not leave anything for the
+  differential equations. Instead we use a reservoir computer, a recurrent neural network with fixed connections: all that is learned in a final read out layer. This follows the ideas described in:</p>
+  <p>Karniadakis, G. E. et al. Physics-informed machine learning. Nature Reviews Physics 3, 422-440 (2021).</p>
+  <p>We test this physics-informed hybrid reservoir computing approach
+  on an oscillating system: these have lots of applications including
+  the application we ultimately have in mind, EEG signals recorded
+  from the brain. We use a system of Kuramoto oscillators, so the idea
+  is that the hybrid system includes a module, the expert model, which
+  includes the differential equations for the Kuramoto
+  oscillators. However, the ground truth, the thing we are trying to
+  model, has an extra non-linear coupling: this represents extra
+  physics that the modeller doesn't know about. This is a stern test,
+    the extra term changes the behaviour making the expert model useless on its own. The question is whether the reservoir can compensate?</p>
+  <p>The answer is a bit complicated: the hybrid is mostly better than
+  the alternative of using just the reservoir or just the expert model
+  and the hybrid is much less sensitive to the choice of parameters,
+  but all three approaches struggle a bit with the task.</p>
+</p>
 <p><br></p>
   <p><b><a href="./old.html">Old news</a><b></b>
 <p><br></p>
