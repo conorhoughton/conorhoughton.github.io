@@ -50,52 +50,24 @@ England<p>
 
 
   <p><b>The latest news!</b></p>
-  <p><b>(2024-11-12)</b> New paper:</p>
-<p>
-  <i>Modeling nonlinear oscillator networks using physics-informed hybrid reservoir computing.</i><br>
-  Andrew Shannon, Conor Houghton, David Barton, Martin Homer<br>
-  (Under review, 2024)<br>
-  <a href="https://arxiv.org/abs/2411.05867">arXiv: 2411.05867</a></p>
-<p>
-Modelling dynamical systems using differential equations is often,
-maybe even typically, difficult: we don't know all the terms in the
-equations, we don't all the parameters. The modern alternative is to
-give the problem to a neural network, maybe an RNN; however, this can be a
-disaster, the RNN will learn the training data perfectly but find some cunning
-way to draw bizarre conclusions about what the system would do in just
-slightly different circumstances to the ones in the data. The neural
-network also commits the twin crimes of ignore our existing intuition
-for the behaviour of the system and supplies no new qualitative insight into what's going on.</p>
-<p><img src="images/hybridSchematic.png" alt="Hybrid Schematic" width="600px"></p>
-  <p>Here we consider a hybrid; a neural network coupled to an expert
-    model: the system of differential equations we believe captures
-    some important aspects of the behaviour. If we used a `proper' RNN
-    with end-to-end training it would just take over and not leave
-    anything for the differential equations. Instead we use a
-    reservoir computer, a recurrent neural network with fixed
-    connections: all that is learned in a final, linear, read-out layer. This
-    follows the ideas described in:</p>
-  <p>Pathak, J. et al. <i>Hybrid forecasting of chaotic processes: Using machine learning in conjunction with a knowledge-based model</i>. Chaos 28, 041101 (2018)<br>
-  <p>Karniadakis, G. E. et al. <i>Physics-informed machine learning</i>. Nature Reviews Physics 3, 422-440 (2021).</p>
-  <p>We test this <b>physics-informed hybrid reservoir computing</b> approach
-  on an oscillating system: these have lots of applications including
-  the application we ultimately have in mind, EEG signals recorded
-  from the brain. We use a system of Kuramoto oscillators, so the idea
-  is that the hybrid system includes a module, the expert model, which
-  includes the differential equations for the Kuramoto
-  oscillators. However, the ground truth, the thing we are trying to
-  model, has an extra non-linear coupling: this represents extra
-  physics that the modeller doesn't know about. This is a stern test,
-    the extra term changes the behaviour making the expert model useless on its own. The question is whether the reservoir can compensate?</p>
-  <p>The answer is a bit complicated: the hybrid is mostly better than
-  the alternative of using just the reservoir or just the expert model
-  and the hybrid is much less sensitive to the choice of metaparameters,
-    but all three approaches struggle a bit with the task.</p>
-  <p>Our conclusion is that the hybrid systems are likely to be useful for
-  control systems, but our interest is using the hybrid systems to
-  better fit the expert system: the idea is that the expert system
-    contains important stuff, the parameters, if fit, will tell us about the system we're modelling. For example, if we are modelling EEG, the couplings will tell us something important about neural circuits. However, if extra unknown nonlinear terms mean we can't fit the model, we can't use the data to understand the system. Using a hybrid might allow us to fit the data and find the parameters, couplings and the like, that answer the real world questions that we might have. That's what we're going to look at next.</p>
-</p>
+  <p><b>(2024-11-12)</b>Paper news:</p>
+<p>We have just put a revised version of</p>
+<p><i>An iterated learning model of language change that mixes
+supervised and unsupervised learning</i><br>
+Jack Bunyan, Seth Bullock, Conor Houghton</p>
+<p>up on arXiv:</p>
+  <p><a href="https://arxiv.org/abs/2405.20818">arxiv: 2405.20818</a></p>
+<p>The good news is that the paper is now in press with <b>PLoS Complex Systems</b>, which I am super excited about. This is the paper I think of as "the big ILM paper" and it is great we got it into a good journal, I really keen for people to read it and the venue helps with that!</p>
+
+  <p>The ILM, or iterated learning model, was used by Simon Kirby and his co-workers to model the way languages evolve; the "languages" in the model are comically simple, maps from vectors of zeros and ones representing "meanings" to vectors of zeros and ones representing "signals". Simple as they are, we can nonetheless ask how expressive and composition one of these languages is. </p>
+
+  <p>In the ILM a tutor teaches a pupil a language using a limited random set of examples; the pupil then become a tutor itself and teaches a new pupil. Since it only learned a subset of the language it is forced to generalize to produce its own examples. The interesting thing is that the language evolves expressivity and compositionality through the resulting cycles of generalization and subselection</p> 
+
+<p>The original ILM included an unrealistic step, basically to make a map that goes both ways, mapping meanings to signals and signals to meaning, the pupil needed to do a sort of inversion. It is as if a child stayed silent until 12, then imagined everything they could ever possibly say and then did some complicated matrix operation in their heads before starting to speak. We found a way of removing this step, but to do that, we need the pupil to cogitate on meanings, to sharpen their understanding of the language they are learning by mapping meanings into signals, then mapping the signals back to meanings to check the output meaning was the same as the input meaning.</p>
+
+<p><b>My new belief</b> is that this is the crucial step for the appearance of language. The hypothesis is that at some point in our evolutionary past we internalized our utterance and from that unfolded language. </p>
+<p>Anyway I have a short talk about it here:</p>
+<p><a href="https://www.youtube.com/watch?v=kRRqZ-l9K9A">youtube</a></p>
 <p><br></p>
   <p><b><a href="./old.html">Old news</a><b></b>
 <p><br></p>
