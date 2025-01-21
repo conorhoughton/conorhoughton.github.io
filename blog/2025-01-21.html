@@ -28,7 +28,15 @@
     <a href="https://conorhoughton.github.io/blog"><b>Blog</b></a><br>
   <p><br></p>
   <p><b>2025-01-21</b></p>
-  <iframe src="2025-01-21_content.html" width="100%" height="auto" style="border:none;"></iframe>
+  <div id="include-container"></div>
+  <script>
+    fetch("2025-01-21_content.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("include-container").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading file:", error));
+</script>
   <p><br></p>
 
 <p><br></p>
