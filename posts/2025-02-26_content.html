@@ -1,0 +1,75 @@
+<p><b>(2025-02-26)</b> New preprint.</p>
+<p><a href="https://arxiv.org/abs/2502.18147">arXiv: 2502.18147</a></p>
+<p>Jacobian Sparse Autoencoders: Sparsify computations, not just activations<br>
+Lucy Farnik, Tim Lawson,  Conor Houghton, Laurence Aitchison</p>
+<p>Another paper mostly due to my collaborators Lucy, Tim and
+Laurence. I am lucky to be involved because it is super work and has
+huge potential. My collaborators are largely motivated by a general
+interest in transformers and understanding what makes them work; I am also excited
+by the potential applications of this work to linguistics.</p>
+
+<p>Recently SAEs have been used to study representations inside
+transformers, the idea is to look at the complicated, dense,
+activation patterns, to fan them out using an autoencoder with a very
+high-dimensional latent layer and to force the activation patterns in
+this latent layer to be sparse. Typically this uses TopK sparsity,
+basically all but the most active <i>k</i> nodels are set to zero
+before decoding. The degree of sparsity is usually very high, a
+1000-node layer in the transformer is fanned out to a 32,000-node
+latent layer in the auto-encoder but only the top <i>k</i>=32
+activations used for reconstruction.</p>
+
+<p>At first this seems very promising, but as described in</p>
+<p><a href="https://arxiv.org/abs/2501.17727">arXiv: 2501.17727</a></p> 
+<p>Sparse autoencoders can interpret randomly initialized
+  transformers,<br> Thomas Heap, Tim Lawson, Lucy Farnik and Laurence
+  Aitchison</p>
+<p>it turns out this does not actually discover a property of a
+  trained transformer, this SAE setup can discover sparse
+  representations in a random, untrained, transformer. The sparseness
+  discovered by the SAE appears to be a property of the input not the
+  computation performed by the transformer.</p>
+
+
+<p><img src="../images/JSAE.png" alt="this shows a computational scheme, between two node labelled transformer layer there is a map representing an MLP and labeled f. However, above each transformer node there is a node labelled SAE, these are connected by a map labeled f subscript s" width="500px"></p>
+
+
+<p>This led my collaborators to realise that the important property is
+computational, rather than representational sparseness. To study this
+two SAEs are used, one for the layer each side of one of the
+transformer's MLPs. If the MLP map is called <i>f</i> then it can be
+approximated as a map between the sparse representations in the SAEs,
+basically by running it through the decoder and encoder maps in the
+auto-encoders; giving <i>f<sub>s</sub></i>, an approximation
+to <i>f</i>, Importantly since TopK sparseness is used for the SAEs
+this is a map between two <i>k</i>-dimensional spaces and so it is not
+computationally unfeasible to calculate the Jacobian. The idea behind
+the paper is to optimize the choice of the two SAEs both to minimize
+the reconstruction error, as before, but, in addition to maximize the
+sparsity of the Jacobian: basically there are three terms in the loss
+function, two reconstruction loss terms, one for each SAE and a
+  sparsity term.</p>
+
+<p>The headline is that this works, this
+approach, which we call a JSAE, produces a sparse Jacobian without
+sacrificing reconstruction accuracy.</p>
+
+<p><img src="../images/jac_sparsity_410m.png" alt="a bar chart illustrates the sparsity of the JSAE compared to a traditional SAE, there are four pairs of bars, with the traditional SAE and JSAE compared in each pair. The different pairs correspond to proportion of elements above a threshold, this increase from 0.005 to 0.02. In each case the JSAE has a far smaller proportion, for 0.005 for example the traditional SAE has about 0.75, the JSAE about 0.15 " width="500px"></p>
+
+<p>Furthermore rhis sparsity is only achievable for the trained transformer, not for a random transformer:</p>
+
+<p><img src="../images/jac_sparsity_410m.png" alt="this is somewhat similar to the last figure except now there are four comparisons, the traditional SAE for a trained or random transform, and the same two cases for a JSAE, for the latter case there is a larger fraction difference, for example for 0.005 the traditional SAE has about 0.85 for a random transformer, falling to 0.75 for a trained transformer, whereas the JSAE falls from about 0.4 to 0.15" width="500px"></p>
+
+<p>The fractional decrease in sparsity for a trained transformer compared to a random transformer is vastly greater for the JSAE.</p>
+<p>Lucy has a blog post which gives background and intuition for the
+paper here</p>
+<p><a href="https://www.lesswrong.com/posts/FrekePKc7ccQNEkgT/paper-jacobian-sparse-autoencoders-sparsify-computations-not">lesswrong.com</a></p>
+
+<p>For my part, the exciting thing is that we seem to have developed a
+tool that can give us genuine sparse representation related by sparse
+computations. What are the sparse representations of language, what
+are the sparse computations?</p>
+
+
+
+

@@ -48,9 +48,20 @@ England<p>
 <a href="papers"><b>Papers</b></a><br>
   <p><br></p>
   <p><b>The latest news!</b></p>
+  <p><b>2025-01-20</b></p>
   <div id="include-container"></div>
   <script>
-    fetch("2025-02-02_content.html")
+    fetch("posts/2025-02-26_content.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("include-container").innerHTML = data;
+        })
+    .catch(error => console.error("Error loading file:", error));
+  </script>
+  <p><br></p>
+  <div id="include-container"></div>
+  <script>
+    fetch("posts/2025-02-02_content.html")
         .then(response => response.text())
         .then(data => {
             document.getElementById("include-container").innerHTML = data;
