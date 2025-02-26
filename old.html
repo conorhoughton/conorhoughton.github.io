@@ -28,6 +28,28 @@
   
 
   <hr>
+  <div id="include-container"></div>
+  <script>
+    fetch("posts/2025-02-02_content.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("include-container").innerHTML = data;
+        })
+    .catch(error => console.error("Error loading file:", error));
+  </script>
+  <hr>
+  <p><b>(2025-01-22)</b> BRAID: Brains, AI and Data!</p>
+  <p>Today we ran our BRAID workshop today at the Watershed, with support from the Jean Golding Institute and the Elizabeth Blackwell Institute and more specifically by the Turing Liaison team at the JGI and the Bristol Neuroscience hub at the EBI.</p> 
+<p>It went really well, the idea was to celebrate AI and machine learning as an approach to neuroscience data and to celebrate the conversation between neuroscience and AI, so neuroscience as an application of AI and neuroscience and AI as subject which have a long history of useful exchange. </p>
+  <p>There were great talks and lots of excitement and conversation. The highlight was the flash talks by PhD students and PostDocs, three  minute talks are really hard to give but when done well as they were here, they are fun and informative. I also really enjoyed a super entertaining talk by Edwin Dalmaijer; it turns out that pigeons, famously good at navigating, don't do it exactly the way you'd expect, they rely on recognizing landmarks as well as their sense of direction, sometimes leading to circuitous routes, however, when flying with other birds, their flocking behaviour leads them to discover new, more direct routes. Edwin used a simple agent model to show how this might work. Laurence Aitchison gave a fantastic talk, full of insight, which introduction his neuroscience-y approach to understanding how transformers work, often the black-box nature of computation in neural networks is presented as a big problem, but really it is an amazing opportunity, we don't know how these machines compute but they are easier to study than the brain and so when with clever methods we work out how they do compute we will have learned something profound about the structure of computation and information.</p>
+  <p>Thanks to my co-organizers: Cathy Brown, Isy Halton, Paul Anastasiades, Paul Chadderton and Se&aacute;n Froudist-Walsh</a>.
+   <p>The programme is here: <a href="images/2025_BRAID.pdf">2025_BRAID.pdf</a></p>
+  <hr>
+  <p><b>(2024-12-23)</b> Striking image; PLoS, likes lots of journals has started asking for a `striking image' to accompany a published paper. The iterated learning model paper:</p>
+  <p><a href="https://arxiv.org/abs/2405.20818">arxiv: 2405.20818</a></p>
+  <p>didn't have any graph that would be suitable, so I commissioned one from the cartoonist Haidar Nahwan</p>
+  <p><img src="images/strikingImage.jpg" alt="A girl looks at a butterfly and a thought bubble shows she is matching the words red butterfly to the image" width="600px"></p>
+<hr>    
  <p><b>(2024-11-27)</b>  More paper news; it's been a good week:</p>
 <p>GlyT2-positive interneurons regulate timing and variability of information transfer in a cerebellar-behavioural loop.<br>
 Ensor Palacios, Conor J Houghton and Paul Chadderton<br>
