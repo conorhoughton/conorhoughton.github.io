@@ -1,6 +1,6 @@
 <p><b>(2025-02-26)</b> New preprint.</p>
-<p><a href="https://arxiv.org/abs/2502.18147">arXiv: 2502.18147</a></p>
-<p>Jacobian Sparse Autoencoders: Sparsify computations, not just activations<br>
+<p><a href="https://arxiv.org/abs/2502.18147">arXiv: 2502.18147</a><br>
+<b>Jacobian Sparse Autoencoders: Sparsify computations, not just activations</b><br>
 Lucy Farnik, Tim Lawson,  Conor Houghton, Laurence Aitchison</p>
 <p>Another paper mostly due to my collaborators Lucy, Tim and
 Laurence. I am lucky to be involved because it is super work and has
@@ -8,20 +8,20 @@ huge potential. My collaborators are largely motivated by a general
 interest in transformers and understanding what makes them work; I am also excited
 by the potential applications of this work to linguistics.</p>
 
-<p>Recently SAEs have been used to study representations inside
-transformers, the idea is to look at the complicated, dense,
-activation patterns, to fan them out using an autoencoder with a very
-high-dimensional latent layer and to force the activation patterns in
-this latent layer to be sparse. Typically this uses TopK sparsity,
-basically all but the most active <i>k</i> nodels are set to zero
-before decoding. The degree of sparsity is usually very high, a
-1000-node layer in the transformer is fanned out to a 32,000-node
-latent layer in the auto-encoder but only the top <i>k</i>=32
-activations used for reconstruction.</p>
+<p>Recently SAEs, sparse autoencoders, have been used to study
+representations inside transformers, the idea is to look at the
+complicated, dense, activation patterns, to fan them out using an
+autoencoder with a very high-dimensional latent layer and to force the
+activation patterns in this latent layer to be sparse. Typically this
+uses TopK sparsity, basically all but the most active <i>k</i> nodels
+are set to zero before decoding. The degree of sparsity is usually
+very high, a 1000-node layer in the transformer is fanned out to a
+32,000-node latent layer in the auto-encoder but only the
+top <i>k</i>=32 activations used for reconstruction.</p>
 
 <p>At first this seems very promising, but as described in</p>
-<p><a href="https://arxiv.org/abs/2501.17727">arXiv: 2501.17727</a></p> 
-<p>Sparse autoencoders can interpret randomly initialized
+<p><a href="https://arxiv.org/abs/2501.17727">arXiv: 2501.17727</a><br> 
+Sparse autoencoders can interpret randomly initialized
   transformers,<br> Thomas Heap, Tim Lawson, Lucy Farnik and Laurence
   Aitchison</p>
 <p>it turns out this does not actually discover a property of a
@@ -34,8 +34,8 @@ activations used for reconstruction.</p>
 <p><img src="../images/JSAE.png" alt="this shows a computational scheme, between two node labelled transformer layer there is a map representing an MLP and labeled f. However, above each transformer node there is a node labelled SAE, these are connected by a map labeled f subscript s" width="500px"></p>
 
 
-<p>This led my collaborators to realise that the important property is
-computational, rather than representational sparseness. To study this
+<p>This led my collaborators to realise that <b>the important property is
+computational, rather than representational sparseness</b>. To study this
 two SAEs are used, one for the layer each side of one of the
 transformer's MLPs. If the MLP map is called <i>f</i> then it can be
 approximated as a map between the sparse representations in the SAEs,
@@ -50,7 +50,7 @@ sparsity of the Jacobian: basically there are three terms in the loss
 function, two reconstruction loss terms, one for each SAE and a
   sparsity term.</p>
 
-<p>The headline is that this works, this
+<p>The headline is that <b>this works</b>, this
 approach, which we call a JSAE, produces a sparse Jacobian without
 sacrificing reconstruction accuracy.</p>
 
