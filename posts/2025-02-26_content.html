@@ -58,12 +58,11 @@ sacrificing reconstruction accuracy.</p>
 
 <p>Furthermore rhis sparsity is only achievable for the trained transformer, not for a random transformer:</p>
 
-<p><img src="../images/jac_sparsity_410m.png" alt="this is somewhat similar to the last figure except now there are four comparisons, the traditional SAE for a trained or random transform, and the same two cases for a JSAE, for the latter case there is a larger fraction difference, for example for 0.005 the traditional SAE has about 0.85 for a random transformer, falling to 0.75 for a trained transformer, whereas the JSAE falls from about 0.4 to 0.15" width="500px"></p>
+<p><img src="../images/randomized_410m.png" alt="this is somewhat similar to the last figure except now there are four comparisons, the traditional SAE for a trained or random transform, and the same two cases for a JSAE, for the latter case there is a larger fraction difference, for example for 0.005 the traditional SAE has about 0.85 for a random transformer, falling to 0.75 for a trained transformer, whereas the JSAE falls from about 0.4 to 0.15" width="500px"></p>
 
 <p>The fractional decrease in sparsity for a trained transformer compared to a random transformer is vastly greater for the JSAE.</p>
 <p>Lucy has a blog post which gives background and intuition for the
-paper here</p>
-<p><a href="https://www.lesswrong.com/posts/FrekePKc7ccQNEkgT/paper-jacobian-sparse-autoencoders-sparsify-computations-not">lesswrong.com</a></p>
+paper here: <a href="https://www.lesswrong.com/posts/FrekePKc7ccQNEkgT/paper-jacobian-sparse-autoencoders-sparsify-computations-not">lesswrong.com</a>.</p>
 
 <p>For my part, the exciting thing is that we seem to have developed a
 tool that can give us genuine sparse representation related by sparse
