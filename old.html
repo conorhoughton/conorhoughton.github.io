@@ -28,12 +28,12 @@
   
 
   <hr>
-  <div id="include-container"></div>
+  <div id="include_2025-02-02"></div>
   <script>
     fetch("posts/2025-02-02_content.html")
         .then(response => response.text())
         .then(data => {
-            document.getElementById("include-container").innerHTML = data;
+            document.getElementById("include_2025-02-02").innerHTML = data;
         })
     .catch(error => console.error("Error loading file:", error));
   </script>
