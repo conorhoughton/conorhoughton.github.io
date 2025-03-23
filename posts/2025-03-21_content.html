@@ -2,33 +2,36 @@
 <p><b>Can LLMs be used to quantify the emotional salience of text statements using an Elo rating system?</b><br>
 Kimberley Beaumont, Martin Oravec, Harry Emerson, Ian Penton-Voak and Conor Houghton<br>
 <a href="https://osf.io/preprints/psyarxiv/qsn4b">psyarxiv/qsn4b</a></p>
-<p>Over the last few years as part of our experiments we have asked a
-over a thousand participants <i>Is an event or experience (either
-positive or negative) significantly affecting your mood right now?</i>
-and if they said yes, we asked them to write down what that event was
-and to rate how negative or positive the event was using a slider on a
-  scale of zero to 100.</p>
+<p>Over the last few years as part of a number of experiments
+involving an effort for reward task we have asked a over a thousand
+participants <i>Is an event or experience (either positive or
+negative) significantly affecting your mood right now?</i>  and if
+they said yes, we asked them, if they were willing, to write down what
+that event was and to rate how negative or positive the event was
+using a slider on a scale of zero to 100.</p>
 
 <p>We ended up with a large collection of events, after cleaning, 363
 in all. The most positive were very positive, with one
 reporting <i>mindblowing sex</i> and another a marraige proposal; the
 most negative are awful. Ultimately one of things we are interested in
 is the difference between short and long term mood or affective state
-and, in addition to the events we have mood questionaire date. To
-relate the two we need a numerical quantification for how negative or
-positive the events are; of course, we do have the participants own
-rating, but that may reflect there mood rather than the degree to
-  which the event they mention is actually negative or positive.</p>
+and, in addition to the events and the actual task, we have mood
+questionaire date for questionaires aimed at short and long term
+mood. To relate the effect to mood we need a numerical quantification
+for how negative or positive the events are. Of course, we do have the
+participants' own rating, but that may reflect their mood, how do they
+interpret the event, rather than the degree to which the event they
+mention is actually negative or positive.</p>
 
 <p>To get a score for the events we decided to use an Elo system. We
-recruits another set of online participant and asked them to compare
+recruited another set of online participant and asked them to compare
 pairs of statements and say which was the more negative, or more
 positive; the question varied. Out of these pairwise comparisons we
 created a score using the Elo system designed for chess. The graph
 below shows how the score changes as comparisons are made; some events
 go up, some stay the same, some go down. The initial score is scaled
 but is determined by the original rating supplied by the participant
-reporting the event; nonetheless, the comparisons lead to them
+reporting the event and in this graph we use only events that start at the same user determined score. Nonetheless, the comparisons lead to them
 diverging.</p>
 
 <p><img src="../images/2025-03-21_Elo_Human.png" alt="A graph shows a
@@ -38,8 +41,8 @@ along the x-axis, which is labelled comparison number; the y-axis is
 labelled Elo-Value, three lines are picked out in colour, one goes up,
 one stays the same, one goes down" width="400px"></p>
 
-<p>In the way, we now have quanitative scores for the individual events
-are we are examinging the relationship between these scores and the
+<p>In the way, we now have quantitative scores for the individual events
+and we are now examinging the relationship between these scores and the
 results of the mood questionaires. This is on-going. However, in the
 meantime we were curious as to whether LLMs would perform well on this
 task; if they performed the comparisons would they give a similar set
@@ -59,5 +62,5 @@ score, determined by the self-reported score.</p>
 <p><img src="../images/2025-03-21_corr.png" alt="A graph shows dots with a lot of correlation, the x-axis is marked Human Comparison 38, the y-axis GPT Comparison 38; all the dots lie close to the x=y line. They are colored by a heat map, running from about 850 to about 1150, the points at the lower part of the x=y line tend to the 850 color increasing, generally, along the line so that the points close to 1150 tend to be on the upper part of the line." width="400px"></p>
 
 <p>This is impressive and useful! There are more details in the paper
-and a link to the data itself.</p>
+and a link to the data itself, including the 363 statements.</p>
 
