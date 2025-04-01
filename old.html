@@ -248,14 +248,15 @@ Tim Lawson, Lucy Farnik, Conor Houghton, Laurence Aitchison</p>
 Conference on Cognitive Computational Neuroscience (CCN 2024)<br>  
   <a href="https://arxiv.org/abs/2406.19884">arxiv: 2406.19884</a></p>
 <hr>
-  <p><b>(2024-08-15)</b>: A new paper under review describing a hierarchical Bayesian workflow for analysing cell count data:<br>
-  <i>Hierarchical Bayesian modeling of multi-region brain cell count data.</i><br>
-  Sydney Dimmock, Benjamin M.S. Exley,  Gerald Moore, Lucy Menage,  Alessio Delogu,  Simon R Schultz,  E Clea Warburton,  Conor J Houghton and  Cian O'Donnell<br>
-  <a href="https://www.biorxiv.org/content/10.1101/2024.07.20.603979v1">bioRxiv</a>, bioRxiv doi: <a href=" https://doi.org/10.1101/2024.07.20.603979">10.1101/2024.07.20.603979</a></p>
-  <p>These days experimentalists can mark neurons, slice up the brain and then count the marked cells. To use the two examples in our paper, this might mean marking all the cells that are active during some behaviour or all the cells with a particular developmental lineage. For each animal the number of marked cells is counted for lots of different brain region, in some experiments as many as a hundred.</p>
-<p>These data are super cool, they give information across the whole brain. They are, however, very time-consuming and expensive to collect and often there are only ten animals for each experimental condition. Now, the whole cool thing about the data is the high dimension, there are cell counts for each brain region, but this combination of a high dimension and a small sample means the data are under-sampled.</p>
-<p>Clearly Bayesian analysis can help with analysis, but for a Bayesian analysis you need to decide on a model and a set of priors. New samplers means Bayesian approaches can be used for data like this, but setting up the analysis can be intimating. Bayesian methods predate t-tests and the like, but in the last century they were not as well used as the classic mixture of hypothesis tests. As such there is not a lot of lore and tradition about what choices to make when it comes to doing a Bayesian analysis.</p>
-<p>In our paper we try to help by suggesting a 'standard' Bayesian workflow for cell count data. We test our workflow on two datasets and in both cases it works really well. It produces clearer results than a more classical approach. Bayesian models are less familiar but they are actually very transparent and clear.</p>
+  <div id="include_2024-08-15"></div>
+  <script>
+    fetch("posts/2024-08-15_content.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("include_2024-08-15").innerHTML = data;
+        })
+    .catch(error => console.error("Error loading file:", error));
+  </script>
   <p><b><a href="./index.html">Back to main page</a><b></b>
 <p><br></p>
 </td>
