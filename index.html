@@ -50,7 +50,17 @@ England<p>
   <p><a href="./old.html"><b>Old news</b></a><br>
   <p><br></p>
   <p><b>The latest news!</b></p>
-    <div id="include_2025-04-01"></div>
+    <div id="include_2025-04-10"></div>
+  <script>
+    fetch("posts/2025-04-10_content.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("include_2025-04-10").innerHTML = data;
+        })
+    .catch(error => console.error("Error loading file:", error));
+  </script>
+  <hr>
+  <div id="include_2025-04-01"></div>
   <script>
     fetch("posts/2025-04-01_content.html")
         .then(response => response.text())
