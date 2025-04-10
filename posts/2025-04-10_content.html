@@ -1,0 +1,38 @@
+<p><b>(2025-04-01)</b> Paper accepted for FRCCS2025.</p>
+<p><img src="../images/2025-04-10_ca.png" alt="An illustration of a cellular automaton with three states, part A shows the rule itself, three parent grid squares in all 27 combinations of the three states each lead to a specific child state, in B the first first steps are shown, starting with a single square in state 1, the rest in 0 the activity spreads in a complex way, in C a long tree like pattern sprawls across the page" width="400px"></p>
+
+<p>Cooperation guides evolution in a minimal model of biological evolution.<br>
+  Conor Houghton<br>
+  <a href="https://arxiv.org/abs/2504.05096">arxiv.org/abs/2504.05096
+</p>
+
+<p>A recent paper by Steve Wolfram:</p>
+<p>Why Does Biological Evolution Work? A Minimal Model for Biological Evolution and Other Adaptive Processes.<br>
+Stephen Wolfram<br>
+Complex Systems, 33(4), 2025 pp. 387-488.<br>
+  <a href="https://doi.org/10.25088/ComplexSystems.33.4.387">doi.org/10.25088/ComplexSystems.33.4.387</a></p>
+
+<p>suggested that the three-state cellular automaton would be a good
+test arena for evolution. A three-state cellular automaton is a rule
+that makes a pattern in three colors; different rules produce
+patterns. Many rules make patterns that go on for ever, many make
+patterns that never really get going. The remarkable property is that
+there are rules which neither carry on forever, nor stop after only a
+  few steps: they continue for multiple steps before stopping. The figure above shows one unusually good rule and the resulting pattern.</p>
+
+<p>The
+suggestion from Steve Wolfram is to regard the rules that go on
+forever as terrible and to count the length a rule with a finite
+patterns as a sort of fitness. The rules are then evolved to become
+  fitter and ftter. This is an interesting example of simulated
+evolution because it has a complex fitness landscape, as with real
+evolution most changes to rules are bad, they make it the fitness
+  worse.</p>
+
+<p>I wanted to see if this was a useful place to test the Balwin
+Effect and cooperation; to see if groups of agents than can help each
+  other by cooperating maintain a useful genetic diversity and evolve to be fitter. The answer, of course, is yes.</p>
+
+<p><img src="../images/2025-04-10_result.png" alt="Two graphs, both with generations running to 5000 on the x-axis and fitness running to 250 on the y-axis, the first, marked breeding reaches a ceiling of just less than 50 after about 2000 generations, the other, marked cooperation is still rising at 5000 and has reached 150" width="400px"></p>
+
+<p>The cooperation scheme is on the right and is still producing improvements after 5000 iterations; the scheme without cooperation is on the left and has stopped getting better and has produced much less fit agents. This might suggest an approach to using the genetic algorithm but I was mostly pleased that it suggests that social behaviours might evolve in an efficient way.</p> 
