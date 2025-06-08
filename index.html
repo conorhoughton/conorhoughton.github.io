@@ -1,5 +1,3 @@
-
-
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
 <font face="verdana, Sans-serif">
@@ -50,6 +48,16 @@ England<p>
   <p><a href="./old.html"><b>Old news</b></a><br>
   <p><br></p>
   <p><b>The latest news!</b></p>
+      <div id="include_2025-06-08"></div>
+  <script>
+    fetch("posts/2025-06-08_content.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("include_2025-06-08").innerHTML = data;
+        })
+    .catch(error => console.error("Error loading file:", error));
+  </script>
+  <hr>
     <div id="include_2025-04-10"></div>
   <script>
     fetch("posts/2025-04-10_content.html")
