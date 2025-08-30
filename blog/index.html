@@ -26,6 +26,17 @@
   <a href="https://conorhoughton.github.io"><b>Main page</b></a><br>
   <a href="https://conorhoughton.github.io/papers"><b>Papers</b></a><br>
   <p><br></p>
+    <p><b>2025-08-30</b></p>
+  <div id="include-container-2025-08-30"></div>
+  <script>
+    fetch("2025-08-30_content.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("include-container-2025-08-30").innerHTML = data;
+        })
+    .catch(error => console.error("Error loading file:", error));
+  </script>
+  <hr>
   <p><b>2025-08-18</b></p>
   <div id="include-container-2025-08-18"></div>
   <script>
